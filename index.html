@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina & Co — Présentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #fafaf9;
+            --color-surface: #ffffff;
+            --color-primary: #1f2937;
+            --color-secondary: #4b5563;
+            --color-accent: #475569;
+            --color-muted: #6b7280;
+            --color-border: #e5e7eb;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --radius: 8px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--color-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            color: var(--color-muted);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+
+        /* À propos */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat {
+            background-color: var(--color-surface);
+            padding: 1.75rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: var(--color-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Services */
+        .services {
+            background-color: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .services-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--color-bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-primary);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary);
+        }
+
+        .card p {
+            color: var(--color-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-primary);
+            color: #d1d5db;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            max-width: 380px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #9ca3af;
+        }
+
+        .footer-col a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.25rem; }
+            .about { grid-template-columns: 1fr; gap: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Lumina<span>&Co</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Construire l'avenir, ensemble.</h1>
+        <p>Une agence de conseil dédiée à l'accompagnement des entreprises ambitieuses dans leur transformation numérique.</p>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">À propos</h2>
+        <p class="section-subtitle">Notre vision et notre mission au quotidien.</p>
+        <div class="about">
+            <div class="about-text">
+                <p>Fondée en 2015, Lumina&Co est une agence indépendante spécialisée dans le conseil stratégique et la création de solutions digitales sur mesure.</p>
+                <p>Nous réunissons des experts passionnés pour transformer vos idées en projets concrets, performants et durables. Notre approche allie rigueur méthodologique et créativité, au service de votre réussite.</p>
+                <p>Chaque collaboration est unique, car chaque entreprise l'est aussi.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <span class="stat-number">120+</span>
+                    <span class="stat-label">Projets livrés</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Clients fidèles</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Années d'expertise</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Collaborateurs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="services" id="services">
+        <div class="services-wrapper">
+            <h2 class="section-title">Nos services</h2>
+            <p class="section-subtitle">Trois pôles d'expertise pour répondre à tous vos besoins.</p>
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-icon">01</div>
+                    <h3>Conseil stratégique</h3>
+                    <p>Nous vous accompagnons dans la définition et la mise en œuvre de votre stratégie d'entreprise, en alignant vos objectifs avec les opportunités du marché.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">02</div>
+                    <h3>Développement web</h3>
+                    <p>Conception et développement de sites internet, applications et plateformes sur mesure, avec un focus sur la performance et l'expérience utilisateur.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">03</div>
+                    <h3>Design & branding</h3>
+                    <p>Création d'identités visuelles fortes et cohérentes, supports de communication et expériences de marque mémorables qui vous démarquent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Lumina&Co</h4>
+                <p>Une agence de conseil indépendante au service des entreprises qui veulent aller plus loin.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li>contact@luminaco.fr</li>
+                    <li>+33 1 23 45 67 89</li>
+                    <li>12 rue de la République</li>
+                    <li>75001 Paris, France</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Suivez-nous</h5>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Lumina&Co. Tous droits réservés.
+        </div>
+    </footer>
+</body>
+</html>
