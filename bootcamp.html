@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootcamp Conciergerie & Sous-Location — Le Sous Loueur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --navy: #0F1B33;
+  --navy2: #182745;
+  --navy3: #1f3360;
+  --orange: #FF500D;
+  --orange2: #FF6B30;
+  --orange3: #ff8a4a;
+  --white: #FFFFFF;
+  --off: #F7F7F5;
+  --off2: #EFEFEB;
+  --text: #182745;
+  --muted: #6B7A99;
+  --border: #E2E6EE;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--orange);
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--off); }
+::-webkit-scrollbar-thumb {
+  background: var(--navy);
+  border: 2px solid var(--off);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+/* ── SCROLL PROGRESS ── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--orange3) 100%);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 12px rgba(255,80,13,0.6);
+}
+
+/* ── REVEAL ANIM ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal-stagger.in > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.in > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.in > *:nth-child(2) { transition-delay: 0.12s; }
+.reveal-stagger.in > *:nth-child(3) { transition-delay: 0.19s; }
+.reveal-stagger.in > *:nth-child(4) { transition-delay: 0.26s; }
+.reveal-stagger.in > *:nth-child(5) { transition-delay: 0.33s; }
+.reveal-stagger.in > *:nth-child(6) { transition-delay: 0.40s; }
+
+/* ── TOPBAR (marquee) ── */
+.topbar {
+  background: var(--navy);
+  color: #fff;
+  padding: 11px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.marquee {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: marquee 38s linear infinite;
+  width: max-content;
+}
+
+.marquee span {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.marquee em {
+  font-style: normal;
+  color: var(--orange);
+}
+
+.marquee .sep {
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── NAV ── */
+nav {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s var(--ease);
+}
+
+nav.scrolled { box-shadow: 0 4px 24px rgba(15,27,51,0.08); }
+
+.nav-logo {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-logo .dot-pulse {
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  margin-left: 2px;
+  position: relative;
+}
+
+.nav-logo .dot-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--orange);
+  animation: pulseRing 1.8s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 26px;
+  border-radius: 2px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease);
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease);
+}
+
+.nav-cta:hover::before { transform: translateX(100%); }
+.nav-cta:hover { transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+/* mesh gradient */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 0%, rgba(255,80,13,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 60% at 0% 100%, rgba(45,111,232,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255,138,74,0.06) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* dot grid */
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-rules {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-evenly;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-rules span {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.05) 50%, transparent);
+}
+
+/* Floating shapes */
+.float-shape {
+  position: absolute;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float-shape.s1 {
+  width: 14px; height: 14px;
+  border: 2px solid var(--orange);
+  top: 18%; right: 8%;
+  animation: floatA 7s ease-in-out infinite;
+}
+
+.float-shape.s2 {
+  width: 10px; height: 10px;
+  background: var(--orange);
+  border-radius: 50%;
+  top: 70%; left: 5%;
+  animation: floatB 9s ease-in-out infinite;
+  box-shadow: 0 0 24px rgba(255,80,13,0.7);
+}
+
+.float-shape.s3 {
+  width: 50px; height: 1px;
+  background: rgba(255,255,255,0.2);
+  top: 35%; left: 3%;
+  animation: floatC 11s ease-in-out infinite;
+}
+
+.float-shape.s4 {
+  width: 8px; height: 8px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  bottom: 12%; right: 14%;
+  animation: floatA 8s ease-in-out infinite reverse;
+}
+
+@keyframes floatA {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(15px,-25px) rotate(45deg); }
+}
+
+@keyframes floatB {
+  0%,100% { transform: translate(0,0); }
+  33% { transform: translate(20px,-30px); }
+  66% { transform: translate(-15px,-15px); }
+}
+
+@keyframes floatC {
+  0%,100% { transform: translateX(0); opacity: 0.5; }
+  50% { transform: translateX(40px); opacity: 1; }
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+  z-index: 1;
+}
+
+.event-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 35%, rgba(255,80,13,0.15) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: shimmer 3.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  60%,100% { transform: translateX(100%); }
+}
+
+.event-pill .dot {
+  width: 8px; height: 8px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.event-pill .dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: 0.4;
+  animation: dotRing 2s ease-out infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50% { opacity:0.4; }
+}
+
+@keyframes dotRing {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.hero h1 {
+  font-size: clamp(36px, 4.7vw, 68px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--orange) 0%, var(--orange3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.hero h1 .underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hero h1 .underline::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: var(--orange);
+  transform-origin: left;
+  animation: drawLine 1.4s var(--ease-out) 0.6s both;
+}
+
+@keyframes drawLine {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+.hero-tagline {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 540px;
+}
+
+.hero-checks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.hero-checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.45;
+  transition: transform 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.hero-checks li:hover {
+  transform: translateX(4px);
+  color: var(--white);
+}
+
+.hero-checks li::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+  margin-top: 1px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M13.3 4.3l-7 7-3.6-3.6 1.4-1.4 2.2 2.2 5.6-5.6z'/%3E%3C/svg%3E");
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 0 0 0 rgba(255,80,13,0.6);
+  transition: box-shadow 0.4s var(--ease);
+}
+
+.hero-checks li:hover::before {
+  box-shadow: 0 0 0 6px rgba(255,80,13,0.15);
+}
+
+.hero-presenter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.presenter-avatar {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange3) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 900;
+  color: white;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(255,80,13,0.35);
+}
+
+.presenter-avatar::after {
+  content: '';
+  position: absolute;
+  bottom: 1px; right: 1px;
+  width: 12px; height: 12px;
+  background: #2BD478;
+  border: 2px solid var(--navy);
+  border-radius: 50%;
+}
+
+.presenter-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.presenter-title {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* RIGHT COLUMN — FORM BOX (tilt + glow) */
+.hero-form-wrap {
+  perspective: 1200px;
+}
+
+.hero-form-box {
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.04);
+  flex-shrink: 0;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s var(--ease-out);
+  animation: floatBox 6s ease-in-out infinite;
+}
+
+@keyframes floatBox {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hero-form-box::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--orange) 0%, transparent 50%, var(--orange) 100%);
+  border-radius: 6px;
+  z-index: -1;
+  opacity: 0.4;
+  filter: blur(20px);
+}
+
+.form-box-header {
+  background: linear-gradient(135deg, var(--orange) 0%, #e0420a 100%);
+  padding: 24px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-box-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.12) 60deg, transparent 120deg);
+  animation: rotateConic 14s linear infinite;
+}
+
+@keyframes rotateConic {
+  to { transform: rotate(360deg); }
+}
+
+.form-box-header > * { position: relative; z-index: 1; }
+
+.form-event-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+}
+
+.form-date {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.form-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  margin-top: 6px;
+}
+
+/* COUNTDOWN */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 16px 32px;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.cd-cell {
+  text-align: center;
+}
+
+.cd-num {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-lbl {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 6px;
+}
+
+.form-box-body { padding: 28px 32px 24px; }
+
+.form-box-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.form-field { margin-bottom: 14px; position: relative; }
+
+.form-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+  transition: color 0.2s;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  outline: none;
+  transition: all 0.25s var(--ease);
+  background: var(--off);
+}
+
+.form-field input:focus {
+  border-color: var(--orange);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(255,80,13,0.10);
+}
+
+.form-field:focus-within label { color: var(--orange); }
+
+.form-field input::placeholder {
+  color: #B0B8CB;
+  font-weight: 400;
+}
+
+.form-submit {
+  width: 100%;
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-submit span {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease);
+}
+
+.form-submit:hover::before { transform: translateX(100%); }
+
+.form-submit:hover {
+  background: #e0420a;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255,80,13,0.4);
+}
+
+.form-submit:active { transform: translateY(0); }
+
+.form-submit .arrow {
+  transition: transform 0.3s var(--ease);
+}
+
+.form-submit:hover .arrow { transform: translateX(4px); }
+
+.form-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.form-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 32px;
+  background: var(--off);
+  border-top: 2px solid var(--border);
+}
+
+.fsp-avatars {
+  display: flex;
+}
+
+.fsp-av {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  color: white;
+  margin-right: -8px;
+  transition: transform 0.3s var(--bounce);
+}
+
+.fsp-av:hover { transform: translateY(-3px) scale(1.1); z-index: 1; }
+.fsp-av:nth-child(2) { background: #2D6FE8; }
+.fsp-av:nth-child(3) { background: #E86B2D; }
+.fsp-av:last-child { margin-right: 0; }
+
+.fsp-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+.fsp-text span {
+  color: var(--orange);
+  font-weight: 800;
+}
+
+/* ── STRATEGY SPLIT ── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 3px solid var(--navy);
+}
+
+.split-col {
+  padding: 64px 56px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease);
+}
+
+.split-col:first-child {
+  background: var(--off);
+  border-right: 3px solid var(--navy);
+}
+
+.split-col:last-child {
+  background: linear-gradient(135deg, var(--orange) 0%, #e0420a 100%);
+}
+
+.split-col::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 400px at var(--mx, 50%) var(--my, 50%), rgba(255,80,13,0.10) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.split-col:last-child::before {
+  background: radial-gradient(circle 400px at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+
+.split-col:hover::before { opacity: 1; }
+
+.split-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 130px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  margin-bottom: 8px;
+  opacity: 0.08;
+  position: absolute;
+  right: 32px;
+  top: 24px;
+  color: var(--navy);
+  transition: transform 0.6s var(--ease);
+}
+
+.split-col:hover .split-num { transform: scale(1.1) rotate(-3deg); }
+
+.split-col:last-child .split-num { color: var(--white); }
+
+.split-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+.split-col:last-child .split-eyebrow { color: rgba(255,255,255,0.75); }
+
+.split-col h3 {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+}
+
+.split-col:last-child h3 { color: var(--white); }
+
+.split-col p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+.split-col:last-child p { color: rgba(255,255,255,0.85); }
+
+/* ── SECTION SHARED ── */
+.section {
+  padding: 100px 40px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+}
+
+.section > h2,
+.section-h2 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.08;
+}
+
+.section-sub {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 72px;
+}
+
+/* ── PROGRAMME ── */
+.programme-bg {
+  background: var(--navy);
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.programme-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.programme-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.programme-inner > h2 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.08;
+}
+
+.programme-inner .section-sub { color: rgba(255,255,255,0.45); }
+
+.prog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  background: rgba(255,255,255,0.08);
+  border: 3px solid rgba(255,255,255,0.08);
+}
+
+.prog-header {
+  padding: 20px 32px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prog-header.left {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.55);
+  border-bottom: 3px solid rgba(255,255,255,0.1);
+}
+
+.prog-header.right {
+  background: rgba(255,80,13,0.18);
+  color: var(--orange);
+  border-bottom: 3px solid var(--orange);
+}
+
+.prog-item {
+  background: rgba(255,255,255,0.03);
+  padding: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  cursor: default;
+}
+
+.prog-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--orange);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s var(--ease);
+}
+
+.prog-item:hover {
+  background: rgba(255,255,255,0.06);
+  padding-left: 38px;
+}
+
+.prog-item:hover::before { transform: scaleY(1); }
+
+.prog-n {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+  width: 44px;
+  transition: color 0.3s;
+}
+
+.prog-item.left .prog-n { color: rgba(255,255,255,0.15); }
+.prog-item.right .prog-n { color: rgba(255,80,13,0.35); }
+.prog-item:hover .prog-n { color: var(--orange); }
+
+.prog-item h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.prog-item p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+}
+
+/* ── STATS ── */
+.stats-bg {
+  background: var(--off);
+  border-top: 3px solid var(--navy);
+  border-bottom: 3px solid var(--navy);
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 3px solid var(--navy);
+  margin-top: 60px;
+  background: white;
+}
+
+.stat-card {
+  padding: 48px 40px;
+  position: relative;
+  border-right: 3px solid var(--navy);
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.stat-card:hover { background: var(--off); }
+.stat-card:last-child { border-right: none; }
+
+.stat-top-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.8s var(--ease);
+}
+
+.stat-card.in .stat-top-line { transform: scaleX(1); }
+
+.stat-card:nth-child(1) .stat-top-line { background: var(--navy); }
+.stat-card:nth-child(2) .stat-top-line { background: var(--orange); }
+.stat-card:nth-child(3) .stat-top-line { background: var(--navy); }
+
+.stat-tag {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--navy);
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card:nth-child(2) .stat-number { color: var(--orange); }
+
+.stat-unit {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.stat-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* ── FOR WHO ── */
+.forwho-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 3px solid var(--navy);
+}
+
+.fw-card {
+  padding: 40px 32px;
+  border-right: 3px solid var(--navy);
+  border-bottom: 3px solid var(--navy);
+  position: relative;
+  background: var(--white);
+  transition: all 0.35s var(--ease);
+  overflow: hidden;
+}
+
+.fw-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 0;
+  background: var(--navy);
+  transition: height 0.35s var(--ease);
+  z-index: 0;
+}
+
+.fw-card > * { position: relative; z-index: 1; }
+
+.fw-card:hover::before { height: 100%; }
+
+.fw-card:hover h4 { color: white; }
+.fw-card:hover p { color: rgba(255,255,255,0.6); }
+.fw-card:hover .fw-icon {
+  background: var(--orange);
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.fw-card:nth-child(3n) { border-right: none; }
+.fw-card:nth-child(4), .fw-card:nth-child(5), .fw-card:nth-child(6) { border-bottom: none; }
+
+.fw-icon {
+  width: 52px; height: 52px;
+  background: var(--navy);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+  transition: all 0.4s var(--bounce);
+}
+
+.fw-card:nth-child(even) .fw-icon { background: var(--orange); }
+
+.fw-card h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  transition: color 0.35s;
+}
+
+.fw-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 400;
+  transition: color 0.35s;
+}
+
+/* ── SEBASTIEN ── */
+.seb-bg {
+  background: var(--navy);
+  overflow: hidden;
+  position: relative;
+}
+
+.seb-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 600px at 30% 50%, rgba(255,80,13,0.10) 0%, transparent 60%),
+    radial-gradient(circle 500px at 90% 100%, rgba(45,111,232,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.seb-layout {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  position: relative;
+}
+
+.seb-photo-col {
+  position: relative;
+  min-height: 600px;
+  background: var(--navy2);
+  overflow: hidden;
+}
+
+.seb-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  background:
+    linear-gradient(170deg, #1f3360 0%, #182745 100%),
+    radial-gradient(circle at 50% 60%, rgba(255,80,13,0.15) 0%, transparent 60%);
+  position: relative;
+}
+
+.seb-photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 70%, rgba(255,80,13,0.18) 0%, transparent 50%);
+}
+
+.seb-orange-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--orange3) 100%);
+}
+
+.seb-content-col {
+  padding: 80px 64px;
+  position: relative;
+}
+
+.seb-content-col h2 {
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+
+.seb-content-col h2 em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--orange) 0%, var(--orange3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.seb-content-col p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.seb-creds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.seb-cred {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 3px;
+  padding: 16px 20px;
+  transition: all 0.3s var(--ease);
+  cursor: default;
+}
+
+.seb-cred:hover {
+  border-color: var(--orange);
+  background: rgba(255,80,13,0.08);
+  transform: translateY(-3px);
+}
+
+.seb-cred .lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+}
+
+.seb-cred .val {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+/* ── TESTIMONIALS ── */
+.testi-bg {
+  background: var(--off);
+  border-top: 3px solid var(--navy);
+  padding: 100px 40px;
+}
+
+.testi-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--navy);
+  margin-top: 60px;
+  background: white;
+}
+
+.testi-card {
+  padding: 44px 40px;
+  background: var(--white);
+  border-right: 3px solid var(--navy);
+  border-bottom: 3px solid var(--navy);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.testi-card:hover { background: var(--off); }
+
+.testi-card::before {
+  content: '"';
+  position: absolute;
+  right: 24px; top: 12px;
+  font-size: 140px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(24,39,69,0.05);
+  font-family: 'Montserrat', sans-serif;
+  transition: transform 0.5s var(--ease);
+}
+
+.testi-card:hover::before {
+  transform: scale(1.1) rotate(-5deg);
+  color: rgba(255,80,13,0.10);
+}
+
+.testi-card:nth-child(2n) { border-right: none; }
+.testi-card:nth-child(3), .testi-card:nth-child(4) { border-bottom: none; }
+
+.testi-cat {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.testi-cat.sl {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.testi-cat.conc {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.testi-result {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.testi-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 400;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.testi-author-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tav {
+  width: 42px; height: 42px;
+  background: var(--navy);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--white);
+  flex-shrink: 0;
+  transition: transform 0.4s var(--bounce);
+}
+
+.testi-card:hover .tav { transform: rotate(-8deg) scale(1.08); }
+
+.testi-card:nth-child(even) .tav { background: var(--orange); }
+
+.tname { font-size: 13px; font-weight: 700; color: var(--navy); }
+.tmeta { font-size: 12px; color: var(--muted); font-weight: 400; }
+
+/* ── INSCRIPTION ── */
+.inscription-bg {
+  background: var(--white);
+  padding: 100px 40px;
+  border-top: 3px solid var(--navy);
+}
+
+.inscription-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inscription-inner .eyebrow { justify-content: center; }
+.inscription-inner h2 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.08;
+}
+
+.inscription-inner .section-sub {
+  margin: 0 auto 56px;
+}
+
+.form-box {
+  background: var(--off);
+  border: 3px solid var(--navy);
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 6px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--orange) 50%, var(--navy) 100%);
+  background-size: 200% 100%;
+  animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.form-embed-placeholder {
+  border: 2px dashed var(--border);
+  border-radius: 3px;
+  padding: 48px 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+.inscription-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ── FAQ ── */
+.faq-bg {
+  background: var(--off);
+  border-top: 3px solid var(--navy);
+  padding: 100px 40px;
+}
+
+.faq-inner {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  margin-top: 60px;
+}
+
+.faq-item {
+  border-top: 2px solid var(--border);
+  padding: 0;
+  transition: border-color 0.3s;
+}
+
+.faq-item:last-child { border-bottom: 2px solid var(--border); }
+.faq-item.open { border-color: var(--orange); }
+
+.faq-q {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  padding: 28px 50px 28px 0;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.faq-item:hover .faq-q { color: var(--orange); }
+
+.faq-q .chev {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease);
+}
+
+.faq-q .chev::before,
+.faq-q .chev::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 1px;
+  transition: transform 0.3s var(--ease);
+}
+
+.faq-q .chev::before { width: 12px; height: 2px; }
+.faq-q .chev::after { width: 2px; height: 12px; }
+
+.faq-item.open .chev::after { transform: scaleY(0); }
+.faq-item.open .chev { transform: translateY(-50%) rotate(180deg); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease), opacity 0.4s var(--ease), padding 0.5s var(--ease);
+  opacity: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 400;
+  padding: 0 60px 0 0;
+}
+
+.faq-item.open .faq-a {
+  max-height: 320px;
+  opacity: 1;
+  padding: 0 60px 28px 0;
+}
+
+/* ── FOOTER CTA ── */
+.footer-cta {
+  background: linear-gradient(135deg, var(--orange) 0%, #d63a08 100%);
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.footer-cta > * { position: relative; }
+
+.footer-cta h2 {
+  font-size: clamp(22px, 3.5vw, 44px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.footer-cta p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 36px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--white);
+  color: var(--orange);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 20px 52px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease);
+  z-index: 0;
+}
+
+.btn-white > * { position: relative; z-index: 1; }
+
+.btn-white:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-white:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+}
+
+.btn-white .arrow {
+  transition: transform 0.3s var(--ease);
+}
+
+.btn-white:hover .arrow { transform: translateX(6px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.footer-logo span { color: var(--orange); }
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 1px;
+  background: var(--orange);
+  transition: width 0.3s var(--ease);
+}
+
+.footer-links a:hover { color: white; }
+.footer-links a:hover::after { width: 100%; }
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  font-weight: 400;
+}
+
+/* ── STICKY MOBILE CTA ── */
+.sticky-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--navy);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 90;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+  transition: transform 0.5s var(--ease-out);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.sticky-cta.show { transform: translateX(-50%) translateY(0); }
+
+.sticky-cta .pill {
+  background: var(--orange);
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+  .hero-form-box { max-width: 480px; margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .hero-inner { padding: 60px 20px 48px; }
+  .hero-form-box { max-width: 100%; }
+  .split { grid-template-columns: 1fr; }
+  .split-col:first-child { border-right: none; border-bottom: 3px solid var(--navy); }
+  .split-col { padding: 48px 32px; }
+  .prog-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-card { border-right: none; border-bottom: 3px solid var(--navy); }
+  .stat-card:last-child { border-bottom: none; }
+  .forwho-grid { grid-template-columns: 1fr; }
+  .fw-card { border-right: none !important; }
+  .fw-card:nth-child(1), .fw-card:nth-child(2), .fw-card:nth-child(3), .fw-card:nth-child(4), .fw-card:nth-child(5) {
+    border-bottom: 3px solid var(--navy);
+  }
+  .seb-layout { grid-template-columns: 1fr; }
+  .seb-photo-col { display: none; }
+  .seb-content-col { padding: 60px 24px; }
+  .seb-creds { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .testi-card { border-right: none !important; }
+  .form-box { padding: 32px 20px; }
+  .section { padding: 72px 24px; }
+  .programme-bg, .testi-bg, .faq-bg, .stats-bg, .inscription-bg { padding: 72px 24px; }
+  footer { flex-direction: column; align-items: flex-start; }
+  .footer-links { flex-wrap: wrap; gap: 16px; }
+  .sticky-cta { font-size: 11px; padding: 12px 18px; bottom: 16px; }
+  .sticky-cta .pill { padding: 4px 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="marquee">
+    <span><i class="sep"></i> Bootcamp en ligne — <em>17 mai 2026 à 10h</em></span>
+    <span><i class="sep"></i> 100 places disponibles</span>
+    <span><i class="sep"></i> Inscription <em>100% gratuite</em></span>
+    <span><i class="sep"></i> Conciergerie + Sous-Location</span>
+    <span><i class="sep"></i> Bootcamp en ligne — <em>17 mai 2026 à 10h</em></span>
+    <span><i class="sep"></i> 100 places disponibles</span>
+    <span><i class="sep"></i> Inscription <em>100% gratuite</em></span>
+    <span><i class="sep"></i> Conciergerie + Sous-Location</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Le Sous<span class="dot-pulse"></span>Loueur</div>
+  <a href="#inscription" class="nav-cta">Je m'inscris</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-rules">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="float-shape s1"></div>
+  <div class="float-shape s2"></div>
+  <div class="float-shape s3"></div>
+  <div class="float-shape s4"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="event-pill">
+        <span class="dot"></span>
+        Bootcamp en ligne — Gratuit — 17 mai 2026
+      </div>
+
+      <h1>
+        <em>Conciergerie</em><br>
+        &amp; <span class="underline">Sous-Location</span><br>
+        en une journée.
+      </h1>
+
+      <p class="hero-tagline">
+        Les deux stratégies immobilières les plus rentables de 2026, réunies dans un seul bootcamp. Sans banque, sans apport, sans être propriétaire.
+      </p>
+
+      <ul class="hero-checks">
+        <li>Générer tes premiers loyers en 60 jours sans crédit</li>
+        <li>Lancer une conciergerie Airbnb sans aucun apport</li>
+        <li>Automatiser pour travailler moins d'1h par semaine</li>
+        <li>100% légal — méthodes encadrées et éprouvées</li>
+      </ul>
+
+      <div class="hero-presenter">
+        <div class="presenter-avatar">SM</div>
+        <div>
+          <div class="presenter-name">Sébastien MORE</div>
+          <div class="presenter-title">50 biens en sous-location · 100+ logements gérés · 3 000+ membres</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-form-wrap reveal" style="transition-delay:0.15s">
+      <div class="hero-form-box" id="formBox">
+        <div class="form-box-header">
+          <div class="form-event-tag">Bootcamp en ligne — Gratuit</div>
+          <div class="form-date">Dimanche 17 mai 2026<br>à 10h00</div>
+          <div class="form-sub">Conciergerie &amp; Sous-Location — 100 places</div>
+        </div>
+
+        <div class="countdown" id="countdown">
+          <div class="cd-cell"><div class="cd-num" id="cdD">00</div><div class="cd-lbl">Jours</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cdH">00</div><div class="cd-lbl">Heures</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cdM">00</div><div class="cd-lbl">Min</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cdS">00</div><div class="cd-lbl">Sec</div></div>
+        </div>
+
+        <div class="form-box-body">
+          <div class="form-box-title">Réserve ta place gratuitement</div>
+
+          <div class="form-field">
+            <label>Prénom</label>
+            <input type="text" placeholder="Ton prénom">
+          </div>
+          <div class="form-field">
+            <label>Adresse e-mail</label>
+            <input type="email" placeholder="ton@email.com">
+          </div>
+
+          <button class="form-submit" type="button">
+            <span>Je m'inscris — C'est gratuit <span class="arrow">→</span></span>
+          </button>
+
+          <div class="form-guarantee">🔒 Aucune carte bancaire · 100% gratuit</div>
+        </div>
+
+        <div class="form-social-proof">
+          <div class="fsp-avatars">
+            <div class="fsp-av">G</div>
+            <div class="fsp-av">M</div>
+            <div class="fsp-av">E</div>
+          </div>
+          <div class="fsp-text"><span>+3 000 membres</span> ont déjà rejoint la communauté</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT -->
+<div class="split">
+  <div class="split-col reveal" data-tilt>
+    <div class="split-num">1</div>
+    <p class="split-eyebrow">Stratégie 1</p>
+    <h3>Sous-Location Professionnelle</h3>
+    <p>Tu loues un bien à un propriétaire, tu le sous-loues en courte durée, tu encaisses la différence. Pas de crédit, pas de propriété. Le cashflow dès le premier mois. Objectif : 60 jours pour percevoir tes premiers loyers.</p>
+  </div>
+  <div class="split-col reveal" data-tilt style="transition-delay:0.1s">
+    <div class="split-num">2</div>
+    <p class="split-eyebrow">Stratégie 2</p>
+    <h3>Conciergerie Airbnb</h3>
+    <p>Tu gères les logements d'autres propriétaires sur Airbnb et Booking, tu empoches des commissions sur chaque réservation. Pas d'apport, pas de bien à toi. Un business 100% automatisable dès les premières semaines.</p>
+  </div>
+</div>
+
+<!-- PROGRAMME -->
+<div class="programme-bg">
+  <div class="programme-inner">
+    <div class="reveal">
+      <p class="eyebrow" style="color:var(--orange)">Programme du bootcamp</p>
+      <h2>Ce que tu vas apprendre</h2>
+      <p class="section-sub">Deux blocs complets. Tu repars avec une méthode opérationnelle pour lancer l'une ou l'autre des activités — ou les deux.</p>
+    </div>
+
+    <div class="prog-grid reveal">
+      <div class="prog-header left">Bloc 1 — Sous-Location</div>
+      <div class="prog-header right">Bloc 2 — Conciergerie</div>
+
+      <div class="prog-item left">
+        <span class="prog-n">01</span>
+        <div>
+          <h4>Lancer sa première sous-location en 60 jours</h4>
+          <p>Les étapes concrètes pour trouver un bien, négocier le bail et générer du cashflow sans attendre.</p>
+        </div>
+      </div>
+      <div class="prog-item right">
+        <span class="prog-n">01</span>
+        <div>
+          <h4>Lancer une conciergerie sans apport, maintenant</h4>
+          <p>Comment signer tes premiers mandats de gestion et créer ton offre sans investissement initial.</p>
+        </div>
+      </div>
+
+      <div class="prog-item left">
+        <span class="prog-n">02</span>
+        <div>
+          <h4>Convaincre les propriétaires : le script qui fonctionne</h4>
+          <p>Les bons arguments, les bons documents juridiques pour sécuriser l'accord et rester dans la légalité.</p>
+        </div>
+      </div>
+      <div class="prog-item right">
+        <span class="prog-n">02</span>
+        <div>
+          <h4>Générer des commissions dès les premières semaines</h4>
+          <p>Structurer ton offre, tarifer tes prestations et maximiser les revenus par logement géré.</p>
+        </div>
+      </div>
+
+      <div class="prog-item left">
+        <span class="prog-n">03</span>
+        <div>
+          <h4>Optimiser la rentabilité sur Airbnb et Booking</h4>
+          <p>Tarification dynamique, optimisation des annonces, outils pour maximiser le taux d'occupation.</p>
+        </div>
+      </div>
+      <div class="prog-item right">
+        <span class="prog-n">03</span>
+        <div>
+          <h4>Automatiser pour ne travailler qu'une heure par semaine</h4>
+          <p>Les outils, les process et l'équipe pour déléguer et passer à l'échelle sans y passer tes nuits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bg">
+  <div class="stats-inner">
+    <div class="reveal">
+      <p class="eyebrow">Résultats de la communauté</p>
+      <h2 class="section-h2">Des chiffres réels, obtenus par nos membres.</h2>
+      <p class="section-sub">Depuis 2020, plus de 3 000 membres ont lancé leur activité grâce au programme Le Sous Loueur.</p>
+    </div>
+
+    <div class="stats-grid reveal-stagger">
+      <div class="stat-card">
+        <div class="stat-top-line"></div>
+        <span class="stat-tag">Sous-location — Cashflow moyen</span>
+        <div class="stat-number"><span class="counter" data-target="500">0</span><span class="stat-unit">€</span></div>
+        <div class="stat-label">par bien et par mois</div>
+        <div class="stat-desc">Le bénéfice moyen constaté par la communauté sur chaque bien sous-loué. Plus le logement est grand, plus le cashflow est important.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top-line"></div>
+        <span class="stat-tag">Sous-location + Conciergerie — Gestion</span>
+        <div class="stat-number"><span class="counter" data-target="1">0</span><span class="stat-unit">h</span></div>
+        <div class="stat-label">de gestion par semaine</div>
+        <div class="stat-desc">Le temps moyen à consacrer à l'activité une fois les bons outils et process en place — valable pour les deux stratégies.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top-line"></div>
+        <span class="stat-tag">Conciergerie — Parc de Sébastien</span>
+        <div class="stat-number"><span class="counter" data-target="100">0</span><span class="stat-unit">+</span></div>
+        <div class="stat-label">logements gérés</div>
+        <div class="stat-desc">En combinant sous-location et conciergerie, Sébastien gère aujourd'hui plus de 100 logements pour un CA annuel supérieur à 1 M€.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOR WHO -->
+<div class="section">
+  <div class="reveal">
+    <p class="eyebrow">À qui s'adresse ce bootcamp</p>
+    <h2 class="section-h2">Cette journée est faite pour toi si…</h2>
+    <p class="section-sub">Débutant ou déjà actif dans l'immobilier, salarié ou indépendant — les deux stratégies s'adaptent à ta situation.</p>
+  </div>
+
+  <div class="forwho-grid reveal-stagger">
+    <div class="fw-card">
+      <div class="fw-icon">🏁</div>
+      <h4>Tu veux débuter dans l'immobilier sans risque</h4>
+      <p>Pas de crédit, pas d'apport, pas de propriété nécessaire. Les deux stratégies permettent de commencer immédiatement avec très peu de capital.</p>
+    </div>
+    <div class="fw-card">
+      <div class="fw-icon">💸</div>
+      <h4>Tu cherches des revenus complémentaires ou un remplacement de salaire</h4>
+      <p>Que tu veuilles 500€ de plus par mois ou remplacer ton salaire, les deux activités s'adaptent à ton objectif et à ton rythme de vie.</p>
+    </div>
+    <div class="fw-card">
+      <div class="fw-icon">🚀</div>
+      <h4>Tu veux te lancer à ton compte sans te tromper de stratégie</h4>
+      <p>Sous-location ou conciergerie — voire les deux. Découvre laquelle correspond à ton profil, tes contraintes et ton marché local.</p>
+    </div>
+    <div class="fw-card">
+      <div class="fw-icon">🏦</div>
+      <h4>Les banques t'ont dit non</h4>
+      <p>Sans emploi stable, sans CDI, sans apport : ces deux stratégies contournent entièrement le crédit bancaire traditionnel.</p>
+    </div>
+    <div class="fw-card">
+      <div class="fw-icon">⏱️</div>
+      <h4>Tu veux du temps libre, pas un second emploi</h4>
+      <p>L'automatisation est au cœur des deux méthodes. L'objectif : générer des revenus passifs, pas créer une nouvelle contrainte quotidienne.</p>
+    </div>
+    <div class="fw-card">
+      <div class="fw-icon">📈</div>
+      <h4>Tu gères déjà des biens et tu veux passer à l'échelle</h4>
+      <p>Découvre comment combiner sous-location et conciergerie pour multiplier tes revenus sans multiplier ton temps de travail.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SÉBASTIEN -->
+<div class="seb-bg">
+  <div class="seb-layout">
+    <div class="seb-photo-col">
+      <div class="seb-photo-placeholder">Photo Sébastien MORE</div>
+      <div class="seb-orange-bar"></div>
+    </div>
+    <div class="seb-content-col reveal">
+      <p class="eyebrow">Le présentateur</p>
+      <h2>Pionnier français de la sous-location.<br><em>Expert conciergerie depuis 11 ans.</em></h2>
+
+      <p>En 2009, j'ai tout perdu. J'ai reconstruit ma vie depuis zéro à Bangkok en lançant ma première conciergerie et mes premières sous-locations — un modèle qui n'existait pas encore en France.</p>
+
+      <p>De retour en France en 2017, j'ai ouvert une seconde conciergerie, développé 50 logements en sous-location, et fondé LE SOUS-LOUEUR — aujourd'hui la référence française de la sous-location professionnelle, avec plus de 3 000 membres accompagnés.</p>
+
+      <p>Aujourd'hui, ma conciergerie gère plus de 100 logements. Mon CA dépasse 1 million d'euros par an. Cette journée, c'est tout ce que j'aurais voulu avoir quand j'ai commencé.</p>
+
+      <div class="seb-creds reveal-stagger">
+        <div class="seb-cred"><div class="lbl">Sous-location</div><div class="val">50 biens en propre</div></div>
+        <div class="seb-cred"><div class="lbl">Conciergerie</div><div class="val">100+ logements gérés</div></div>
+        <div class="seb-cred"><div class="lbl">Communauté</div><div class="val">3 000+ membres</div></div>
+        <div class="seb-cred"><div class="lbl">Chiffre d'affaires</div><div class="val">1 M€/an</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-bg">
+  <div class="testi-inner">
+    <div class="reveal">
+      <p class="eyebrow">Ils l'ont fait</p>
+      <h2 class="section-h2">Les résultats de la communauté.</h2>
+      <p class="section-sub" style="margin-bottom:0">Sous-locataires, conciergeries, ou les deux : voici ce que nos membres ont construit.</p>
+    </div>
+
+    <div class="testi-grid reveal-stagger">
+      <div class="testi-card">
+        <span class="testi-cat sl">Sous-location</span>
+        <div class="testi-result">15 000€/mois</div>
+        <p>En 2 ans, Gaëtan est passé d'étudiant sans aucun bien immobilier à plus de 12 000€ de cashflow mensuel grâce à la sous-location. Sans crédit, sans propriété, sans banque.</p>
+        <div class="testi-author-row">
+          <div class="tav">G</div>
+          <div><div class="tname">Gaëtan</div><div class="tmeta">Membre depuis 2022 · Sous-location</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-cat conc">Conciergerie</span>
+        <div class="testi-result" style="color:var(--orange)">GuestHome</div>
+        <p>Nicolas a lancé GuestHome après la formation. Sa conciergerie s'est développée rapidement, au point de faire l'objet d'un article dans la presse locale.</p>
+        <div class="testi-author-row">
+          <div class="tav">N</div>
+          <div><div class="tname">Nicolas</div><div class="tmeta">Fondateur · GuestHome</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-cat sl">Sous-location</span>
+        <div class="testi-result">8 biens en 6 mois</div>
+        <p>Eliasse a signé 8 contrats de sous-location en moins de 6 mois. Un rythme qui lui permet aujourd'hui de vivre exclusivement de ses revenus immobiliers.</p>
+        <div class="testi-author-row">
+          <div class="tav">E</div>
+          <div><div class="tname">Eliasse</div><div class="tmeta">Membre · Sous-location</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-cat conc">Conciergerie</span>
+        <div class="testi-result" style="color:var(--orange)">JF Conciergerie</div>
+        <p>Jean a lancé sa conciergerie après le programme et a pu quitter son emploi salarié. Il gère aujourd'hui plusieurs logements en location courte durée sur deux villes.</p>
+        <div class="testi-author-row">
+          <div class="tav">J</div>
+          <div><div class="tname">Jean</div><div class="tmeta">Fondateur · JF Conciergerie</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSCRIPTION -->
+<div class="inscription-bg" id="inscription">
+  <div class="inscription-inner reveal">
+    <p class="eyebrow">Inscription gratuite</p>
+    <h2>17 mai 2026 — 10h00</h2>
+    <p class="section-sub">100 places disponibles. La webconférence est offerte, sans engagement. Reçois le lien de connexion directement par email après inscription.</p>
+
+    <div class="form-box">
+      <div class="form-embed-placeholder">
+        [ Formulaire d'inscription — à intégrer ici ]
+      </div>
+    </div>
+
+    <p class="inscription-note">En t'inscrivant, tu recevras les informations de connexion par email. Aucune carte bancaire requise.</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-bg">
+  <div class="faq-inner">
+    <div class="reveal">
+      <p class="eyebrow">Questions fréquentes</p>
+      <h2 class="section-h2" style="margin-bottom:0">Tout ce que tu veux savoir.</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">La sous-location, c'est vraiment légal ?<span class="chev"></span></div>
+        <div class="faq-a">Oui, totalement. La sous-location est une activité encadrée par la loi. Elle repose sur un bail spécifique signé entre toi et le propriétaire qui l'autorise explicitement. Nous t'expliquons pendant le bootcamp les bons documents à utiliser pour pratiquer en toute légalité.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Est-ce qu'il faut un apport pour lancer une conciergerie ?<span class="chev"></span></div>
+        <div class="faq-a">Non. La conciergerie ne nécessite aucun apport initial. Tu perçois des commissions sur les revenus générés par les biens que tu gères, sans jamais avoir à investir dans de l'immobilier. C'est l'un des grands avantages de ce modèle.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Est-ce que des propriétaires acceptent vraiment la sous-location ?<span class="chev"></span></div>
+        <div class="faq-a">Oui, et beaucoup plus qu'on ne le pense. Il suffit de savoir comment présenter le projet et quels arguments avancer. Nous te donnons pendant le bootcamp le script exact qui fonctionne pour convaincre les propriétaires.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Au bout de combien de temps peut-on obtenir des résultats ?<span class="chev"></span></div>
+        <div class="faq-a">Les premiers résultats peuvent arriver très rapidement. Certains membres ont signé leur première sous-location en 15 jours. En moyenne, 3 sous-locations en 6 mois est un objectif réaliste avec un investissement minimal en temps.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Le bootcamp couvre-t-il les deux activités ou faut-il choisir ?<span class="chev"></span></div>
+        <div class="faq-a">Le bootcamp est entièrement dédié aux deux stratégies. Tu repars avec une compréhension complète de la sous-location ET de la conciergerie, avec les outils pour décider laquelle correspond le mieux à ta situation, ou comment les combiner.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <div class="reveal">
+    <h2>Une seule journée peut changer ta trajectoire financière.</h2>
+    <p>17 mai 2026 · 10h00 · En ligne · 100 places · Gratuit</p>
+    <a href="#inscription" class="btn-white"><span>Je réserve ma place</span> <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Le Sous<span>.</span>Loueur</div>
+  <div class="footer-links">
+    <a href="#">Mentions légales</a>
+    <a href="#">CGV</a>
+    <a href="#">CGU</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 — Le Sous Loueur (Marque déposée)</div>
+</footer>
+
+<!-- STICKY CTA -->
+<a href="#inscription" class="sticky-cta" id="stickyCta">
+  <span class="pill">Gratuit</span>
+  Réserve ta place — 17 mai →
+</a>
+
+<script>
+/* SCROLL PROGRESS */
+const sp = document.getElementById('scrollProgress');
+const nav = document.getElementById('nav');
+const stickyCta = document.getElementById('stickyCta');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  sp.style.width = pct + '%';
+  nav.classList.toggle('scrolled', h.scrollTop > 4);
+  stickyCta.classList.toggle('show', h.scrollTop > 800);
+}, { passive: true });
+
+/* COUNTDOWN */
+const target = new Date('2026-05-17T10:00:00+02:00').getTime();
+const cdD = document.getElementById('cdD');
+const cdH = document.getElementById('cdH');
+const cdM = document.getElementById('cdM');
+const cdS = document.getElementById('cdS');
+const pad = n => String(Math.max(0, n)).padStart(2, '0');
+function tick() {
+  const diff = target - Date.now();
+  if (diff <= 0) { cdD.textContent = cdH.textContent = cdM.textContent = cdS.textContent = '00'; return; }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  cdD.textContent = pad(d);
+  cdH.textContent = pad(h);
+  cdM.textContent = pad(m);
+  cdS.textContent = pad(s);
+}
+tick();
+setInterval(tick, 1000);
+
+/* REVEAL ON SCROLL */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal, .reveal-stagger, .stat-card').forEach(el => io.observe(el));
+
+/* COUNTER ANIMATION */
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target, 10);
+    const dur = 1600;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('fr-FR');
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
+
+/* FAQ ACCORDION */
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+
+/* TILT FOR FORM BOX (subtle, mouse-follow) */
+const formBox = document.getElementById('formBox');
+const wrap = formBox?.parentElement;
+if (wrap) {
+  wrap.addEventListener('mousemove', (e) => {
+    const r = wrap.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    formBox.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+    formBox.style.animation = 'none';
+  });
+  wrap.addEventListener('mouseleave', () => {
+    formBox.style.transform = '';
+    formBox.style.animation = '';
+  });
+}
+
+/* SPLIT COL — RADIAL FOLLOW */
+document.querySelectorAll('.split-col').forEach(col => {
+  col.addEventListener('mousemove', (e) => {
+    const r = col.getBoundingClientRect();
+    col.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    col.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
+</script>
+
+</body>
+</html>
