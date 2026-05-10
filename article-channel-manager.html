@@ -6,7 +6,7 @@
 <title>Channel Manager Airbnb : le guide complet pour automatiser vos locations en 2026 — locationcourteduree.fr</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -962,87 +962,117 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,27,51,0.06); }
   gap: 22px;
 }
 
+/* Widgets fidèles à locationcourteduree.fr (Elementor Poppins) */
 .widget {
-  border-radius: 14px;
-  padding: 28px 26px;
+  border-radius: 12px;
+  padding: 14% 8% 8%;
   text-align: center;
   overflow: hidden;
   position: relative;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInDown 0.8s var(--ease-out) both;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.widget:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(15,27,51,0.18); }
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.widget.dark {
-  background: linear-gradient(180deg, #1f3360 0%, #182745 100%);
-  color: white;
+/* Variantes de fonds — couleurs réelles du site */
+.widget.w-sousloc { background: linear-gradient(180deg, #182745 0%, #2F62AC 100%); color: white; }
+.widget.w-yt      { background: #FF0000; color: white; }
+.widget.w-conc    { background: linear-gradient(180deg, #2F62AC 0%, #182745 100%); color: white; }
+.widget.w-lmnp    { background: linear-gradient(180deg, #4478F2 0%, #2F62AC 100%); color: white; }
+.widget.w-skool   { background: linear-gradient(180deg, #2F62AC 0%, #182745 100%); color: white; position: relative; }
+.widget.w-skool::before {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(0,0,0,0.18); pointer-events: none;
 }
-.widget.orange {
-  background: var(--orange);
-  color: white;
-}
-.widget.dark2 {
-  background: linear-gradient(180deg, #2553a0 0%, #1f3360 100%);
-  color: white;
-}
+.widget.w-skool > * { position: relative; z-index: 1; }
 
-.widget-illu {
-  width: 100%;
-  max-width: 200px;
+/* Image / illustration */
+.widget-img {
+  width: 82%;
+  max-width: 220px;
+  height: auto;
   margin: 0 auto 18px;
   display: block;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+  transition: transform 0.4s var(--ease);
 }
+.widget:hover .widget-img { transform: scale(1.04); }
+.widget.w-yt .widget-img { width: 69%; }
 
+/* Titres et textes — Poppins */
 .widget-eyebrow {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--orange);
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
   margin-bottom: 8px;
+  color: var(--orange);
+  line-height: 1.2;
 }
-.widget.orange .widget-eyebrow { color: white; opacity: 0.85; }
+.widget.w-sousloc .widget-eyebrow,
+.widget.w-conc .widget-eyebrow { color: var(--orange); }
+.widget.w-yt .widget-eyebrow { color: white; font-size: 22px; }
+.widget.w-lmnp .widget-eyebrow { color: var(--orange); }
+.widget.w-skool .widget-eyebrow { color: var(--orange); font-size: 22px; }
 
 .widget h4 {
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  color: white;
 }
-.widget.dark h4 { color: white; }
-.widget.orange h4 { color: white; }
+.widget.w-skool h4 { font-size: 24px; }
 
 .widget p {
-  font-size: 13px;
-  line-height: 1.65;
-  margin-bottom: 18px;
-  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.92);
 }
-.widget.dark p { color: rgba(255,255,255,0.75); }
-.widget.orange p { color: rgba(255,255,255,0.92); }
 
+/* CTA boutons */
 .widget-cta {
   display: inline-block;
   background: var(--orange);
   color: white;
+  font-family: 'Poppins', sans-serif;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 14px 22px;
-  border-radius: 4px;
+  padding: 14px 26px;
+  border-radius: 3px;
   text-decoration: none;
   transition: all 0.25s var(--ease);
 }
-.widget.orange .widget-cta { background: white; color: var(--orange); }
 .widget-cta:hover {
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+  background: #e0420a;
 }
 
-.widget-yt {
+.widget.w-yt .widget-cta { background: white; color: #FF0000; font-weight: 800; }
+.widget.w-yt .widget-cta:hover { background: #182745; color: white; }
+
+.widget.w-skool .widget-cta { background: var(--orange); color: white; }
+
+/* YouTube logo bloc (legacy — gardé pour compat) */
+.widget-yt-old {
   background: linear-gradient(180deg, #FF1F2D 0%, #c81522 100%);
 }
-.widget-yt .yt-logo {
+.widget-yt-old .yt-logo {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 28px;
   font-weight: 700;
@@ -1517,67 +1547,51 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.45); }
       </article>
     </main>
 
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR — vrais widgets locationcourteduree.fr -->
     <aside class="sidebar">
 
-      <!-- Widget 1 — Sous-location -->
-      <div class="widget dark">
-        <svg class="widget-illu" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="20" width="160" height="90" rx="6" fill="#1f3360" stroke="#FF500D" stroke-width="2"/>
-          <rect x="30" y="30" width="140" height="60" fill="#0F1B33"/>
-          <circle cx="100" cy="60" r="14" fill="#FF500D"/>
-          <polygon points="95,52 95,68 110,60" fill="white"/>
-          <rect x="60" y="110" width="80" height="6" rx="2" fill="#1f3360"/>
-          <rect x="40" y="116" width="120" height="10" rx="2" fill="#0F1B33"/>
-        </svg>
-        <div class="widget-eyebrow">Sous-Location</div>
-        <h4>Une formation de 4 vidéos offerte</h4>
+      <!-- Widget 1 — Sous-Location -->
+      <div class="widget w-sousloc">
+        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/04.png" alt="Sous-Location" loading="lazy">
+        <div class="widget-eyebrow">SOUS-LOCATION</div>
+        <h4>UNE FORMATION<br>DE 4 VIDÉOS OFFERTE</h4>
         <p>Percevoir des loyers immobiliers sans être propriétaire, sans crédit bancaire et en toute légalité ?</p>
         <a href="#" class="widget-cta">Recevoir ma formation gratuite</a>
       </div>
 
       <!-- Widget 2 — YouTube -->
-      <div class="widget widget-yt">
-        <span class="yt-logo">▶ YouTube</span>
-        <h4 style="color:white">Nous suivre sur YouTube</h4>
-        <p style="color:rgba(255,255,255,0.9)">Du contenu exclusif<br>1 fois / semaine</p>
-        <a href="#" class="widget-cta" style="background:white;color:#c81522">Je m'abonne</a>
+      <div class="widget w-yt">
+        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/kindpng_197750.png" alt="YouTube" loading="lazy">
+        <h4>NOUS SUIVRE SUR YOUTUBE</h4>
+        <p>DU CONTENU EXCLUSIF<br>1 FOIS / SEMAINE</p>
+        <a href="https://www.youtube.com/c/S%C3%A9bastienMORE-business/videos?sub_confirmation=1" target="_blank" rel="noopener" class="widget-cta">Je m'abonne</a>
       </div>
 
-      <!-- Widget 3 — Conciergerie -->
-      <div class="widget dark2">
-        <svg class="widget-illu" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="20" width="160" height="90" rx="6" fill="#2553a0"/>
-          <rect x="30" y="30" width="140" height="60" fill="#1f3360"/>
-          <circle cx="100" cy="60" r="20" fill="rgba(255,80,13,0.85)"/>
-          <polygon points="93,50 93,70 113,60" fill="white"/>
-          <text x="100" y="105" text-anchor="middle" fill="white" font-family="Montserrat" font-size="9" font-weight="700">EPISODE 1</text>
-        </svg>
-        <div class="widget-eyebrow">Conciergerie Airbnb</div>
-        <h4>1h de formation gratuite</h4>
-        <p>Créer votre société de conciergerie Airbnb grâce à cette formation offerte.</p>
+      <!-- Widget 3 — Conciergerie Airbnb -->
+      <div class="widget w-conc">
+        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/03.png" alt="Conciergerie Airbnb" loading="lazy">
+        <div class="widget-eyebrow">CONCIERGERIE AIRBNB</div>
+        <h4>1H DE FORMATION GRATUITE</h4>
+        <p>Créer votre société de conciergerie airbnb grâce à cette formation offerte.</p>
         <a href="#" class="widget-cta">Recevoir ma formation gratuite</a>
       </div>
 
-      <!-- Widget 4 — Skool -->
-      <div class="widget dark2">
-        <svg class="widget-illu" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="20" width="160" height="90" rx="6" fill="white"/>
-          <rect x="30" y="30" width="140" height="14" rx="2" fill="#EFEDE8"/>
-          <circle cx="40" cy="56" r="6" fill="#FF500D"/>
-          <rect x="52" y="52" width="80" height="4" rx="1" fill="#182745"/>
-          <rect x="52" y="60" width="60" height="3" rx="1" fill="#6B7A99"/>
-          <circle cx="40" cy="78" r="6" fill="#2D6FE8"/>
-          <rect x="52" y="74" width="80" height="4" rx="1" fill="#182745"/>
-          <rect x="52" y="82" width="60" height="3" rx="1" fill="#6B7A99"/>
-          <circle cx="40" cy="100" r="6" fill="#1A8A4E"/>
-          <rect x="52" y="96" width="80" height="4" rx="1" fill="#182745"/>
-          <rect x="52" y="104" width="60" height="3" rx="1" fill="#6B7A99"/>
-        </svg>
-        <div class="widget-eyebrow">Rejoignez le groupe privé Skool</div>
-        <h4 style="color:white">Lives interactifs tous les jours</h4>
-        <p>Questions-réponses en direct, analyse juridique des lois Airbnb, stratégies opérationnelles et décryptage des tendances majeures de la location courte durée.</p>
-        <a href="#" class="widget-cta" style="background:#2BD478;color:white">Rejoindre la communauté</a>
+      <!-- Widget 4 — Déclaration LMNP -->
+      <div class="widget w-lmnp">
+        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/Capture-decran-2025-12-27-a-15.23.53.png" alt="Déclaration LMNP" loading="lazy">
+        <h3 class="widget-eyebrow" style="color:#FF500D">Déclaration LMNP</h3>
+        <h4>Formation gratuite pour déclarer ses revenus en location meublée</h4>
+        <p>Comprenez comment déclarer vos revenus LMNP (micro-BIC ou régime réel),<br>évitez les erreurs fiscales courantes<br>et apprenez à gérer votre déclaration <strong>sans passer par un expert-comptable</strong>.</p>
+        <a href="https://www.declarationlmnp.fr/formation-gratuite-lmnp/" target="_blank" rel="noopener" class="widget-cta">Recevoir ma formation gratuite</a>
+      </div>
+
+      <!-- Widget 5 — Skool -->
+      <div class="widget w-skool">
+        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/Green-Tosca-Modern-Geometric-Web-Hosting-Service-Presentation-33.png" alt="Communauté Skool" loading="lazy">
+        <div class="widget-eyebrow">REJOIGNEZ LE GROUPE PRIVÉ SKOOL</div>
+        <h4>Lives interactifs tous les jours</h4>
+        <p>Questions–réponses en direct, analyse juridique des lois Airbnb, évolutions réglementaires, stratégies opérationnelles, optimisation business, et décryptage des tendances majeures de la location courte durée.</p>
+        <a href="https://www.skool.com/airbnb-business-academy" target="_blank" rel="noopener" class="widget-cta">Rejoindre la communauté</a>
       </div>
 
     </aside>
