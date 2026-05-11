@@ -3,1639 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Channel Manager Airbnb : le guide complet pour automatiser vos locations en 2026 — locationcourteduree.fr</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<title>Meilleur Channel Manager 2026 : le comparatif honnête des 3 outils pour votre conciergerie</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-
-:root {
-  --navy: #182745;
-  --navy2: #1f3360;
-  --orange: #FF500D;
-  --orange-soft: #FFE6DA;
-  --white: #FFFFFF;
-  --off: #F7F5F2;
-  --off2: #EFEDE8;
-  --beige: #F4EDE2;
-  --text: #182745;
-  --muted: #6B7A99;
-  --border: #E2E6EE;
-  --green: #2BD478;
-  --green-soft: #DEF6E7;
-  --red-soft: #FCE6DC;
-  --ease: cubic-bezier(0.65,0,0.35,1);
-  --ease-out: cubic-bezier(0.22,1,0.36,1);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--white);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-::selection { background: var(--orange); color: white; }
-
-a { color: var(--orange); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-img { max-width: 100%; display: block; }
-
-/* ── SCROLL PROGRESS ── */
-.scroll-progress {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  background: var(--orange);
-  width: 0%;
-  z-index: 9999;
-  box-shadow: 0 0 12px rgba(255,80,13,0.55);
-}
-
-/* ── TOPBAR ── */
-.topbar {
-  background: var(--orange);
-  color: white;
-  padding: 14px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.topbar-links { display: flex; gap: 28px; }
-.topbar-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: opacity 0.2s;
-}
-.topbar-links a:hover { opacity: 0.75; text-decoration: none; }
-
-.topbar-cta {
-  background: white;
-  color: var(--orange);
-  padding: 8px 18px;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  border-radius: 3px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: transform 0.2s var(--ease);
-}
-.topbar-cta:hover { text-decoration: none; transform: translateY(-1px); }
-
-/* ── NAV ── */
-nav {
-  background: white;
-  padding: 18px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  position: sticky;
-  top: 0;
-  z-index: 90;
-  border-bottom: 1px solid var(--border);
-  transition: box-shadow 0.3s;
-}
-nav.scrolled { box-shadow: 0 4px 24px rgba(15,27,51,0.06); }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -0.02em;
-  color: var(--navy);
-}
-
-.logo-mark {
-  width: 38px; height: 32px;
-  background: var(--navy);
-  position: relative;
-  flex-shrink: 0;
-  clip-path: polygon(0 60%, 30% 60%, 30% 25%, 70% 25%, 70% 60%, 100% 60%, 100% 100%, 0 100%);
-}
-
-.logo-mark::after {
-  content: '';
-  position: absolute;
-  top: -4px; left: 8px;
-  width: 22px; height: 22px;
-  background: var(--orange);
-  transform: rotate(45deg);
-}
-
-.logo-mark::before {
-  content: '';
-  position: absolute;
-  top: 14px; left: 12px;
-  width: 14px; height: 14px;
-  background: var(--navy);
-  z-index: 2;
-}
-
-.logo .small {
-  font-size: 11px;
-  letter-spacing: 0.02em;
-  color: var(--muted);
-  margin-top: 2px;
-  font-weight: 500;
-}
-
-.logo-text { line-height: 1; }
-.logo-text strong { display: block; }
-
-.nav-menu { display: flex; gap: 32px; align-items: center; }
-.nav-menu > a {
-  color: var(--navy);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  position: relative;
-  padding: 6px 0;
-}
-.nav-menu > a::after {
-  content: '';
-  position: absolute;
-  left: 0; bottom: 0;
-  width: 0; height: 2px;
-  background: var(--orange);
-  transition: width 0.3s var(--ease);
-}
-.nav-menu > a:hover { text-decoration: none; }
-.nav-menu > a:hover::after { width: 100%; }
-
-.nav-menu .chevron {
-  width: 8px; height: 8px;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  transform: rotate(45deg);
-  margin-bottom: 3px;
-}
-
-.social-icons { display: flex; gap: 8px; }
-.social-icons a {
-  width: 34px; height: 34px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  text-decoration: none;
-  font-size: 14px;
-  color: white;
-  transition: transform 0.2s var(--ease);
-}
-.social-icons a:hover { transform: translateY(-2px); }
-.social-icons .yt { background: #ED1C2A; }
-.social-icons .fb { background: #2B65F4; }
-.social-icons .ig { background: #1A1A1A; }
-
-/* ── LAYOUT ── */
-.page-wrap {
-  background: var(--off);
-  padding: 48px 40px 80px;
-}
-
-.layout {
-  max-width: 1340px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 40px;
-  align-items: start;
-}
-
-/* ── HERO ── */
-.crumb {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 18px;
-  font-weight: 500;
-}
-.crumb a { color: var(--muted); }
-.crumb a:hover { color: var(--orange); }
-
-.hero-block {
-  background: var(--navy);
-  border-radius: 18px;
-  padding: 56px 56px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-block::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle 500px at 90% 0%, rgba(255,80,13,0.12) 0%, transparent 60%),
-    radial-gradient(circle 400px at 0% 100%, rgba(45,111,232,0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.hero-block h1 {
-  position: relative;
-  font-size: clamp(28px, 3.6vw, 46px);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: white;
-  margin: 0;
-}
-
-.hero-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 32px;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.share {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.share-label {
-  color: var(--orange);
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.share-btn {
-  width: 38px; height: 38px;
-  border-radius: 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.2s var(--ease);
-}
-.share-btn:hover { text-decoration: none; transform: translateY(-2px); }
-.share-btn.wa { background: #25D366; }
-.share-btn.em { background: var(--orange); }
-.share-btn.li { background: #0A66C2; }
-
-.last-update {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 28px;
-  line-height: 1.6;
-  max-width: 720px;
-}
-
-/* ── ARTICLE ── */
-.article {
-  background: white;
-  padding: 60px 60px;
-  margin-top: 32px;
-  border-radius: 14px;
-}
-
-.article h2 {
-  font-size: 30px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: var(--navy);
-  line-height: 1.2;
-  margin: 48px 0 22px;
-}
-
-.article h2:first-child { margin-top: 0; }
-
-.article h3 {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--navy);
-  line-height: 1.3;
-  margin: 36px 0 16px;
-}
-
-.article p {
-  font-size: 15px;
-  color: var(--text);
-  line-height: 1.85;
-  margin-bottom: 18px;
-  font-weight: 500;
-}
-
-.article p strong { font-weight: 800; color: var(--navy); }
-.article ul, .article ol { padding-left: 22px; margin-bottom: 24px; }
-.article li {
-  font-size: 15px;
-  line-height: 1.85;
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-.article li strong { font-weight: 800; color: var(--navy); }
-
-/* ── 3 MODELS CARDS ── */
-.models-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 36px 0;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.model-card {
-  padding: 36px 30px;
-  position: relative;
-  min-height: 320px;
-}
-
-.model-card.l1 { background: var(--off2); }
-.model-card.l2 { background: var(--navy); color: white; }
-.model-card.l3 { background: var(--beige); }
-
-.model-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  opacity: 0.5;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.model-card.l2 .model-num { color: rgba(255,255,255,0.25); opacity: 1; }
-
-.model-tag {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 18px 0 10px;
-}
-.model-card.l2 .model-tag { color: rgba(255,255,255,0.5); }
-
-.model-card h4 {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 14px;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-.model-card.l2 h4 { color: white; }
-
-.model-card p {
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--muted);
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-.model-card.l2 p { color: rgba(255,255,255,0.7); }
-
-.pill {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 7px 14px;
-  border-radius: 100px;
-}
-.pill.warn { background: var(--red-soft); color: #B83A0F; }
-.pill.dark { background: var(--navy2); color: white; }
-.pill.success { background: var(--green-soft); color: #1A8A4E; }
-
-/* ── COMPARISON CARDS ── */
-.comp-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 36px 0;
-}
-
-.comp-card {
-  padding: 30px 28px;
-  border-radius: 10px;
-  position: relative;
-  min-height: 220px;
-}
-.comp-card.dark { background: var(--navy); color: white; }
-.comp-card.light { background: var(--off2); }
-
-.comp-tag {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 14px;
-}
-
-.comp-card h4 {
-  font-size: 17px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-.comp-card.dark h4 { color: white; }
-.comp-card.light h4 { color: var(--navy); }
-
-.comp-card p {
-  font-size: 13px;
-  line-height: 1.7;
-  margin-bottom: 18px;
-  font-weight: 500;
-}
-.comp-card.dark p { color: rgba(255,255,255,0.7); }
-.comp-card.light p { color: var(--muted); }
-
-.comp-stat {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-top: auto;
-}
-.comp-card.dark .comp-stat { color: var(--orange); }
-.comp-card.light .comp-stat { color: var(--orange); }
-
-.comp-stat span {
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
-  letter-spacing: 0;
-  margin-left: 4px;
-}
-.comp-card.dark .comp-stat span { color: rgba(255,255,255,0.55); }
-
-/* ── PRICE TABLE ── */
-.price-table {
-  background: var(--off2);
-  border-radius: 12px;
-  padding: 32px 36px;
-  margin: 32px 0;
-}
-
-.price-table-title {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  font-size: 14px;
-  gap: 16px;
-}
-.price-row:first-of-type { border-top: none; }
-
-.price-label { color: var(--text); font-weight: 500; }
-.price-val {
-  font-weight: 800;
-  color: var(--navy);
-  text-align: right;
-  flex-shrink: 0;
-}
-
-/* ── VIDEO BLOCK ── */
-.video-block {
-  background: var(--navy);
-  border-radius: 14px;
-  padding: 36px;
-  margin: 40px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.video-block::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle 400px at 100% 0%, rgba(255,80,13,0.12) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.video-eyebrow {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-}
-
-.video-eyebrow::before {
-  content: '';
-  width: 8px; height: 8px;
-  background: #ED1C2A;
-  border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(237,28,42,0.6);
-  animation: pulseRed 2s infinite;
-}
-
-@keyframes pulseRed {
-  0%,100% { box-shadow: 0 0 0 0 rgba(237,28,42,0.7); }
-  50% { box-shadow: 0 0 0 8px rgba(237,28,42,0); }
-}
-
-.video-block h3 {
-  color: white !important;
-  font-size: 22px !important;
-  margin: 0 0 22px !important;
-}
-
-.video-frame {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-
-.video-frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.video-caption {
-  margin-top: 18px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-/* ── INFO ILLUSTRATION (channel hub) ── */
-.illu-block {
-  background: white;
-  border: 2px solid var(--off2);
-  border-radius: 14px;
-  padding: 40px 32px;
-  margin: 36px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.illu-block-title {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 32px;
-}
-
-.hub-svg {
-  width: 100%;
-  max-width: 540px;
-  margin: 0 auto;
-  display: block;
-}
-
-/* ── PROS / CONS BOX ── */
-.pc-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 28px 0;
-}
-
-.pc-box {
-  border-radius: 12px;
-  padding: 26px 24px;
-}
-.pc-box.pros { background: var(--green-soft); border-left: 4px solid var(--green); }
-.pc-box.cons { background: var(--red-soft); border-left: 4px solid var(--orange); }
-
-.pc-box h5 {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.pc-box.pros h5 { color: #1A8A4E; }
-.pc-box.cons h5 { color: #B83A0F; }
-
-.pc-box ul { padding-left: 0; list-style: none; margin: 0; }
-.pc-box li {
-  font-size: 13px;
-  line-height: 1.6;
-  padding-left: 22px;
-  position: relative;
-  margin-bottom: 9px;
-  font-weight: 500;
-}
-.pc-box.pros li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 900; }
-.pc-box.cons li::before { content: '✕'; position: absolute; left: 0; color: var(--orange); font-weight: 900; }
-
-/* ── GUEST LUCKY HIGHLIGHT ── */
-.tool-card {
-  background: linear-gradient(135deg, #fff 0%, #fff8f4 100%);
-  border: 2px solid var(--orange-soft);
-  border-radius: 14px;
-  padding: 36px;
-  margin: 36px 0;
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 24px;
-  align-items: center;
-}
-
-.tool-logo {
-  width: 80px; height: 80px;
-  background: white;
-  border: 2px solid var(--orange-soft);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--orange);
-  letter-spacing: -0.04em;
-  flex-shrink: 0;
-}
-
-.tool-info h4 {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--navy);
-  margin: 0 0 6px;
-}
-
-.tool-info p {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin: 0;
-  font-weight: 500;
-}
-
-.tool-cta {
-  background: var(--orange);
-  color: white;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 14px 22px;
-  border-radius: 4px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.2s var(--ease);
-  flex-shrink: 0;
-}
-.tool-cta:hover {
-  text-decoration: none;
-  background: #e0420a;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(255,80,13,0.3);
-}
-
-/* ── FEATURES GRID ── */
-.feat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin: 28px 0;
-}
-
-.feat {
-  background: var(--off);
-  border-radius: 10px;
-  padding: 20px 22px;
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  transition: all 0.25s var(--ease);
-  cursor: default;
-}
-
-.feat:hover {
-  background: white;
-  box-shadow: 0 8px 24px rgba(15,27,51,0.06);
-  transform: translateY(-2px);
-}
-
-.feat-ic {
-  width: 36px; height: 36px;
-  background: var(--orange);
-  color: white;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.feat h5 {
-  font-size: 14px;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-
-.feat p {
-  font-size: 12.5px;
-  color: var(--muted);
-  line-height: 1.55;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* ── STEPS / WORKFLOW ── */
-.steps {
-  margin: 36px 0;
-  position: relative;
-}
-
-.step {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 24px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--off2);
-  position: relative;
-}
-.step:last-child { border-bottom: none; }
-
-.step-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--orange);
-  letter-spacing: -0.04em;
-  background: var(--orange-soft);
-  width: 56px; height: 56px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.step h5 {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.step p {
-  font-size: 13.5px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* ── NEXT STEP CTA ── */
-.next-step {
-  background: var(--off2);
-  border-radius: 14px;
-  padding: 36px;
-  margin: 40px 0;
-  border-left: 4px solid var(--orange);
-}
-
-.next-step h3 {
-  margin-top: 0 !important;
-  font-size: 22px !important;
-}
-
-/* ── FAQ ── */
-.faq-block {
-  margin: 40px 0 0;
-}
-
-.faq-item {
-  border-top: 1px solid var(--border);
-  padding: 0;
-  transition: border-color 0.3s;
-}
-.faq-item:last-child { border-bottom: 1px solid var(--border); }
-.faq-item.open { border-color: var(--orange); }
-
-.faq-q {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 22px 0;
-  font-weight: 800;
-  font-size: 15.5px;
-  color: var(--navy);
-  cursor: pointer;
-  user-select: none;
-  line-height: 1.4;
-  transition: color 0.2s;
-}
-.faq-item:hover .faq-q { color: var(--orange); }
-
-.faq-chev {
-  width: 22px; height: 22px;
-  flex-shrink: 0;
-  position: relative;
-  transition: transform 0.4s var(--ease);
-}
-.faq-chev::before {
-  content: '';
-  position: absolute;
-  left: 5px; top: 9px;
-  width: 12px; height: 12px;
-  border-right: 2px solid var(--orange);
-  border-bottom: 2px solid var(--orange);
-  transform: rotate(45deg) translate(-3px,-3px);
-  transform-origin: center;
-}
-
-.faq-item.open .faq-chev { transform: rotate(180deg); }
-
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.75;
-  font-weight: 500;
-  transition: max-height 0.5s var(--ease), opacity 0.4s var(--ease), padding 0.5s var(--ease);
-  padding: 0;
-}
-
-.faq-item.open .faq-a {
-  max-height: 400px;
-  opacity: 1;
-  padding: 0 0 22px 0;
-}
-
-/* ── COMMENT ── */
-.comment-block {
-  margin-top: 60px;
-  padding-top: 36px;
-  border-top: 1px solid var(--off2);
-}
-.comment-block h3 {
-  font-size: 26px !important;
-  margin: 0 0 16px !important;
-}
-.comment-meta {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-.comment-meta span { color: var(--orange); }
-.comment-block label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--navy);
-  margin: 12px 0 6px;
-}
-.comment-block textarea,
-.comment-block input {
-  width: 100%;
-  border: 2px solid var(--border);
-  border-radius: 4px;
-  padding: 14px 16px;
-  font-family: inherit;
-  font-size: 14px;
-  background: var(--off);
-  outline: none;
-  transition: border 0.2s, background 0.2s;
-}
-.comment-block textarea:focus,
-.comment-block input:focus {
-  border-color: var(--orange);
-  background: white;
-}
-.comment-block textarea { min-height: 120px; resize: vertical; }
-
-/* ── SIDEBAR ── */
-.sidebar {
-  position: sticky;
-  top: 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-/* Widgets fidèles à locationcourteduree.fr (Elementor Poppins) */
-.widget {
-  border-radius: 12px;
-  padding: 14% 8% 8%;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  font-family: 'Poppins', sans-serif;
-  animation: fadeInDown 0.8s var(--ease-out) both;
-  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-}
-.widget:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(15,27,51,0.18); }
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Variantes de fonds — couleurs réelles du site */
-.widget.w-sousloc { background: linear-gradient(180deg, #182745 0%, #2F62AC 100%); color: white; }
-.widget.w-yt      { background: #FF0000; color: white; }
-.widget.w-conc    { background: linear-gradient(180deg, #2F62AC 0%, #182745 100%); color: white; }
-.widget.w-lmnp    { background: linear-gradient(180deg, #4478F2 0%, #2F62AC 100%); color: white; }
-.widget.w-skool   { background: linear-gradient(180deg, #2F62AC 0%, #182745 100%); color: white; position: relative; }
-.widget.w-skool::before {
-  content: ""; position: absolute; inset: 0;
-  background: rgba(0,0,0,0.18); pointer-events: none;
-}
-.widget.w-skool > * { position: relative; z-index: 1; }
-
-/* Image / illustration */
-.widget-img {
-  width: 82%;
-  max-width: 220px;
-  height: auto;
-  margin: 0 auto 18px;
-  display: block;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
-  transition: transform 0.4s var(--ease);
-}
-.widget:hover .widget-img { transform: scale(1.04); }
-.widget.w-yt .widget-img { width: 69%; }
-
-/* Titres et textes — Poppins */
-.widget-eyebrow {
-  font-family: 'Poppins', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  margin-bottom: 8px;
-  color: var(--orange);
-  line-height: 1.2;
-}
-.widget.w-sousloc .widget-eyebrow,
-.widget.w-conc .widget-eyebrow { color: var(--orange); }
-.widget.w-yt .widget-eyebrow { color: white; font-size: 22px; }
-.widget.w-lmnp .widget-eyebrow { color: var(--orange); }
-.widget.w-skool .widget-eyebrow { color: var(--orange); font-size: 22px; }
-
-.widget h4 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  line-height: 1.25;
-  margin-bottom: 14px;
-  color: white;
-}
-.widget.w-skool h4 { font-size: 24px; }
-
-.widget p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  margin-bottom: 22px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.92);
-}
-
-/* CTA boutons */
-.widget-cta {
-  display: inline-block;
-  background: var(--orange);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 14px 26px;
-  border-radius: 3px;
-  text-decoration: none;
-  transition: all 0.25s var(--ease);
-}
-.widget-cta:hover {
-  text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-  background: #e0420a;
-}
-
-.widget.w-yt .widget-cta { background: white; color: #FF0000; font-weight: 800; }
-.widget.w-yt .widget-cta:hover { background: #182745; color: white; }
-
-.widget.w-skool .widget-cta { background: var(--orange); color: white; }
-
-/* YouTube logo bloc (legacy — gardé pour compat) */
-.widget-yt-old {
-  background: linear-gradient(180deg, #FF1F2D 0%, #c81522 100%);
-}
-.widget-yt-old .yt-logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: white;
-  letter-spacing: -0.04em;
-  margin-bottom: 14px;
-  display: inline-block;
-  background: rgba(0,0,0,0.15);
-  padding: 8px 16px;
-  border-radius: 50px;
-}
-
-/* ── REVEAL ── */
-.reveal { opacity:0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
-.reveal.in { opacity:1; transform: translateY(0); }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--navy);
-  color: white;
-  padding: 50px 40px;
-  text-align: center;
-}
-.footer-logo { font-weight: 800; font-size: 18px; margin-bottom: 8px; }
-.footer-logo span { color: var(--orange); }
-footer p { font-size: 12px; color: rgba(255,255,255,0.45); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1100px) {
-  .layout { grid-template-columns: 1fr; }
-  .sidebar { position: static; }
-  .nav-menu { display: none; }
-}
-@media (max-width: 760px) {
-  .topbar { flex-direction: column; gap: 12px; padding: 14px 20px; }
-  .topbar-links { flex-wrap: wrap; justify-content: center; }
-  nav { padding: 14px 20px; flex-wrap: wrap; }
-  .page-wrap { padding: 24px 16px 60px; }
-  .hero-block { padding: 36px 24px; border-radius: 12px; }
-  .article { padding: 32px 22px; }
-  .models-row { grid-template-columns: 1fr; }
-  .comp-row, .pc-row, .feat-grid { grid-template-columns: 1fr; }
-  .tool-card { grid-template-columns: 1fr; text-align: center; }
-  .tool-logo { margin: 0 auto; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #2a3548;
+    background: #ffffff;
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
   }
-}
+  .container { max-width: 760px; margin: 0 auto; padding: 60px 24px; }
+  .date-modif {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  h1 {
+    color: #FF5101;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.15;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+  }
+  h2 {
+    color: #FF5101;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-top: 56px;
+    margin-bottom: 28px;
+    letter-spacing: -0.3px;
+  }
+  h3 {
+    color: #182745;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.3;
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+  p { margin-bottom: 20px; }
+  a { color: #FF5101; font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { font-weight: 700; color: #182745; }
+  .video-placeholder {
+    background: #f0ede8;
+    border-radius: 12px;
+    padding: 80px 20px;
+    text-align: center;
+    color: #6b7280;
+    margin: 32px 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  .visual-placeholder {
+    background: linear-gradient(135deg, #f7f5f2, #f0ede8);
+    border: 2px dashed #FF5101;
+    border-radius: 16px;
+    padding: 48px 24px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .visual-placeholder .label {
+    color: #FF5101;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .visual-placeholder .title {
+    color: #182745;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .visual-placeholder .desc {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: 30px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 19px; }
+    body { font-size: 16px; }
+    .container { padding: 32px 16px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="scroll-progress" id="scrollProgress"></div>
+<div class="container">
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-links">
-    <a href="https://lesousloueur.fr" target="_blank">lesousloueur.fr</a>
-    <a href="https://locationcourteduree.fr" target="_blank">locationcourteduree.fr</a>
-    <a href="#">Skool</a>
-  </div>
-  <a href="#" class="topbar-cta">Télécharger mon guide de la sous-location ⬇</a>
+<p class="date-modif">Dernière modification : 11 mai 2026 - mis à jour suite aux décisions judiciaires 2025 sur la loi Hoguet et aux nouvelles attentes des conciergeries professionnelles.</p>
+
+<h1>Meilleur Channel Manager 2026 : le comparatif honnête des 3 outils pour votre conciergerie</h1>
+
+<p>Choisir le meilleur channel manager en 2026 n'a plus rien à voir avec ce qu'on faisait il y a deux ans. Les attentes des conciergeries ont évolué, les écarts de prix sont devenus considérables, et surtout, la loi Hoguet est venue rebattre les cartes du marché français.</p>
+
+<p>En 2025, plusieurs conciergeries ont été condamnées par les tribunaux pour exercice illégal de la gestion immobilière. Le motif principal : leur channel manager ne permettait pas de prouver que le propriétaire restait décisionnaire. Un détail technique qui peut désormais coûter votre entreprise.</p>
+
+<p>Cet article est le résumé de l'un de mes lives quotidiens sur la <a href="#">communauté Skool</a>, où j'analyse chaque matin l'actualité et les stratégies business de la <a href="#">location courte durée</a>.</p>
+
+<p>Vous allez découvrir les trois channel managers que je recommande vraiment pour 2026, leurs forces réelles, leurs limites cachées, et surtout, lequel correspond à votre situation. Sans langue de bois, et avec les critères qui comptent en France aujourd'hui.</p>
+
+<div class="video-placeholder">[ Vidéo YouTube à intégrer ici ]</div>
+
+<h2>Pourquoi le choix du channel manager est devenu critique en 2026</h2>
+
+<h3>Les nouvelles attentes des conciergeries professionnelles</h3>
+
+<p>Le marché de la location courte durée s'est professionnalisé. Les conciergeries qui réussissent aujourd'hui ne se contentent plus d'un outil qui synchronise vaguement les calendriers. Elles cherchent un véritable poste de pilotage.</p>
+
+<p>Les exigences sont devenues précises. D'abord, la synchronisation doit être en temps réel pour éviter les doubles réservations qui ruinent votre réputation. Ensuite, la gestion multi-propriétaires doit être native, pas bricolée. La prise en main doit aussi être rapide, sans formation de plusieurs semaines.</p>
+
+<p>L'automatisation des messages a également pris une dimension nouvelle. Là où on programmait des messages automatiques il y a deux ans, on attend désormais une intelligence artificielle qui répond comme un humain. Et bien sûr, le prix doit être justifié, pas opaque.</p>
+
+<p>Enfin, le support technique reste un point critique. Quand vous avez une synchronisation qui plante un vendredi soir, vous ne pouvez pas attendre 72 heures qu'un support en anglais vous réponde.</p>
+
+<h3>L'enjeu juridique caché derrière votre outil</h3>
+
+<p>Voici le point que 90 % des conciergeries ignorent encore. Votre channel manager n'est plus seulement un outil technique. Il est devenu une pièce centrale de votre conformité juridique.</p>
+
+<p>En janvier 2025, le tribunal de Tours a rendu une décision qui crée jurisprudence. Une conciergerie Airbnb a été condamnée à rembourser l'intégralité de ses honoraires sur trois ans. Le motif : exercice illégal de la gestion immobilière au sens de la loi Hoguet.</p>
+
+<p>Ce que le juge a regardé, ce n'est pas le contrat signé avec le propriétaire. C'est le mode opérationnel. Concrètement : qui fixe les prix dans l'outil, qui valide les disponibilités, qui prend les décisions au quotidien. Si c'est vous, vous êtes hors la loi.</p>
+
+<p>Votre channel manager doit donc pouvoir prouver, avec des logs horodatés, que le propriétaire reste le donneur d'ordre. Pour aller plus loin sur ce point précis, j'ai détaillé l'ensemble du sujet dans mon article complet sur la <a href="https://www.locationcourteduree.fr/2026/04/30/loi-hoguet-conciergerie/">loi Hoguet et la conciergerie</a>.</p>
+
+<div class="visual-placeholder">
+  <div class="label">Visuel #1</div>
+  <div class="title">Grille 3 colonnes</div>
+  <div class="desc">Les 3 channel managers en un coup d'œil (Beds24 / Hostaway / Guestlucky)</div>
 </div>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="logo">
-    <div class="logo-mark"></div>
-    <div class="logo-text">
-      <strong>location</strong>
-      <span class="small">courte durée.fr</span>
-    </div>
-  </div>
-  <div class="nav-menu">
-    <a href="#">Blog Immobilier <span class="chevron"></span></a>
-    <a href="#">Ressources gratuites <span class="chevron"></span></a>
-    <a href="#">Nos formations</a>
-    <a href="#">A propos</a>
-  </div>
-  <div class="social-icons">
-    <a href="#" class="yt" aria-label="YouTube">▶</a>
-    <a href="#" class="fb" aria-label="Facebook">f</a>
-    <a href="#" class="ig" aria-label="Instagram">◉</a>
-  </div>
-</nav>
+<h2>Beds24, le moteur technique le plus puissant du marché</h2>
 
-<!-- PAGE -->
-<div class="page-wrap">
-  <div class="layout">
+<h3>Pour qui Beds24 est-il vraiment fait ?</h3>
 
-    <!-- MAIN COLUMN -->
-    <main>
+<p>Beds24 est une infrastructure développée en Allemagne, à l'origine pensée pour les hôtels. C'est probablement la plateforme la plus fiable techniquement aujourd'hui, et celle qui dispose des fonctionnalités les plus poussées via son API ouverte.</p>
 
-      <!-- HERO BLOCK -->
-      <p class="crumb"><a href="#">Accueil</a> » Channel Manager Airbnb : le guide complet pour automatiser vos locations en 2026</p>
+<p>Mais il faut être lucide. Beds24 n'est pas une interface clé en main pour une conciergerie qui démarre. C'est une brique technologique, un moteur brut sur lequel vous devez construire. Sans profil technique ou sans accompagnement, vous allez galérer pendant les premières semaines.</p>
 
-      <div class="hero-block">
-        <h1>Channel Manager Airbnb : le guide complet pour automatiser vos locations en 2026</h1>
-      </div>
+<p>C'est pour cette raison que beaucoup de conciergeries arrivent sur Beds24 dans un second temps. Elles commencent avec un outil plus accessible, puis migrent vers Beds24 pour optimiser leurs coûts une fois leur volume installé.</p>
 
-      <div class="hero-meta">
-        <div class="share">
-          <span class="share-label">PARTAGER</span>
-          <a href="#" class="share-btn wa" aria-label="WhatsApp">⌬</a>
-          <a href="#" class="share-btn em" aria-label="Email">✉</a>
-          <a href="#" class="share-btn li" aria-label="LinkedIn">in</a>
-        </div>
-      </div>
+<h3>Les vrais points forts de Beds24</h3>
 
-      <p class="last-update">Dernière modification : 10 mai 2026 — mis à jour pour intégrer les nouveaux acteurs du marché 2026, dont GuestLucky, et les pratiques d'automatisation des conciergeries Airbnb.</p>
+<p>D'abord, la synchronisation est quasi instantanée. Beds24 est partenaire officiel de Booking, Airbnb et Vrbo, avec les labels qui prouvent leur fiabilité. C'est un argument lourd pour les conciergeries qui multiplient les plateformes.</p>
 
-      <!-- ARTICLE -->
-      <article class="article">
+<p>Ensuite, les tarifs sont parmi les plus bas du marché. Pour des conciergeries avec un volume important, l'économie réalisée par rapport à des concurrents peut représenter plusieurs milliers d'euros par an.</p>
 
-        <h2>Channel Manager Airbnb : pourquoi c'est devenu indispensable en 2026</h2>
+<p>L'API ouverte permet également des intégrations no-code et des automatisations avancées. Vous pouvez connecter Beds24 à pratiquement n'importe quel outil de votre stack. <strong>Pas d'engagement, pas de setup fees</strong>, multi-propriétaires et multi-rooms gérés nativement. Et un outil mature, stable, qui existe depuis plus de dix ans.</p>
 
-        <h3>Le problème que tout sous-loueur et conciergerie rencontre</h3>
-        <p>Dès que vous gérez plus d'<strong>un seul logement</strong> en location courte durée, le quotidien devient ingérable. Airbnb d'un côté, Booking de l'autre, parfois Vrbo ou Abritel, et au milieu un calendrier qui ne tient pas la route. Une réservation tombe sur Airbnb, vous oubliez de la bloquer sur Booking, et bingo : <strong>double réservation</strong>, voyageur en colère, avis catastrophique, plateforme qui sanctionne.</p>
+<h3>Les limites à connaître avant de se lancer</h3>
 
-        <p>Le channel manager, c'est l'outil qui résout ce problème en <strong>synchronisant en temps réel toutes vos plateformes</strong>. Une seule interface, un seul calendrier, un seul tableau de bord. Et surtout : zéro double-booking.</p>
+<p>L'interface est complexe, et même si elle est traduite en français, elle reste pensée pour un public anglophone. Le paramétrage initial est très long, avec de nombreux pièges qui peuvent vous mettre dans des situations délicates.</p>
 
-        <p>Cet article est le résumé de l'un de mes <a href="#">lives quotidiens sur la communauté Skool</a>, où j'analyse chaque matin l'actualité et les stratégies business de la <a href="#">location courte durée</a>.</p>
+<p>Le support est uniquement en anglais. La messagerie IA reste basique et nécessite des outils externes connectés via no-code. Il n'y a pas non plus de véritable application mobile, ce qui complique la gestion en déplacement.</p>
 
-        <h3>Ce que vous allez apprendre dans ce guide</h3>
-        <p>Dans ce guide, je vais vous expliquer exactement <strong>ce qu'est un channel manager</strong>, comment il fonctionne, à partir de combien de logements il devient rentable, comment choisir le bon outil en 2026, et pourquoi <strong>GuestLucky</strong> s'impose comme l'une des solutions les plus pertinentes pour les sous-loueurs et conciergeries françaises.</p>
+<p>Enfin, et c'est le point critique pour le marché français, Beds24 ne propose pas de module de gouvernance natif pour répondre à la loi Hoguet. Vous devrez donc bricoler une solution externe, ce qui est rarement satisfaisant en cas de contrôle.</p>
 
-        <!-- 3 MODELS CARDS -->
-        <div class="models-row">
-          <div class="model-card l1">
-            <div class="model-num">01</div>
-            <div class="model-tag">Sans channel manager</div>
-            <h4>Gestion manuelle</h4>
-            <p>Vous synchronisez à la main entre Airbnb, Booking et autres. Risque élevé de double réservation dès 2 logements.</p>
-            <span class="pill warn">Risque élevé en 2026</span>
-          </div>
-          <div class="model-card l2">
-            <div class="model-num">02</div>
-            <div class="model-tag">Channel manager basique</div>
-            <h4>Synchronisation des calendriers</h4>
-            <p>Le calendrier est unifié, les disponibilités se mettent à jour automatiquement. Adapté de 2 à 5 logements.</p>
-            <span class="pill dark">Recommandé dès 2 logements</span>
-          </div>
-          <div class="model-card l3">
-            <div class="model-num">03</div>
-            <div class="model-tag">Channel manager + PMS</div>
-            <h4>Automatisation complète</h4>
-            <p>Calendrier + tarification dynamique + messagerie + check-in. La stack complète des conciergeries qui scalent.</p>
-            <span class="pill success">Idéal scaling</span>
-          </div>
-        </div>
+<h2>Hostaway, la Rolls-Royce des conciergeries établies</h2>
 
-        <h2>Channel Manager Airbnb : comment ça marche concrètement</h2>
+<h3>À partir de combien de logements Hostaway devient pertinent ?</h3>
 
-        <h3>Le principe du hub central</h3>
-        <p>Un channel manager fonctionne comme un <strong>hub central</strong> entre toutes vos plateformes. Vous renseignez vos disponibilités, vos tarifs et vos descriptions une seule fois dans le channel manager, et il diffuse ces informations sur toutes les OTAs (Online Travel Agencies) en simultané.</p>
+<p>Hostaway est aujourd'hui le leader mondial du PMS pour conciergeries professionnelles. C'est l'outil le plus complet du marché, sans aucun doute. Mais il a un coût, et ce coût ne se justifie qu'à partir d'un certain volume.</p>
 
-        <p>Inversement, dès qu'une réservation tombe sur l'une des plateformes, le channel manager bloque automatiquement les dates correspondantes sur toutes les autres. C'est ce qui permet d'éviter les doublons et de garder un calendrier toujours à jour.</p>
+<p>Mon conseil concret : Hostaway devient vraiment intéressant entre 10 et 500 logements, avec un sweet spot au-delà de 100 logements. C'est à partir de ce volume que vous pouvez négocier des prix attractifs et amortir le setup obligatoire.</p>
 
-        <!-- ILLUSTRATION HUB -->
-        <div class="illu-block">
-          <div class="illu-block-title">SCHÉMA — LE FONCTIONNEMENT EN HUB</div>
-          <svg class="hub-svg" viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg">
-            <!-- Lignes de connexion -->
-            <line x1="270" y1="160" x2="100" y2="60" stroke="#FF500D" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
-            <line x1="270" y1="160" x2="440" y2="60" stroke="#FF500D" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
-            <line x1="270" y1="160" x2="100" y2="260" stroke="#FF500D" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
-            <line x1="270" y1="160" x2="440" y2="260" stroke="#FF500D" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
+<h3>Les fonctionnalités qui justifient le prix</h3>
 
-            <!-- Plateformes -->
-            <g>
-              <rect x="40" y="30" width="120" height="60" rx="10" fill="#FF5A5F"/>
-              <text x="100" y="66" text-anchor="middle" fill="white" font-family="Montserrat" font-size="13" font-weight="800">Airbnb</text>
-            </g>
-            <g>
-              <rect x="380" y="30" width="120" height="60" rx="10" fill="#003580"/>
-              <text x="440" y="66" text-anchor="middle" fill="white" font-family="Montserrat" font-size="13" font-weight="800">Booking</text>
-            </g>
-            <g>
-              <rect x="40" y="230" width="120" height="60" rx="10" fill="#3D67FF"/>
-              <text x="100" y="266" text-anchor="middle" fill="white" font-family="Montserrat" font-size="13" font-weight="800">Vrbo</text>
-            </g>
-            <g>
-              <rect x="380" y="230" width="120" height="60" rx="10" fill="#1A1A1A"/>
-              <text x="440" y="266" text-anchor="middle" fill="white" font-family="Montserrat" font-size="13" font-weight="800">Abritel</text>
-            </g>
+<p>Si Beds24 est un moteur V8 brut, Hostaway est une voiture de sport complète avec GPS, climatisation et assistance au freinage. Tout est intégré, pensé, finalisé.</p>
 
-            <!-- Hub central -->
-            <circle cx="270" cy="160" r="60" fill="#182745"/>
-            <circle cx="270" cy="160" r="60" fill="none" stroke="#FF500D" stroke-width="3" stroke-dasharray="6 6">
-              <animateTransform attributeName="transform" type="rotate" from="0 270 160" to="360 270 160" dur="20s" repeatCount="indefinite"/>
-            </circle>
-            <text x="270" y="155" text-anchor="middle" fill="white" font-family="Montserrat" font-size="11" font-weight="800">CHANNEL</text>
-            <text x="270" y="172" text-anchor="middle" fill="#FF500D" font-family="Montserrat" font-size="11" font-weight="800">MANAGER</text>
-          </svg>
-        </div>
+<p>Vous avez un véritable portail propriétaire natif, contrairement à Beds24 où il faut bricoler avec des sous-comptes. L'intelligence artificielle pour les messages est intégrée d'origine. Le reporting financier est complet, l'application mobile est aboutie, et l'expérience utilisateur reste premium du début à la fin.</p>
 
-        <h3>Les données synchronisées en temps réel</h3>
-        <p>Concrètement, voici ce qui circule entre votre channel manager et les plateformes :</p>
-        <ul>
-          <li><strong>Les disponibilités</strong> : dès qu'une nuitée est réservée, elle est bloquée partout</li>
-          <li><strong>Les tarifs</strong> : vous changez un prix une fois, il se met à jour sur tous les canaux</li>
-          <li><strong>Les descriptions et photos</strong> : l'annonce reste cohérente entre les plateformes</li>
-          <li><strong>Les restrictions</strong> : durée minimum de séjour, fenêtre de réservation, etc.</li>
-          <li><strong>Les réservations entrantes</strong> : centralisées dans une seule boîte de réception</li>
-        </ul>
+<p>Pour une conciergerie qui gère des dizaines de propriétaires exigeants, ce niveau de finition fait la différence. Vos clients voient un outil professionnel quand ils se connectent à leur portail, ce qui renforce votre crédibilité au quotidien.</p>
 
-        <!-- VIDEO BLOCK -->
-        <div class="video-block">
-          <div class="video-eyebrow">Vidéo explicative — Channel Manager</div>
-          <h3>Comprendre en pratique le rôle du channel manager</h3>
-          <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/4idva4bdPZQ" title="Channel Manager — Explication" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-          <p class="video-caption">Dans cette vidéo, on voit concrètement comment un channel manager s'intègre dans le quotidien d'une conciergerie ou d'un sous-loueur. À regarder avant de choisir votre solution.</p>
-        </div>
+<h3>Les inconvénients à anticiper</h3>
 
-        <h2>Channel Manager Airbnb : à partir de combien de logements c'est rentable</h2>
+<p>Premier point : la grille tarifaire n'est pas publique. Les prix se négocient sur devis, entre 15 et 40 euros par annonce environ. Pas de transparence, ce qui complique la prise de décision rapide pour une conciergerie qui hésite.</p>
 
-        <h3>Le seuil de bascule</h3>
-        <p>La vraie question n'est pas <em>« quel channel manager prendre »</em>, c'est <em>« à partir de quand en ai-je besoin »</em>. Voici la règle simple que j'applique avec mes membres :</p>
+<p>Ensuite, le setup est obligatoire entre 500 et 1000 euros. L'engagement minimum est de 12 mois, avec une logique de réduction si vous vous engagez plus longtemps. Pour une conciergerie qui se lance, c'est un saut financier qui n'a pas toujours de sens.</p>
 
-        <!-- COMPARISON CARDS -->
-        <div class="comp-row">
-          <div class="comp-card dark">
-            <div class="comp-tag">1 LOGEMENT</div>
-            <h4>Pas indispensable</h4>
-            <p>Avec un seul bien, la synchronisation manuelle reste gérable. Vous pouvez vous limiter à Airbnb seul ou utiliser les iCal natifs entre 2 plateformes.</p>
-            <div class="comp-stat">0€<span>/mois nécessaire</span></div>
-          </div>
-          <div class="comp-card light">
-            <div class="comp-tag">DÈS 2 LOGEMENTS</div>
-            <h4>Indispensable</h4>
-            <p>Le risque de double-booking devient mathématiquement trop élevé. Le channel manager se rentabilise dès la première réservation sauvée.</p>
-            <div class="comp-stat">15-50€<span>/mois/logement</span></div>
-          </div>
-        </div>
+<p>L'interface reste complexe et principalement pensée pour un usage international, donc orientée anglais. Mais le vrai problème, pour le marché français, c'est <strong>l'absence totale de traçabilité au sens de la loi Hoguet</strong>. Hostaway ne connaît pas cette problématique spécifique, et donc n'y répond pas.</p>
 
-        <h3>Le calcul de rentabilité réel</h3>
-        <p>Un seul double-booking sur Airbnb, c'est en moyenne <strong>une nuitée perdue, des frais de relogement à votre charge, et un avis négatif</strong> qui plombe votre référencement pendant des mois. Sur un appartement parisien à 120€/nuit, on parle facilement de <strong>500 à 1 200 euros de perte directe</strong> sur un seul incident.</p>
-
-        <p>Un channel manager à 25 euros/mois par logement, c'est donc rentabilisé en moins d'un mois dès qu'il évite un seul incident sur l'année.</p>
-
-        <h2>Les fonctionnalités essentielles d'un bon channel manager en 2026</h2>
-
-        <p>Tous les channel managers ne se valent pas. Voici les fonctionnalités à exiger absolument en 2026 :</p>
-
-        <!-- FEATURES GRID -->
-        <div class="feat-grid">
-          <div class="feat">
-            <div class="feat-ic">⟳</div>
-            <div>
-              <h5>Synchronisation temps réel</h5>
-              <p>Pas de délai de quelques minutes : la mise à jour doit être instantanée pour éviter les doublons.</p>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-ic">€</div>
-            <div>
-              <h5>Tarification dynamique intégrée</h5>
-              <p>Variation automatique des prix selon la demande, les événements locaux et la saisonnalité.</p>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-ic">✉</div>
-            <div>
-              <h5>Messagerie unifiée</h5>
-              <p>Une seule boîte pour répondre aux voyageurs de toutes les plateformes, avec réponses automatiques.</p>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-ic">🔑</div>
-            <div>
-              <h5>Check-in automatisé</h5>
-              <p>Envoi des codes d'accès, instructions et upsells au bon moment, sans intervention manuelle.</p>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-ic">📊</div>
-            <div>
-              <h5>Reporting consolidé</h5>
-              <p>CA, taux d'occupation, ADR par plateforme et par logement, en un seul tableau de bord.</p>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-ic">🌐</div>
-            <div>
-              <h5>Multi-OTA + site direct</h5>
-              <p>Connexion à Airbnb, Booking, Vrbo, Abritel, mais aussi à votre propre site de réservation directe.</p>
-            </div>
-          </div>
-        </div>
-
-        <h2>GuestLucky : la solution channel manager qui monte en 2026</h2>
-
-        <h3>Pourquoi GuestLucky se distingue</h3>
-        <p>Parmi les outils du marché, <strong>GuestLucky</strong> s'est imposé en 2026 comme l'une des solutions les plus complètes pour les conciergeries et sous-loueurs francophones. C'est un channel manager couplé à un PMS (Property Management System) qui couvre l'intégralité du parcours, de la réservation jusqu'au départ du voyageur.</p>
-
-        <!-- TOOL CARD GUESTLUCKY -->
-        <div class="tool-card">
-          <div class="tool-logo">GL</div>
-          <div class="tool-info">
-            <h4>GuestLucky</h4>
-            <p>Channel manager + PMS tout-en-un, conçu pour les conciergeries et sous-loueurs. Synchronisation Airbnb, Booking, Vrbo, automatisation messagerie et tarification dynamique intégrée.</p>
-          </div>
-          <a href="https://www.guestlucky.com/" target="_blank" class="tool-cta">Découvrir →</a>
-        </div>
-
-        <h3>Pros et contras de GuestLucky</h3>
-        <div class="pc-row">
-          <div class="pc-box pros">
-            <h5>Ce que j'aime</h5>
-            <ul>
-              <li>Interface en français pensée pour le marché FR</li>
-              <li>Synchronisation Airbnb / Booking / Vrbo en temps réel</li>
-              <li>Tarification dynamique native, pas un module à payer en plus</li>
-              <li>Messagerie unifiée avec scénarios automatisés</li>
-              <li>Onboarding et support réactif côté équipe</li>
-              <li>Tarif compétitif vs concurrents internationaux</li>
-            </ul>
-          </div>
-          <div class="pc-box cons">
-            <h5>Les limites à connaître</h5>
-            <ul>
-              <li>Moins d'intégrations exotiques que les leaders US (Hostfully, Hospitable)</li>
-              <li>Courbe d'apprentissage les premiers jours</li>
-              <li>Quelques options avancées encore en cours de déploiement</li>
-              <li>Pas (encore) d'app mobile native sur tous les OS</li>
-            </ul>
-          </div>
-        </div>
-
-        <h2>Comment mettre en place un channel manager : la méthode en 5 étapes</h2>
-
-        <p>Ne vous précipitez pas. Une mauvaise installation peut générer plus de problèmes qu'elle n'en résout. Voici la méthode que j'applique avec les membres de la communauté.</p>
-
-        <!-- STEPS -->
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div>
-              <h5>Auditez vos annonces existantes</h5>
-              <p>Avant de connecter quoi que ce soit, harmonisez vos titres, descriptions, photos et règles de la maison. Le channel manager va répliquer ce qui existe : si c'est mal fait, il propagera vos défauts partout.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div>
-              <h5>Connectez d'abord Airbnb seul</h5>
-              <p>Faites passer une réservation test, vérifiez que tout remonte correctement dans le channel manager : dates, voyageur, message, paiement. Ne connectez pas tout en même temps.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div>
-              <h5>Ajoutez Booking ensuite</h5>
-              <p>Une fois Airbnb stable, branchez Booking. Vérifiez la synchronisation pendant 48 à 72 heures avant d'ajouter une troisième plateforme.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <div>
-              <h5>Configurez la tarification dynamique</h5>
-              <p>Définissez votre prix plancher et votre prix plafond. Laissez l'algorithme tourner deux semaines avant d'analyser les résultats. N'ajustez pas tous les jours.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">5</div>
-            <div>
-              <h5>Automatisez la messagerie</h5>
-              <p>Mettez en place les scénarios : message de bienvenue, instructions d'arrivée, message à mi-séjour, demande d'avis. C'est ce qui libère vraiment du temps au quotidien.</p>
-            </div>
-          </div>
-        </div>
-
-        <h2>Channel Manager Airbnb : combien ça coûte vraiment en 2026</h2>
-
-        <p>Les tarifs varient énormément selon le positionnement de l'éditeur et le nombre de logements connectés. Voici les fourchettes du marché français en 2026.</p>
-
-        <!-- PRICE TABLE -->
-        <div class="price-table">
-          <div class="price-table-title">FOURCHETTES DE PRIX 2026 — CHANNEL MANAGER</div>
-          <div class="price-row">
-            <span class="price-label">Channel manager basique (sync seule)</span>
-            <span class="price-val">8 à 15 € / logement / mois</span>
-          </div>
-          <div class="price-row">
-            <span class="price-label">Channel manager + messagerie</span>
-            <span class="price-val">15 à 25 € / logement / mois</span>
-          </div>
-          <div class="price-row">
-            <span class="price-label">Channel manager + PMS complet</span>
-            <span class="price-val">25 à 50 € / logement / mois</span>
-          </div>
-          <div class="price-row">
-            <span class="price-label">Solution premium (Hospitable, Guesty)</span>
-            <span class="price-val">40 à 80 € / logement / mois</span>
-          </div>
-          <div class="price-row">
-            <span class="price-label">Tarification dynamique (PriceLabs, Wheelhouse)</span>
-            <span class="price-val">+ 8 à 20 € / logement / mois</span>
-          </div>
-          <div class="price-row">
-            <span class="price-label">Frais de setup (one-shot)</span>
-            <span class="price-val">0 à 300 € selon outil</span>
-          </div>
-        </div>
-
-        <h3>Le calcul concret pour une conciergerie de 10 logements</h3>
-        <p>Pour une conciergerie qui gère <strong>10 logements</strong>, le coût mensuel d'une stack channel manager + PMS + tarification dynamique se situe en pratique entre <strong>250 et 600 euros par mois</strong>. C'est beaucoup ? Non, c'est rien à côté du temps gagné et des doubles-bookings évités. Une conciergerie qui ne s'équipe pas plafonne très vite à 5 ou 6 logements.</p>
-
-        <h2>Ce qu'il faut éviter quand on choisit son channel manager</h2>
-
-        <ul>
-          <li><strong>Choisir le moins cher sans tester</strong> : un channel manager mal foutu, c'est pire que pas de channel manager. Faites systématiquement la période d'essai.</li>
-          <li><strong>Connecter trop de plateformes d'un coup</strong> : c'est la garantie de bugs invisibles que vous ne détecterez qu'au moment d'une double réservation.</li>
-          <li><strong>Négliger la formation</strong> : prévoyez 5 à 10 heures pour vraiment maîtriser l'outil. Sinon vous n'utiliserez que 20% des fonctionnalités que vous payez.</li>
-          <li><strong>Confondre channel manager et PMS</strong> : le channel manager synchronise les calendriers. Le PMS gère tout le reste (clients, paiements, ménage, etc.). Vérifiez ce que vous achetez.</li>
-          <li><strong>Oublier la conformité RGPD</strong> : les données voyageurs transitent par l'outil. Hébergement européen et clauses RGPD claires sont non-négociables.</li>
-        </ul>
-
-        <!-- NEXT STEP -->
-        <div class="next-step">
-          <h3>Votre prochaine étape</h3>
-          <p>Si vous voulez structurer votre activité de conciergerie ou de sous-location avec les bons outils dès le départ, <strong>inscrivez-vous à notre prochaine web conférence en ligne sur l'automatisation</strong>. On y détaille la stack complète, le choix du channel manager et l'optimisation tarifaire pour 2026. <a href="#">Réservez votre place ici</a>.</p>
-          <p>Pour aller plus loin au quotidien, <a href="#">rejoignez la communauté Skool</a> où nous partageons chaque jour des stratégies opérationnelles avec <strong>plus de 3 000 membres actifs</strong> dans le domaine de la location courte durée et de la conciergerie.</p>
-        </div>
-
-        <!-- FAQ -->
-        <div class="faq-block">
-          <div class="faq-item">
-            <div class="faq-q">Qu'est-ce qu'un channel manager Airbnb exactement ?<span class="faq-chev"></span></div>
-            <div class="faq-a">Un channel manager est un logiciel qui synchronise en temps réel les calendriers, tarifs et disponibilités de votre logement entre toutes les plateformes de réservation (Airbnb, Booking, Vrbo, Abritel, site direct). Il évite les doubles-bookings et centralise la gestion dans une seule interface.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">À partir de combien de logements faut-il un channel manager ?<span class="faq-chev"></span></div>
-            <div class="faq-a">Dès deux logements ou dès que vous diffusez sur deux plateformes ou plus. En dessous, l'iCal natif d'Airbnb peut suffire. Au-delà, le risque de double-booking devient trop important pour être géré manuellement.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Quelle est la différence entre un channel manager et un PMS ?<span class="faq-chev"></span></div>
-            <div class="faq-a">Le channel manager synchronise vos canaux de distribution. Le PMS (Property Management System) gère l'opérationnel : voyageurs, paiements, ménage, maintenance, reporting. Beaucoup d'outils en 2026 cumulent les deux fonctions, mais ce sont historiquement deux briques distinctes.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">GuestLucky est-il adapté à une petite conciergerie débutante ?<span class="faq-chev"></span></div>
-            <div class="faq-a">Oui, c'est même un de ses points forts. GuestLucky propose un onboarding accompagné et une interface en français pensée pour les petites structures. La courbe d'apprentissage est raisonnable et le support est réactif, ce qui en fait un bon choix dès le premier ou deuxième logement.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Le channel manager remplace-t-il vraiment la gestion humaine ?<span class="faq-chev"></span></div>
-            <div class="faq-a">Non, et c'est important de le comprendre. Le channel manager automatise les tâches répétitives, mais la qualité de service, la relation propriétaire et la gestion des incidents restent humaines. L'outil amplifie ce que vous faites bien, il ne remplace pas une organisation solide.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Peut-on changer de channel manager facilement après quelques mois ?<span class="faq-chev"></span></div>
-            <div class="faq-a">Techniquement oui, mais ce n'est jamais agréable. La migration demande de reparamétrer chaque annonce, refaire les connexions API avec chaque plateforme, et reconfigurer les automatisations. Comptez deux à quatre semaines de travail. D'où l'importance de bien choisir dès le départ.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Faut-il prendre la tarification dynamique avec son channel manager ?<span class="faq-chev"></span></div>
-            <div class="faq-a">Si elle est intégrée nativement comme dans GuestLucky, oui, c'est presque toujours rentable. Si elle vient d'un éditeur tiers (PriceLabs, Wheelhouse), commencez par maîtriser le channel manager seul pendant un mois, puis ajoutez la tarification dynamique. Ne lancez pas tout d'un coup.</div>
-          </div>
-        </div>
-
-        <!-- COMMENT FORM -->
-        <div class="comment-block">
-          <h3>Laisser un commentaire</h3>
-          <p class="comment-meta">Votre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués avec <span>*</span></p>
-          <label>Commentaire *</label>
-          <textarea placeholder="Votre message…"></textarea>
-        </div>
-
-      </article>
-    </main>
-
-    <!-- SIDEBAR — vrais widgets locationcourteduree.fr -->
-    <aside class="sidebar">
-
-      <!-- Widget 1 — Sous-Location -->
-      <div class="widget w-sousloc">
-        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/04.png" alt="Sous-Location" loading="lazy">
-        <div class="widget-eyebrow">SOUS-LOCATION</div>
-        <h4>UNE FORMATION<br>DE 4 VIDÉOS OFFERTE</h4>
-        <p>Percevoir des loyers immobiliers sans être propriétaire, sans crédit bancaire et en toute légalité ?</p>
-        <a href="#" class="widget-cta">Recevoir ma formation gratuite</a>
-      </div>
-
-      <!-- Widget 2 — YouTube -->
-      <div class="widget w-yt">
-        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/kindpng_197750.png" alt="YouTube" loading="lazy">
-        <h4>NOUS SUIVRE SUR YOUTUBE</h4>
-        <p>DU CONTENU EXCLUSIF<br>1 FOIS / SEMAINE</p>
-        <a href="https://www.youtube.com/c/S%C3%A9bastienMORE-business/videos?sub_confirmation=1" target="_blank" rel="noopener" class="widget-cta">Je m'abonne</a>
-      </div>
-
-      <!-- Widget 3 — Conciergerie Airbnb -->
-      <div class="widget w-conc">
-        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/03.png" alt="Conciergerie Airbnb" loading="lazy">
-        <div class="widget-eyebrow">CONCIERGERIE AIRBNB</div>
-        <h4>1H DE FORMATION GRATUITE</h4>
-        <p>Créer votre société de conciergerie airbnb grâce à cette formation offerte.</p>
-        <a href="#" class="widget-cta">Recevoir ma formation gratuite</a>
-      </div>
-
-      <!-- Widget 4 — Déclaration LMNP -->
-      <div class="widget w-lmnp">
-        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/Capture-decran-2025-12-27-a-15.23.53.png" alt="Déclaration LMNP" loading="lazy">
-        <h3 class="widget-eyebrow" style="color:#FF500D">Déclaration LMNP</h3>
-        <h4>Formation gratuite pour déclarer ses revenus en location meublée</h4>
-        <p>Comprenez comment déclarer vos revenus LMNP (micro-BIC ou régime réel),<br>évitez les erreurs fiscales courantes<br>et apprenez à gérer votre déclaration <strong>sans passer par un expert-comptable</strong>.</p>
-        <a href="https://www.declarationlmnp.fr/formation-gratuite-lmnp/" target="_blank" rel="noopener" class="widget-cta">Recevoir ma formation gratuite</a>
-      </div>
-
-      <!-- Widget 5 — Skool -->
-      <div class="widget w-skool">
-        <img class="widget-img" src="https://www.locationcourteduree.fr/wp-content/uploads/2020/11/Green-Tosca-Modern-Geometric-Web-Hosting-Service-Presentation-33.png" alt="Communauté Skool" loading="lazy">
-        <div class="widget-eyebrow">REJOIGNEZ LE GROUPE PRIVÉ SKOOL</div>
-        <h4>Lives interactifs tous les jours</h4>
-        <p>Questions–réponses en direct, analyse juridique des lois Airbnb, évolutions réglementaires, stratégies opérationnelles, optimisation business, et décryptage des tendances majeures de la location courte durée.</p>
-        <a href="https://www.skool.com/airbnb-business-academy" target="_blank" rel="noopener" class="widget-cta">Rejoindre la communauté</a>
-      </div>
-
-    </aside>
-
-  </div>
+<div class="visual-placeholder">
+  <div class="label">Visuel #2</div>
+  <div class="title">Comparatif 2 colonnes</div>
+  <div class="desc">Beds24 vs Hostaway : le duel des deux poids lourds</div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">location<span>.</span>courteduree.fr</div>
-  <p>© 2026 — Tous droits réservés</p>
-</footer>
+<h2>La loi Hoguet change la donne sur le choix de votre channel manager</h2>
 
-<script>
-/* Scroll progress */
-const sp = document.getElementById('scrollProgress');
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  sp.style.width = pct + '%';
-  nav.classList.toggle('scrolled', h.scrollTop > 4);
-}, { passive: true });
+<h3>Pourquoi votre outil doit prouver la gouvernance du propriétaire</h3>
 
-/* FAQ accordion */
-document.querySelectorAll('.faq-item').forEach(item => {
-  item.querySelector('.faq-q').addEventListener('click', () => {
-    const open = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!open) item.classList.add('open');
-  });
-});
+<p>Concrètement, voici ce que la loi Hoguet exige aujourd'hui d'une conciergerie. À partir du moment où vous gérez les prix d'un propriétaire, son calendrier, ses ouvertures, ses fermetures, son revenu management et ses incidents sans en référer systématiquement, vous êtes considéré comme un agent immobilier au sens de la loi.</p>
 
-/* Reveal */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.reveal, .models-row, .comp-row, .feat-grid, .video-block, .tool-card, .pc-row, .steps, .price-table, .illu-block, .next-step').forEach(el => {
-  el.classList.add('reveal');
-  io.observe(el);
-});
-</script>
+<p>Or, un agent immobilier doit posséder une carte G ou une carte T, un mandat de gestion, des garanties financières. Si vous n'avez rien de tout cela, et que la DGCCRF débarque, vous devrez prouver que vous n'êtes pas dans ce champ d'application. Sans preuve, vos contrats deviennent automatiquement nuls et vous devez rembourser toutes les sommes perçues.</p>
+
+<p>Votre channel manager devient alors votre meilleure preuve, ou votre pire ennemi. Soit il enregistre chaque décision du propriétaire avec un horodatage exploitable. Soit il vous laisse tout faire sans laisser de trace, et là vous êtes nu juridiquement.</p>
+
+<h3>Ce que la traçabilité change concrètement</h3>
+
+<p>Un outil conforme doit pouvoir démontrer plusieurs choses. D'abord, que le propriétaire fixe lui-même sa politique tarifaire, même s'il utilise des outils de revenu management comme PriceLabs ou Beyond Pricing. Ensuite, que les disponibilités sont validées par lui, pas par vous.</p>
+
+<p>L'horodatage de chaque action est central. En cas de contrôle, vous devez pouvoir extraire un historique complet : qui a fait quoi, à quel moment, sur quel logement. Cette exigence élimine d'office la quasi-totalité des channel managers internationaux qui n'ont pas été pensés pour la réglementation française.</p>
+
+<div class="visual-placeholder">
+  <div class="label">Visuel #3</div>
+  <div class="title">Timeline latérale numérotée</div>
+  <div class="desc">Les 4 piliers de conformité à exiger de votre channel manager</div>
+</div>
+
+<h2>Guestlucky, le channel manager pensé pour la conformité française</h2>
+
+<h3>La gouvernance native intégrée à l'outil</h3>
+
+<p>Je vais être direct avec vous. Guestlucky est un outil que j'ai développé. Il est jeune sur le marché, moins de deux ans d'existence. Mais c'est précisément cet outil qui répond aujourd'hui à la problématique de la loi Hoguet, et c'est le seul à le faire de manière native sur le marché français.</p>
+
+<p>Le module gouvernance s'active ou se désactive selon vos besoins. Quand il est actif, le mode opérationnel bascule : ce sont les décisions du propriétaire qui pilotent l'outil, plus les vôtres. Chaque validation est tracée, horodatée, exportable.</p>
+
+<p>Vous avez également un véritable espace propriétaire complet : dashboards, suivi en temps réel, logs, reportings, compte-rendus de gestion. Le propriétaire peut même prendre directement des décisions depuis son espace, ce qui matérialise sa gouvernance de manière incontestable.</p>
+
+<h3>Une tarification transparente et un support en français</h3>
+
+<p>Le prix est public et transparent : moins de 10 euros par annonce, tout inclus. Pas d'options à activer pour débloquer l'IA ou le portail propriétaire. Pas d'engagement. Un seul forfait, lisible.</p>
+
+<p>Le setup est accompagné par notre équipe en visio, pour moins de 100 euros. Concrètement, nous paramétrons l'outil avec vous, en français, avec un interlocuteur français. Aucune galère d'on-boarding en anglais à l'autre bout du monde.</p>
+
+<p>Le support est en français, en direct, sur WhatsApp. Vous nous écrivez, nous répondons dans la journée. Pas de tickets qui mettent 72 heures à être traités. Côté intégrations, nous sommes partenaires officiels PriceLabs pour le revenu management, et connectés avec Gemini, Claude et ChatGPT pour l'intelligence artificielle des messages.</p>
+
+<h3>Pour qui Guestlucky est-il le meilleur choix ?</h3>
+
+<p>Guestlucky est aujourd'hui orienté pour les conciergeries entre 0 et 100 logements. C'est l'outil idéal pour celles qui se lancent et veulent un démarrage propre, ou pour celles déjà installées qui ont compris l'enjeu loi Hoguet et veulent sécuriser leur activité.</p>
+
+<p>Pour être totalement transparent, au-delà de 100 logements, je recommande plutôt de regarder vers Beds24 ou Hostaway, qui sont mieux dimensionnés pour ces volumes. Chaque outil a sa cible naturelle, et il est plus honnête de le dire que de prétendre que Guestlucky convient à tous.</p>
+
+<div class="visual-placeholder">
+  <div class="label">Visuel #4</div>
+  <div class="title">Tableau de données récapitulatif</div>
+  <div class="desc">Comparatif final Beds24 / Hostaway / Guestlucky (prix, cible, engagement, conformité)</div>
+</div>
+
+<h2>Quel channel manager choisir selon votre situation en 2026</h2>
+
+<h3>Vous lancez votre conciergerie (0 à 30 logements)</h3>
+
+<p>Ma recommandation est claire : partez sur <strong>Guestlucky</strong>. Vous avez besoin d'un outil simple à prendre en main, sans engagement, à un prix prévisible. Vous avez surtout besoin d'un démarrage juridiquement propre, sans dette technique sur la conformité loi Hoguet.</p>
+
+<p>Démarrer avec Beds24 demande un profil technique que beaucoup n'ont pas. Démarrer avec Hostaway représente un investissement initial difficile à justifier quand vous avez deux ou trois logements. Si vous voulez approfondir la stratégie globale, j'ai aussi détaillé la marche à suivre pour <a href="#">créer une conciergerie en 2026</a> dans un autre article.</p>
+
+<h3>Vous êtes en croissance (30 à 100 logements)</h3>
+
+<p>À ce stade, vous avez deux options viables selon votre appétit technique. Si vous avez un profil tech, ou quelqu'un dans votre équipe qui peut administrer Beds24, vous pouvez basculer dessus pour optimiser vos coûts mensuels.</p>
+
+<p>Si vous préférez rester sur un outil simple, avec la conformité loi Hoguet intégrée, restez sur Guestlucky. La transition vers Beds24 reste possible plus tard, une fois vos process bien rodés.</p>
+
+<h3>Vous êtes une conciergerie établie (100+ logements)</h3>
+
+<p>À partir de 100 logements, le débat se joue entre Hostaway et Beds24. Hostaway offre la finition produit la plus aboutie, avec un portail propriétaire premium qui rassure vos clients exigeants. Beds24 offre une économie significative et une flexibilité technique maximale.</p>
+
+<p>Dans tous les cas, anticipez en parallèle votre plan de conformité loi Hoguet. Aucun de ces deux outils ne couvre nativement le sujet. Vous devrez le traiter par votre contrat, vos process, et probablement un outil tiers de traçabilité.</p>
+
+<h2>Votre prochaine étape</h2>
+
+<p>Si vous voulez aller plus loin sur le choix du bon channel manager et la sécurisation de votre activité face à la loi Hoguet, <strong>inscrivez-vous à notre prochaine web conférence en ligne sur la conciergerie</strong>. On y détaille les outils à choisir, les critères de conformité et le plan d'action concret. <a href="#">Réservez votre place ici</a>.</p>
+
+<p>Pour découvrir comment <strong>Guestlucky</strong> vous permet de prouver opérationnellement la conformité de votre activité grâce au module gouvernance, vous pouvez également consulter directement la plateforme. C'est l'outil que j'ai spécifiquement développé pour répondre à ce contexte juridique français.</p>
+
+<p>Pour aller plus loin au quotidien, <a href="#">rejoignez la communauté Skool</a> où nous partageons chaque jour des stratégies opérationnelles avec <strong>plus de 3000 membres actifs</strong> dans le domaine de la location courte durée et de la conciergerie.</p>
+
+<h2>Questions fréquentes sur le choix d'un channel manager en 2026</h2>
+
+<div class="visual-placeholder">
+  <div class="label">Visuel #5</div>
+  <div class="title">FAQ accordéon</div>
+  <div class="desc">6 questions clés sur le choix d'un channel manager</div>
+</div>
+
+</div>
 
 </body>
 </html>
