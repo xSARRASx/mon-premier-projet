@@ -1780,3 +1780,14 @@ a { color: inherit; text-decoration: none; }
     .webinar-date { width: 100%; padding: 1.25rem; }
     .webinar-promo-cta { width: 100%; justify-content: center; }
 }
+
+/* H3 inside FAQ button — keep visual identical to before */
+.faq-question .faq-question-text {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ink);
+    flex: 1;
+    text-align: left;
+    line-height: 1.4;
+}
