@@ -147,6 +147,23 @@
         });
     }
 
+    function initWebinarFloat() {
+        var card = document.querySelector("[data-webinar-float]");
+        if (!card) return;
+        var dismissed = null;
+        try { dismissed = localStorage.getItem("guestlucky_webinar_dismissed"); } catch (e) {}
+        if (!dismissed) {
+            setTimeout(function () { card.classList.add("show"); }, 1500);
+        }
+        var closeBtn = card.querySelector("[data-webinar-close]");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", function () {
+                card.classList.remove("show");
+                try { localStorage.setItem("guestlucky_webinar_dismissed", "1"); } catch (e) {}
+            });
+        }
+    }
+
     function initCookieBanner() {
         var banner = document.querySelector("[data-cookie-banner]");
         if (!banner) return;
@@ -171,6 +188,7 @@
         initCTAMenu();
         initMobileMenu();
         initCookieBanner();
+        initWebinarFloat();
         var yearEl = document.getElementById("year");
         if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
