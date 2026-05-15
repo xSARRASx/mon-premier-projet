@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuestLucky — Channel Manager & software for short-term rentals</title>
-    <meta name="description" content="GuestLucky: the all-in-one platform for property managers, sub-letters and real estate investors in short-term rentals. Channel Manager, AI messaging, cleaning schedules and more.">
+    <meta name="description" content="GuestLucky: the all-in-one platform for property managers, sub-letters and real estate investors in short-term rentals.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,295 +15,232 @@
 <header class="site-header">
     <div class="container header-inner">
         <a href="#top" class="brand">
-            <span class="brand-mark">G</span>
-            <span class="brand-name">guest<span>lucky</span></span>
+            <svg class="logo-svg" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="lg1" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#a48bff"/><stop offset="1" stop-color="#5b3fe8"/></linearGradient></defs>
+                <g transform="translate(2, 6)"><path d="M6 26 L26 6 L46 26 L46 50 Q46 52 44 52 L8 52 Q6 52 6 50 Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><rect x="18" y="28" width="16" height="16" rx="2" fill="none" stroke="#e91e8c" stroke-width="3"/><rect x="22" y="32" width="8" height="8" rx="1" fill="#e91e8c"/></g>
+                <text x="62" y="42" font-family="Inter,sans-serif" font-size="30" font-weight="800" fill="#fff">Guest</text>
+                <text x="152" y="42" font-family="Inter,sans-serif" font-size="30" font-weight="800" fill="url(#lg1)">lucky</text>
+            </svg>
         </a>
-
-        <button class="menu-toggle" data-menu-toggle aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-
-        <ul class="main-nav" data-main-nav>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#demo">Demo</a></li>
-            <li>
-                <button class="nav-button has-caret" data-dropdown-trigger>Contact</button>
-                <div class="dropdown" data-dropdown>
-                    <a href="mailto:contact@guestlucky.com">
-                        <span class="icn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </span>
-                        <span>contact@guestlucky.com</span>
-                    </a>
-                    <a href="https://wa.me/33759894430" target="_blank" rel="noopener">
-                        <span class="icn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-                        </span>
-                        <span>WhatsApp · +33 7 59 89 44 30</span>
-                    </a>
+        <button class="menu-toggle" data-menu-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+        <nav class="main-nav" data-main-nav>
+            <ul>
+                <li><a href="#top">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="lang-switch"><a href="index.html">FR</a><a href="en.html" class="active">EN</a></div>
+            <div class="cta-wrapper">
+                <button class="btn-cta" data-cta-toggle>Book a demo <span class="arrow">→</span></button>
+                <div class="cta-menu" data-cta-menu>
+                    <a href="https://wa.me/33759894430?text=Hi%2C%20I%27d%20like%20a%20GuestLucky%20demo" target="_blank" rel="noopener"><span class="ic wa"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></span><span><strong>WhatsApp</strong><small>+33 7 59 89 44 30</small></span></a>
+                    <a href="mailto:contact@guestlucky.com?subject=GuestLucky%20demo%20request"><span class="ic em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span><strong>Email</strong><small>contact@guestlucky.com</small></span></a>
                 </div>
-            </li>
-            <li>
-                <span class="lang-switch">
-                    <a href="index.html">FR</a>
-                    <a href="en.html" class="active">EN</a>
-                </span>
-            </li>
-            <li><a href="#demo" class="btn-cta">Book a demo →</a></li>
-        </ul>
+            </div>
+        </div>
     </div>
 </header>
 
 <main id="top">
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <span class="hero-badge"><span class="dot"></span> GuestLucky Channel Manager</span>
-            <h1><span class="accent">Channel Manager</span> and management software for short-term rentals</h1>
-            <p class="lead">The all-in-one platform designed for short-term rental pros: <strong>property managers, sub-letters and real estate investors</strong>.</p>
+<section class="hero">
+    <div class="blob-bg"><div class="blob a"></div><div class="blob b"></div><div class="blob c"></div></div>
+    <div class="container">
+        <span class="hero-badge"><span class="dot"></span> GuestLucky Channel Manager</span>
+        <h1><span class="accent">Channel Manager</span> and management software for short-term rentals</h1>
+        <p class="lead">The all-in-one platform for short-term rental pros: <strong>property managers, sub-letters and real estate investors</strong>.</p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn-cta">Book a free demo <span class="arrow">→</span></a>
+            <a href="#pricing" class="btn-secondary">See pricing</a>
+        </div>
+    </div>
+</section>
 
-            <div class="hero-pills">
-                <span class="hero-pill"><span class="check">✓</span> Channel Manager</span>
-                <span class="hero-pill"><span class="check">✓</span> AI guest messaging</span>
-                <span class="hero-pill"><span class="check">✓</span> Cleaning schedule</span>
-                <span class="hero-pill"><span class="check">✓</span> Owner portal</span>
-                <span class="hero-pill"><span class="check">✓</span> Digital welcome book</span>
-                <span class="hero-pill"><span class="check">✓</span> Deposits & services 0%</span>
-                <span class="hero-pill"><span class="check">✓</span> Inventory management</span>
+<section class="section" id="features">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-eyebrow"><span class="dot"></span> Features</span>
+            <h2>Everything you need <span class="accent">in one tool</span></h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+                <h3>Channel Manager</h3>
+                <p>Sync Airbnb, Booking, Abritel and other channels in real time. No more double bookings.</p>
             </div>
-
-            <div class="hero-actions">
-                <a href="#demo" class="btn-cta">Book a free demo →</a>
-                <a href="#pricing" class="btn-secondary">See pricing</a>
+            <div class="feature dark">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg></div>
+                <h3>AI messaging</h3>
+                <p>AI that answers your guests 24/7, in multiple languages, in your brand's tone.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <h3>Owner portal</h3>
+                <p>A dedicated space for owners: full transparency on bookings, revenue and statements.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FEATURES -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-eyebrow"><span class="dot"></span> Features</span>
-                <h2>Everything you need <span class="accent">in one tool</span></h2>
-                <p class="lead">GuestLucky brings together the full management of your short-term rental business, from multi-platform calendar sync to guest communication.</p>
+<section class="section" id="pricing">
+    <div class="container">
+        <div class="section-head">
+            <h2>Pricing plans</h2>
+            <p class="lead">Find the right plan. No commitment, no hidden fees.</p>
+        </div>
+
+        <div class="pricing-controls">
+            <div class="billing-toggle">
+                <span data-billing="monthly" class="active-label" style="cursor:pointer;">Monthly</span>
+                <span class="switch" data-switch role="button" tabindex="0"></span>
+                <span data-billing="annual" style="cursor:pointer;">Annual <small style="opacity:.7;font-weight:500;">(-20%)</small></span>
             </div>
-
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Channel Manager</h3>
-                    <p>Sync your Airbnb, Booking, Abritel and other listings in real time. Say goodbye to double bookings.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI messaging</h3>
-                    <p>An AI that replies to your guests 24/7, in multiple languages, matching the tone of your business.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🧹</div>
-                    <h3>Cleaning schedule</h3>
-                    <p>Automatically assign cleanings to your team based on check-outs, manage availability and track jobs live.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🏠</div>
-                    <h3>Owner portal</h3>
-                    <p>A dedicated space for your owners: full transparency on bookings, revenue and monthly statements.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📖</div>
-                    <h3>Digital welcome book</h3>
-                    <p>Create personalized welcome books your guests can access in one click — rules, codes and local tips.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💳</div>
-                    <h3>Deposits & services 0%</h3>
-                    <p>Collect deposits and sell add-on services with zero extra commission. Secure payments via Stripe.</p>
-                </div>
+            <div class="logements-counter">
+                <span class="label">Properties:</span>
+                <span class="counter-box">
+                    <button class="counter-btn" data-counter-dec>−</button>
+                    <span class="counter-value" data-counter-value>1</span>
+                    <button class="counter-btn" data-counter-inc>+</button>
+                </span>
             </div>
         </div>
-    </section>
 
-    <!-- PRICING -->
-    <section class="section" id="pricing">
-        <div class="container">
-            <div class="section-head">
-                <h2>Pricing plans</h2>
-                <p class="lead">Find the right plan for your business. No commitment, no hidden fees. Switch plans whenever you want.</p>
+        <div class="pricing-grid">
+            <div class="plan">
+                <div class="plan-name">Free</div>
+                <div class="plan-price">€0</div>
+                <div class="plan-unit"></div>
+                <div class="plan-tag">Perfect to try the tool</div>
+                <div class="plan-total" data-total="gratuit">Total: 0,00 €/month</div>
+                <ul class="plan-features">
+                    <li>Free ERP version</li>
+                    <li>iCal / ICS connection</li>
+                    <li>Up to 2 properties</li>
+                    <li>Up to 2 team members</li>
+                    <li>Online customer support</li>
+                </ul>
+                <a href="#contact" class="plan-cta">Start now <span class="arrow">→</span></a>
             </div>
-
-            <div class="pricing-controls">
-                <div class="billing-toggle">
-                    <span data-billing="monthly" class="active-label" style="cursor:pointer;">Monthly</span>
-                    <span class="switch" data-switch role="button" tabindex="0" aria-label="Toggle monthly / annual"></span>
-                    <span data-billing="annual" style="cursor:pointer;">Annual <small style="opacity:.7;font-weight:500;">(-20%)</small></span>
-                </div>
-                <div class="logements-counter">
-                    <span class="label">Properties:</span>
-                    <span class="counter-box">
-                        <button class="counter-btn" data-counter-dec aria-label="Decrease">−</button>
-                        <span class="counter-value" data-counter-value>1</span>
-                        <button class="counter-btn" data-counter-inc aria-label="Increase">+</button>
-                    </span>
-                </div>
+            <div class="plan">
+                <div class="plan-name">Premium</div>
+                <div class="plan-price" data-price="premium">5,99 €</div>
+                <div class="plan-unit">HT/month/property</div>
+                <div class="plan-tag">Run your business without limits</div>
+                <div class="plan-total" data-total="premium">Total: 5,99 €/month</div>
+                <ul class="plan-features">
+                    <li>Full ERP</li>
+                    <li>iCal / ICS / Beds24 sync</li>
+                    <li>Unlimited team members</li>
+                    <li>Priority support 24h</li>
+                </ul>
+                <a href="#contact" class="plan-cta">Start now <span class="arrow">→</span></a>
             </div>
-
-            <div class="pricing-grid">
-
-                <!-- FREE -->
-                <div class="plan">
-                    <div class="plan-name">Free</div>
-                    <div class="plan-price">€0</div>
-                    <div class="plan-unit"></div>
-                    <div class="plan-tag">Perfect to try the tool</div>
-                    <div class="plan-total" data-total="gratuit">Total: 0,00 €/month</div>
-                    <ul class="plan-features">
-                        <li>Free ERP version</li>
-                        <li>iCal / ICS connection (no Channel Manager)</li>
-                        <li>Up to 2 properties</li>
-                        <li>Up to 2 team members</li>
-                        <li>2 add-on services</li>
-                        <li>Online customer support</li>
-                    </ul>
-                    <a href="#demo" class="plan-cta">Start now <span class="arrow">→</span></a>
-                </div>
-
-                <!-- PREMIUM -->
-                <div class="plan">
-                    <div class="plan-name">Premium</div>
-                    <div class="plan-price" data-price="premium">5,99 €</div>
-                    <div class="plan-unit">HT/month/property</div>
-                    <div class="plan-tag">To run your business without limits</div>
-                    <div class="plan-total" data-total="premium">Total: 5,99 €/month</div>
-                    <ul class="plan-features">
-                        <li>Full ERP (no Channel Manager)</li>
-                        <li>iCal / ICS / Beds24 API sync</li>
-                        <li>Unlimited team members</li>
-                        <li>Unlimited services</li>
-                        <li>Priority support under 24h (WhatsApp + chat)</li>
-                        <li>Setup assistance</li>
-                    </ul>
-                    <a href="#demo" class="plan-cta">Start now <span class="arrow">→</span></a>
-                </div>
-
-                <!-- PRO -->
-                <div class="plan is-popular">
-                    <span class="plan-badge"><span class="dot"></span> POPULAR</span>
-                    <div class="plan-name">Pro</div>
-                    <div class="plan-price" data-price="pro">9,99 €</div>
-                    <div class="plan-unit">HT/month/property</div>
-                    <div class="plan-tag">Channel Manager + AI messaging</div>
-                    <div class="plan-total" data-total="pro">Total: 9,99 €/month</div>
-                    <ul class="plan-features">
-                        <li>Everything in Premium</li>
-                        <li>Channel Manager (Airbnb, Booking, Abritel…)</li>
-                        <li>Automated AI messaging</li>
-                        <li>Real-time multi-channel sync</li>
-                        <li>Priority support under 24h</li>
-                    </ul>
-                    <a href="#demo" class="plan-cta">Start now <span class="arrow">→</span></a>
-                </div>
-
-                <!-- CUSTOM -->
-                <div class="plan">
-                    <div class="plan-name">Custom</div>
-                    <div class="plan-price small">on quote</div>
-                    <div class="plan-unit">20+ properties/month</div>
-                    <div class="plan-tag">For large or multi-team operations</div>
-                    <div class="plan-total" data-total="custom" style="display:none;"></div>
-                    <ul class="plan-features">
-                        <li>No limit on team members</li>
-                        <li>No limit on services</li>
-                        <li>Dedicated support under 12h on WhatsApp + video</li>
-                        <li>Setup done by our team</li>
-                    </ul>
-                    <a href="#demo" class="plan-cta">Contact us <span class="arrow">→</span></a>
-                </div>
-
+            <div class="plan is-popular">
+                <span class="plan-badge"><span class="dot"></span> POPULAR</span>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price" data-price="pro">9,99 €</div>
+                <div class="plan-unit">HT/month/property</div>
+                <div class="plan-tag">Channel Manager + AI messaging</div>
+                <div class="plan-total" data-total="pro">Total: 9,99 €/month</div>
+                <ul class="plan-features">
+                    <li>Everything in Premium</li>
+                    <li>Channel Manager</li>
+                    <li>Automated AI messaging</li>
+                    <li>Real-time multi-channel sync</li>
+                </ul>
+                <a href="#contact" class="plan-cta">Start now <span class="arrow">→</span></a>
             </div>
-
-            <div class="pricing-footnote">
-                <span>No commitment</span>
-                <span>·</span>
-                <span>Cancel anytime</span>
-                <span>·</span>
-                <span>Secure payment via Stripe</span>
+            <div class="plan">
+                <div class="plan-name">Custom</div>
+                <div class="plan-price small">on quote</div>
+                <div class="plan-unit">20+ properties/month</div>
+                <div class="plan-tag">For large operations</div>
+                <div class="plan-total" data-total="custom" style="display:none;"></div>
+                <ul class="plan-features">
+                    <li>No team member limit</li>
+                    <li>Dedicated support 12h</li>
+                    <li>Setup done by our team</li>
+                </ul>
+                <a href="#contact" class="plan-cta">Contact us <span class="arrow">→</span></a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- DEMO -->
-    <section class="demo" id="demo">
-        <div class="container">
-            <div class="demo-inner">
-                <span class="hero-badge"><span class="dot"></span> Personalized demo</span>
-                <div style="height:1.5rem;"></div>
-                <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-0.025em;line-height:1.15;margin-bottom:0.85rem;">
-                    Book your <span style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));-webkit-background-clip:text;background-clip:text;color:transparent;">free demo</span>
-                </h2>
-                <p class="lead" style="color:var(--muted);max-width:55ch;margin:0 auto 2rem;">Pick a slot that suits you. <strong style="color:var(--ink);">30 minutes</strong> to see GuestLucky live, ask your questions and see how we can support your short-term rental business.</p>
-                <div class="hero-actions" style="justify-content:center;">
-                    <a href="mailto:contact@guestlucky.com?subject=GuestLucky%20demo%20request" class="btn-cta">Request a demo →</a>
-                    <a href="https://wa.me/33759894430?text=Hi%2C%20I%27d%20like%20a%20GuestLucky%20demo" target="_blank" rel="noopener" class="btn-secondary">Message us on WhatsApp</a>
-                </div>
-            </div>
+<section class="section" id="faq">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-eyebrow"><span class="dot"></span> FAQ</span>
+            <h2>Frequently asked <span class="accent">questions</span></h2>
         </div>
-    </section>
+        <div class="faq-list">
+            <div class="faq-item"><button class="faq-question"><span>How much does it cost?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>4 plans: <strong>Free (€0)</strong> up to 2 properties, <strong>Premium (€5.99/mo/property)</strong>, <strong>Pro (€9.99/mo/property)</strong> with Channel Manager + AI, and a <strong>Custom</strong> plan on quote for 20+ properties.</p></div></div>
+            <div class="faq-item"><button class="faq-question"><span>Do you take any commission?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>No. GuestLucky takes <strong>zero commission</strong> on your bookings, deposits or add-on services. You only pay your monthly subscription.</p></div></div>
+            <div class="faq-item"><button class="faq-question"><span>Can I try for free?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. The <strong>Free</strong> plan lets you test with up to 2 properties, no credit card needed.</p></div></div>
+            <div class="faq-item"><button class="faq-question"><span>How does the Channel Manager work?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Connect your Airbnb, Booking, Abritel accounts in a few clicks. Bookings, prices and availability sync in real time. No more double bookings.</p></div></div>
+            <div class="faq-item"><button class="faq-question"><span>Does the AI agent really work?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. The AI is trained on short-term rental conversations, understands context, and replies in the tone you define. You can take over anytime.</p></div></div>
+            <div class="faq-item"><button class="faq-question"><span>Any commitment?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>None. All plans are monthly, cancel anytime. The yearly plan gives -20%.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section navy" id="contact">
+    <div class="blob-bg"><div class="blob a"></div><div class="blob b"></div></div>
+    <div class="container">
+        <div class="section-head">
+            <span class="section-eyebrow"><span class="dot"></span> Contact</span>
+            <h2>Let's <span class="accent">talk</span></h2>
+        </div>
+        <div class="contact-grid" style="max-width:780px;margin:0 auto;">
+            <a href="https://wa.me/33759894430?text=Hi%2C%20I%27d%20like%20a%20GuestLucky%20demo" target="_blank" rel="noopener" class="contact-card">
+                <div class="contact-icon wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></div>
+                <h3 style="color:#fff;">WhatsApp</h3>
+                <p style="color:rgba(255,255,255,0.7);">Fastest. Reply within minutes during business hours.</p>
+                <div class="contact-value" style="color:var(--primary-light);">+33 7 59 89 44 30</div>
+            </a>
+            <a href="mailto:contact@guestlucky.com" class="contact-card">
+                <div class="contact-icon em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <h3 style="color:#fff;">Email</h3>
+                <p style="color:rgba(255,255,255,0.7);">For detailed requests and quotes. Reply within 24h.</p>
+                <div class="contact-value" style="color:var(--primary-light);">contact@guestlucky.com</div>
+            </a>
+        </div>
+    </div>
+</section>
 
 </main>
 
-<!-- FOOTER -->
 <footer class="site-footer">
     <div class="container">
         <div class="footer-grid">
             <div>
                 <div class="brand">
-                    <span class="brand-mark">G</span>
-                    <span class="brand-name">guest<span>lucky</span></span>
+                    <svg viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg" style="height:34px;">
+                        <defs><linearGradient id="lg2" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#a48bff"/><stop offset="1" stop-color="#5b3fe8"/></linearGradient></defs>
+                        <g transform="translate(2, 6)"><path d="M6 26 L26 6 L46 26 L46 50 Q46 52 44 52 L8 52 Q6 52 6 50 Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><rect x="18" y="28" width="16" height="16" rx="2" fill="none" stroke="#e91e8c" stroke-width="3"/><rect x="22" y="32" width="8" height="8" rx="1" fill="#e91e8c"/></g>
+                        <text x="62" y="42" font-family="Inter,sans-serif" font-size="30" font-weight="800" fill="#fff">Guest</text>
+                        <text x="152" y="42" font-family="Inter,sans-serif" font-size="30" font-weight="800" fill="url(#lg2)">lucky</text>
+                    </svg>
                 </div>
                 <p class="footer-tag">The all-in-one Channel Manager and ERP for short-term rental pros.</p>
             </div>
-            <div class="footer-col">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#demo">Demo</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="mailto:contact@guestlucky.com">contact@guestlucky.com</a></li>
-                    <li><a href="https://wa.me/33759894430" target="_blank" rel="noopener">WhatsApp: +33 7 59 89 44 30</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Language</h4>
-                <ul>
-                    <li><a href="index.html">Français</a></li>
-                    <li><a href="en.html">English</a></li>
-                </ul>
-            </div>
+            <div class="footer-col"><h4>Product</h4><ul><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+            <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:contact@guestlucky.com">contact@guestlucky.com</a></li><li><a href="https://wa.me/33759894430" target="_blank" rel="noopener">WhatsApp: +33 7 59 89 44 30</a></li></ul></div>
+            <div class="footer-col"><h4>Language</h4><ul><li><a href="index.html">Français</a></li><li><a href="en.html">English</a></li></ul></div>
         </div>
-        <div class="footer-bottom">
-            © <span id="year"></span> GuestLucky. All rights reserved.
-        </div>
+        <div class="footer-bottom">© <span id="year"></span> GuestLucky. All rights reserved.</div>
     </div>
 </footer>
 
-<!-- Floating contact bubbles -->
 <div class="floating-contact">
-    <a href="https://wa.me/33759894430" target="_blank" rel="noopener" class="bubble whatsapp" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-    </a>
-    <a href="mailto:contact@guestlucky.com" class="bubble email" aria-label="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    </a>
+    <a href="https://wa.me/33759894430" target="_blank" rel="noopener" class="bubble whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+    <a href="mailto:contact@guestlucky.com" class="bubble email" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
 </div>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script src="app.js"></script>
 </body>
 </html>
