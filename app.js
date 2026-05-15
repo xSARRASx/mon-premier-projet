@@ -147,11 +147,30 @@
         });
     }
 
+    function initCookieBanner() {
+        var banner = document.querySelector("[data-cookie-banner]");
+        if (!banner) return;
+        var stored = null;
+        try { stored = localStorage.getItem("guestlucky_cookie_choice"); } catch (e) {}
+        if (!stored) {
+            // Defer to next tick so banner animates in
+            setTimeout(function () { banner.classList.add("show"); }, 400);
+        }
+        banner.querySelectorAll("[data-cookie-action]").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var choice = btn.getAttribute("data-cookie-action");
+                try { localStorage.setItem("guestlucky_cookie_choice", choice); } catch (e) {}
+                banner.classList.remove("show");
+            });
+        });
+    }
+
     function init() {
         initPricing();
         initFAQ();
         initCTAMenu();
         initMobileMenu();
+        initCookieBanner();
         var yearEl = document.getElementById("year");
         if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
