@@ -392,9 +392,9 @@
     <div class="gtprice-counter">
       <span class="gtprice-counter-label">Logements :</span>
       <div class="gtprice-counter-controls">
-        <button class="gtprice-counter-btn" id="gtprice-minus">−</button>
+        <button type="button" class="gtprice-counter-btn" id="gtprice-minus">−</button>
         <span class="gtprice-counter-value" id="gtprice-count">1</span>
-        <button class="gtprice-counter-btn" id="gtprice-plus">+</button>
+        <button type="button" class="gtprice-counter-btn" id="gtprice-plus">+</button>
       </div>
     </div>
   </div>
@@ -475,42 +475,51 @@
 </div>
 <script>
 (function(){
-  var block = document.getElementById('gtprice-block');
-  if (!block) return;
-  var state = { annual: false, count: 1 };
-  var toggle = document.getElementById('gtprice-toggle');
-  var labelMonthly = block.querySelector('.gtprice-label-monthly');
-  var labelAnnual = block.querySelector('.gtprice-label-annual');
-  var minus = document.getElementById('gtprice-minus');
-  var plus = document.getElementById('gtprice-plus');
-  var countDisplay = document.getElementById('gtprice-count');
-  var premiumAmount = document.getElementById('gtprice-premium-amount');
-  var premiumTotal = document.getElementById('gtprice-premium-total');
-  var proAmount = document.getElementById('gtprice-pro-amount');
-  var proTotal = document.getElementById('gtprice-pro-total');
-  function fmt(n){ return n.toFixed(2).replace('.', ','); }
-  function update(){
-    var mult = state.annual ? 12 * 0.8 : 1;
-    var freqUnit = state.annual ? 'HT/an/logement' : 'HT/mois/logement';
-    var freqTotal = state.annual ? '/an' : '/mois';
-    var premiumUnit = state.annual ? fmt(5.99 * 12 * 0.8) : '5,99';
-    var proUnit = state.annual ? fmt(9.99 * 12 * 0.8) : '9,99';
-    var premiumT = fmt(5.99 * state.count * mult);
-    var proT = fmt(9.99 * state.count * mult);
-    premiumAmount.textContent = premiumUnit + '€';
-    proAmount.textContent = proUnit + '€';
-    premiumTotal.textContent = 'Total : ' + premiumT + '€' + freqTotal;
-    proTotal.textContent = 'Total : ' + proT + '€' + freqTotal;
-    block.querySelectorAll('.gtprice-unit').forEach(function(el){
-      if (el.textContent.indexOf('logements/mois') === -1) el.textContent = freqUnit;
-    });
-    countDisplay.textContent = state.count;
-    if (state.annual) { toggle.classList.add('annual'); labelMonthly.classList.remove('active'); labelAnnual.classList.add('active'); }
-    else { toggle.classList.remove('annual'); labelMonthly.classList.add('active'); labelAnnual.classList.remove('active'); }
+  function initGtPrice(){
+    var block = document.getElementById('gtprice-block');
+    if (!block || block.getAttribute('data-gtprice-init') === '1') return;
+    block.setAttribute('data-gtprice-init', '1');
+    var state = { annual: false, count: 1 };
+    var toggle = block.querySelector('#gtprice-toggle');
+    var labelMonthly = block.querySelector('.gtprice-label-monthly');
+    var labelAnnual = block.querySelector('.gtprice-label-annual');
+    var minus = block.querySelector('#gtprice-minus');
+    var plus = block.querySelector('#gtprice-plus');
+    var countDisplay = block.querySelector('#gtprice-count');
+    var premiumAmount = block.querySelector('#gtprice-premium-amount');
+    var premiumTotal = block.querySelector('#gtprice-premium-total');
+    var proAmount = block.querySelector('#gtprice-pro-amount');
+    var proTotal = block.querySelector('#gtprice-pro-total');
+    if (!toggle || !minus || !plus) return;
+    function fmt(n){ return n.toFixed(2).replace('.', ','); }
+    function update(){
+      var mult = state.annual ? 12 * 0.8 : 1;
+      var freqUnit = state.annual ? 'HT/an/logement' : 'HT/mois/logement';
+      var freqTotal = state.annual ? '/an' : '/mois';
+      var premiumUnit = state.annual ? fmt(5.99 * 12 * 0.8) : '5,99';
+      var proUnit = state.annual ? fmt(9.99 * 12 * 0.8) : '9,99';
+      var premiumT = fmt(5.99 * state.count * mult);
+      var proT = fmt(9.99 * state.count * mult);
+      premiumAmount.textContent = premiumUnit + '€';
+      proAmount.textContent = proUnit + '€';
+      premiumTotal.textContent = 'Total : ' + premiumT + '€' + freqTotal;
+      proTotal.textContent = 'Total : ' + proT + '€' + freqTotal;
+      block.querySelectorAll('.gtprice-unit').forEach(function(el){
+        if (el.textContent.indexOf('logements/mois') === -1) el.textContent = freqUnit;
+      });
+      countDisplay.textContent = state.count;
+      if (state.annual) { toggle.classList.add('annual'); labelMonthly.classList.remove('active'); labelAnnual.classList.add('active'); }
+      else { toggle.classList.remove('annual'); labelMonthly.classList.add('active'); labelAnnual.classList.remove('active'); }
+    }
+    toggle.addEventListener('click', function(e){ e.preventDefault(); state.annual = !state.annual; update(); });
+    minus.addEventListener('click', function(e){ e.preventDefault(); if (state.count > 1) { state.count--; update(); } });
+    plus.addEventListener('click', function(e){ e.preventDefault(); state.count++; update(); });
+    update();
   }
-  toggle.addEventListener('click', function(){ state.annual = !state.annual; update(); });
-  minus.addEventListener('click', function(){ if (state.count > 1) { state.count--; update(); } });
-  plus.addEventListener('click', function(){ state.count++; update(); });
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initGtPrice); }
+  else { initGtPrice(); }
+  setTimeout(initGtPrice, 500);
+  setTimeout(initGtPrice, 1500);
 })();
 </script>
 
