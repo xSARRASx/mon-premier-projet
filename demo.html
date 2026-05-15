@@ -56,21 +56,20 @@
 <header class="site-header">
     <div class="container header-inner">
         <a href="index.html" class="brand">
-            <svg class="logo-svg" viewBox="0 0 260 64" xmlns="http://www.w3.org/2000/svg" aria-label="Guestlucky">
-                <defs>
-                    <linearGradient id="lgpurple" x1="0" x2="1" y1="0" y2="0">
-                        <stop offset="0" stop-color="#a48bff"/>
-                        <stop offset="1" stop-color="#5b3fe8"/>
-                    </linearGradient>
-                </defs>
-                <g transform="translate(2, 4)">
-                    <path d="M30 4 L4 26 L4 50 Q4 56 10 56 L50 56 Q56 56 56 50 L56 26 Z"
-                          fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
-                    <rect x="18" y="28" width="24" height="22" rx="2" fill="none" stroke="#e91e8c" stroke-width="3.5"/>
-                    <rect x="24" y="34" width="12" height="10" rx="1" fill="#e91e8c"/>
-                </g>
-                <text x="72" y="44" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#ffffff" letter-spacing="-1">Guest</text>
-                <text x="172" y="44" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="url(#lgpurple)" letter-spacing="-1">lucky</text>
+            <svg class="logo-svg" viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg" aria-label="Guestlucky">
+                <!-- Purple arc handle at top -->
+                <path d="M14 26 Q14 6 34 6 L52 6 Q72 6 72 26"
+                      fill="none" stroke="#6b46ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- White house body with triangular roof -->
+                <path d="M6 36 L43 12 L80 36 L80 68 Q80 74 74 74 L12 74 Q6 74 6 68 Z"
+                      fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+                <!-- Pink square outline -->
+                <rect x="30" y="42" width="26" height="24" rx="2" fill="none" stroke="#e91e8c" stroke-width="4"/>
+                <!-- Pink filled inner square -->
+                <rect x="36" y="48" width="14" height="12" rx="1" fill="#e91e8c"/>
+                <!-- Text -->
+                <text x="100" y="56" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Guest</text>
+                <text x="220" y="56" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800" fill="#6b46ff" letter-spacing="-1.5">lucky</text>
             </svg>
         </a>
         <button class="menu-toggle" data-menu-toggle aria-label="Menu"><span></span><span></span><span></span></button>
@@ -88,19 +87,6 @@
             <a href="https://app.guestlucky.io/login" target="_blank" rel="noopener" class="btn-login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Se connecter</a>
             <div class="lang-switch"><a href="demo.html" class="active">FR</a><a href="en.html#demo">EN</a></div>
             <a href="https://app.iclosed.io/e/lesousloueur/guestlucky" target="_blank" rel="noopener" class="btn-cta">Réserver une démo <span class="arrow">→</span></a>
-            <div class="cta-wrapper">
-                <button class="btn-secondary btn-contact" data-cta-toggle aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16" style="margin-right:.35rem"><path d="M16.001 4C9.376 4 4 9.376 4 16c0 2.116.554 4.181 1.606 6.001L4 28l6.16-1.612A11.95 11.95 0 0 0 16 28c6.624 0 12-5.376 12-12s-5.376-12-11.999-12zm6.974 17.139c-.296.832-1.717 1.589-2.394 1.687-.612.09-1.385.128-2.235-.139-.515-.16-1.176-.376-2.022-.74-3.563-1.539-5.892-5.122-6.07-5.358-.178-.236-1.45-1.926-1.45-3.674s.92-2.609 1.247-2.963c.327-.354.713-.443.95-.443.237 0 .474.002.681.013.218.011.51-.082.797.608.296.71 1.005 2.458 1.094 2.636.088.178.148.385.03.622-.118.236-.178.385-.354.591-.178.207-.374.46-.535.62-.178.176-.363.367-.156.72.207.354.92 1.517 1.974 2.457 1.355 1.208 2.498 1.581 2.852 1.759.354.178.561.148.768-.089.207-.236.886-1.034 1.123-1.388.236-.355.473-.296.797-.178.325.118 2.067.976 2.421 1.153.354.178.591.266.68.414.09.148.09.857-.207 1.689z"/></svg>Nous contacter <span class="arrow">▾</span></button>
-                <div class="cta-menu" data-cta-menu>
-                    <a href="https://wa.me/33759894430?text=Bonjour%2C%20je%20souhaite%20%C3%A9changer%20avec%20GuestLucky" target="_blank" rel="noopener">
-                        <span class="ic wa"><svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor"><path d="M16.001 4C9.376 4 4 9.376 4 16c0 2.116.554 4.181 1.606 6.001L4 28l6.16-1.612A11.95 11.95 0 0 0 16 28c6.624 0 12-5.376 12-12s-5.376-12-11.999-12zm6.974 17.139c-.296.832-1.717 1.589-2.394 1.687-.612.09-1.385.128-2.235-.139-.515-.16-1.176-.376-2.022-.74-3.563-1.539-5.892-5.122-6.07-5.358-.178-.236-1.45-1.926-1.45-3.674s.92-2.609 1.247-2.963c.327-.354.713-.443.95-.443.237 0 .474.002.681.013.218.011.51-.082.797.608.296.71 1.005 2.458 1.094 2.636.088.178.148.385.03.622-.118.236-.178.385-.354.591-.178.207-.374.46-.535.62-.178.176-.363.367-.156.72.207.354.92 1.517 1.974 2.457 1.355 1.208 2.498 1.581 2.852 1.759.354.178.561.148.768-.089.207-.236.886-1.034 1.123-1.388.236-.355.473-.296.797-.178.325.118 2.067.976 2.421 1.153.354.178.591.266.68.414.09.148.09.857-.207 1.689z"/></svg></span>
-                        <span><strong>WhatsApp</strong><small>07 59 89 44 30</small></span>
-                    </a>
-                    <a href="contact.html">
-                        <span class="ic em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-                        <span><strong>Page contact</strong><small>Toutes les coordonnées</small></span>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 </header>
@@ -195,11 +181,13 @@
         <div class="footer-grid">
             <div>
                 <div class="brand">
-                    <svg viewBox="0 0 260 64" xmlns="http://www.w3.org/2000/svg" style="height:38px;" aria-label="Guestlucky">
-                        <defs><linearGradient id="lgpurplefoot" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#a48bff"/><stop offset="1" stop-color="#5b3fe8"/></linearGradient></defs>
-                        <g transform="translate(2, 4)"><path d="M30 4 L4 26 L4 50 Q4 56 10 56 L50 56 Q56 56 56 50 L56 26 Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><rect x="18" y="28" width="24" height="22" rx="2" fill="none" stroke="#e91e8c" stroke-width="3.5"/><rect x="24" y="34" width="12" height="10" rx="1" fill="#e91e8c"/></g>
-                        <text x="72" y="44" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800" fill="#ffffff" letter-spacing="-1">Guest</text>
-                        <text x="172" y="44" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800" fill="url(#lgpurplefoot)" letter-spacing="-1">lucky</text>
+                    <svg viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg" style="height:42px;" aria-label="Guestlucky">
+                        <path d="M14 26 Q14 6 34 6 L52 6 Q72 6 72 26" fill="none" stroke="#6b46ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 36 L43 12 L80 36 L80 68 Q80 74 74 74 L12 74 Q6 74 6 68 Z" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+                        <rect x="30" y="42" width="26" height="24" rx="2" fill="none" stroke="#e91e8c" stroke-width="4"/>
+                        <rect x="36" y="48" width="14" height="12" rx="1" fill="#e91e8c"/>
+                        <text x="100" y="56" font-family="Inter,Arial,sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Guest</text>
+                        <text x="220" y="56" font-family="Inter,Arial,sans-serif" font-size="44" font-weight="800" fill="#6b46ff" letter-spacing="-1.5">lucky</text>
                     </svg>
                 </div>
                 <p class="footer-tag">Le Channel Manager et l'ERP tout-en-un pour les pros de la location courte durée.</p>
