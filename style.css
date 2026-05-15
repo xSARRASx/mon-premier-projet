@@ -1791,3 +1791,21 @@ a { color: inherit; text-decoration: none; }
     text-align: left;
     line-height: 1.4;
 }
+
+/* Real logo PNG */
+.brand .logo-img {
+    height: 48px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+.site-footer .brand .logo-img-footer,
+.site-footer .logo-img-footer {
+    height: 44px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+@media (max-width: 720px) {
+    .brand .logo-img { height: 40px; }
+}
