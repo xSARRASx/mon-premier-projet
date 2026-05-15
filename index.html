@@ -3,400 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina & Co — Présentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --color-bg: #fafaf9;
-            --color-surface: #ffffff;
-            --color-primary: #1f2937;
-            --color-secondary: #4b5563;
-            --color-accent: #475569;
-            --color-muted: #6b7280;
-            --color-border: #e5e7eb;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-            --radius: 8px;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.25rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            letter-spacing: -0.02em;
-        }
-
-        .logo span {
-            color: var(--color-accent);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--color-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--color-primary);
-        }
-
-        /* Hero */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-            color: var(--color-primary);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--color-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Sections */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            color: var(--color-muted);
-            margin-bottom: 3rem;
-            font-size: 1.05rem;
-        }
-
-        /* À propos */
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: var(--color-secondary);
-            margin-bottom: 1rem;
-            font-size: 1.02rem;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .stat {
-            background-color: var(--color-surface);
-            padding: 1.75rem;
-            border-radius: var(--radius);
-            border: 1px solid var(--color-border);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            color: var(--color-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Services */
-        .services {
-            background-color: var(--color-surface);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .services-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .card {
-            background-color: var(--color-bg);
-            padding: 2rem;
-            border-radius: var(--radius);
-            border: 1px solid var(--color-border);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            background-color: var(--color-primary);
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--color-primary);
-        }
-
-        .card p {
-            color: var(--color-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color-primary);
-            color: #d1d5db;
-            padding: 3rem 2rem 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand h4 {
-            color: white;
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-brand p {
-            font-size: 0.95rem;
-            color: #9ca3af;
-            max-width: 380px;
-        }
-
-        .footer-col h5 {
-            color: white;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            color: #9ca3af;
-        }
-
-        .footer-col a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 1.5rem;
-            border-top: 1px solid #374151;
-            text-align: center;
-            font-size: 0.875rem;
-            color: #9ca3af;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero h1 { font-size: 2.25rem; }
-            .about { grid-template-columns: 1fr; gap: 2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
-            nav ul { gap: 1rem; }
-        }
-    </style>
+    <title>GuestLucky — Channel Manager & logiciel pour la location courte durée</title>
+    <meta name="description" content="GuestLucky : la plateforme tout-en-un pour conciergeries, sous-loueurs et investisseurs en location courte durée. Channel Manager, messagerie IA, planning ménages et plus.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <div class="logo">Lumina<span>&Co</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <div class="hero">
-        <h1>Construire l'avenir, ensemble.</h1>
-        <p>Une agence de conseil dédiée à l'accompagnement des entreprises ambitieuses dans leur transformation numérique.</p>
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="#top" class="brand">
+            <span class="brand-mark">G</span>
+            <span class="brand-name">guest<span>lucky</span></span>
+        </a>
+
+        <button class="menu-toggle" data-menu-toggle aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="main-nav" data-main-nav>
+            <li><a href="#features">Fonctionnalités</a></li>
+            <li><a href="#pricing">Tarifs</a></li>
+            <li><a href="#demo">Démo</a></li>
+            <li>
+                <button class="nav-button has-caret" data-dropdown-trigger>Contact</button>
+                <div class="dropdown" data-dropdown>
+                    <a href="mailto:contact@guestlucky.com">
+                        <span class="icn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </span>
+                        <span>contact@guestlucky.com</span>
+                    </a>
+                    <a href="https://wa.me/33759894430" target="_blank" rel="noopener">
+                        <span class="icn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+                        </span>
+                        <span>WhatsApp · 07 59 89 44 30</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <span class="lang-switch">
+                    <a href="index.html" class="active">FR</a>
+                    <a href="en.html">EN</a>
+                </span>
+            </li>
+            <li><a href="#demo" class="btn-cta">Réserver une démo →</a></li>
+        </ul>
     </div>
+</header>
 
-    <section id="about">
-        <h2 class="section-title">À propos</h2>
-        <p class="section-subtitle">Notre vision et notre mission au quotidien.</p>
-        <div class="about">
-            <div class="about-text">
-                <p>Fondée en 2015, Lumina&Co est une agence indépendante spécialisée dans le conseil stratégique et la création de solutions digitales sur mesure.</p>
-                <p>Nous réunissons des experts passionnés pour transformer vos idées en projets concrets, performants et durables. Notre approche allie rigueur méthodologique et créativité, au service de votre réussite.</p>
-                <p>Chaque collaboration est unique, car chaque entreprise l'est aussi.</p>
+<main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge"><span class="dot"></span> GuestLucky Channel Manager</span>
+            <h1><span class="accent">Channel Manager</span> et logiciel de gestion pour la location courte durée</h1>
+            <p class="lead">La plateforme tout-en-un pensée pour les pros de la location courte durée : <strong>conciergeries, sous-loueurs et investisseurs immobiliers</strong>.</p>
+
+            <div class="hero-pills">
+                <span class="hero-pill"><span class="check">✓</span> Channel Manager</span>
+                <span class="hero-pill"><span class="check">✓</span> Réponse IA voyageurs</span>
+                <span class="hero-pill"><span class="check">✓</span> Planning ménages</span>
+                <span class="hero-pill"><span class="check">✓</span> Interface propriétaire</span>
+                <span class="hero-pill"><span class="check">✓</span> Livret d'accueil</span>
+                <span class="hero-pill"><span class="check">✓</span> Caution & services 0%</span>
+                <span class="hero-pill"><span class="check">✓</span> Gestion de stock</span>
             </div>
-            <div class="about-stats">
-                <div class="stat">
-                    <span class="stat-number">120+</span>
-                    <span class="stat-label">Projets livrés</span>
+
+            <div class="hero-actions">
+                <a href="#demo" class="btn-cta">Réserver une démo gratuite →</a>
+                <a href="#pricing" class="btn-secondary">Voir les tarifs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow"><span class="dot"></span> Fonctionnalités</span>
+                <h2>Tout ce dont vous avez besoin <span class="accent">en un seul outil</span></h2>
+                <p class="lead">GuestLucky regroupe la gestion complète de votre activité de location courte durée, du calendrier multi-plateformes jusqu'à la relation voyageur.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Channel Manager</h3>
+                    <p>Synchronisez vos annonces Airbnb, Booking, Abritel et d'autres canaux en temps réel. Plus jamais de double réservation.</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">45</span>
-                    <span class="stat-label">Clients fidèles</span>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Messagerie IA</h3>
+                    <p>Une IA qui répond automatiquement à vos voyageurs 24/7, dans plusieurs langues, en respectant le ton de votre conciergerie.</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">10</span>
-                    <span class="stat-label">Années d'expertise</span>
+                <div class="feature">
+                    <div class="feature-icon">🧹</div>
+                    <h3>Planning ménages</h3>
+                    <p>Attribuez automatiquement les ménages à vos équipes selon les check-out, gérez les disponibilités et suivez les missions en direct.</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">25</span>
-                    <span class="stat-label">Collaborateurs</span>
+                <div class="feature">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Interface propriétaire</h3>
+                    <p>Un espace dédié pour vos propriétaires : transparence sur les réservations, les revenus et les relevés mensuels.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📖</div>
+                    <h3>Livret d'accueil digital</h3>
+                    <p>Créez des livrets d'accueil personnalisés que vos voyageurs consultent en un clic, avec règles, codes et bonnes adresses.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💳</div>
+                    <h3>Caution & services 0%</h3>
+                    <p>Encaissez les cautions et vendez vos services additionnels sans aucune commission supplémentaire. Paiements sécurisés via Stripe.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="services" id="services">
-        <div class="services-wrapper">
-            <h2 class="section-title">Nos services</h2>
-            <p class="section-subtitle">Trois pôles d'expertise pour répondre à tous vos besoins.</p>
-            <div class="services-grid">
-                <div class="card">
-                    <div class="card-icon">01</div>
-                    <h3>Conseil stratégique</h3>
-                    <p>Nous vous accompagnons dans la définition et la mise en œuvre de votre stratégie d'entreprise, en alignant vos objectifs avec les opportunités du marché.</p>
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-head">
+                <h2>Plans de tarification</h2>
+                <p class="lead">Trouvez le plan idéal pour votre conciergerie. Pas d'engagement, pas de frais cachés. Changez de plan quand vous voulez.</p>
+            </div>
+
+            <div class="pricing-controls">
+                <div class="billing-toggle">
+                    <span data-billing="monthly" class="active-label" style="cursor:pointer;">Mensuel</span>
+                    <span class="switch" data-switch role="button" tabindex="0" aria-label="Basculer mensuel / annuel"></span>
+                    <span data-billing="annual" style="cursor:pointer;">Annuel <small style="opacity:.7;font-weight:500;">(-20%)</small></span>
                 </div>
-                <div class="card">
-                    <div class="card-icon">02</div>
-                    <h3>Développement web</h3>
-                    <p>Conception et développement de sites internet, applications et plateformes sur mesure, avec un focus sur la performance et l'expérience utilisateur.</p>
+                <div class="logements-counter">
+                    <span class="label">Logements :</span>
+                    <span class="counter-box">
+                        <button class="counter-btn" data-counter-dec aria-label="Diminuer">−</button>
+                        <span class="counter-value" data-counter-value>1</span>
+                        <button class="counter-btn" data-counter-inc aria-label="Augmenter">+</button>
+                    </span>
                 </div>
-                <div class="card">
-                    <div class="card-icon">03</div>
-                    <h3>Design & branding</h3>
-                    <p>Création d'identités visuelles fortes et cohérentes, supports de communication et expériences de marque mémorables qui vous démarquent.</p>
+            </div>
+
+            <div class="pricing-grid">
+
+                <!-- GRATUIT -->
+                <div class="plan">
+                    <div class="plan-name">Gratuit</div>
+                    <div class="plan-price">0€</div>
+                    <div class="plan-unit"></div>
+                    <div class="plan-tag">Parfait pour tester l'outil</div>
+                    <div class="plan-total" data-total="gratuit">Total : 0,00 €/mois</div>
+                    <ul class="plan-features">
+                        <li>ERP en version gratuite</li>
+                        <li>Connexion iCal / ICS (sans Channel Manager)</li>
+                        <li>Jusqu'à 2 logements</li>
+                        <li>Jusqu'à 2 membres d'équipe</li>
+                        <li>2 services additionnels</li>
+                        <li>Support client en ligne</li>
+                    </ul>
+                    <a href="#demo" class="plan-cta">Démarrer maintenant <span class="arrow">→</span></a>
+                </div>
+
+                <!-- PREMIUM -->
+                <div class="plan">
+                    <div class="plan-name">Premium</div>
+                    <div class="plan-price" data-price="premium">5,99 €</div>
+                    <div class="plan-unit">HT/mois/logement</div>
+                    <div class="plan-tag">Pour gérer votre activité sans limites</div>
+                    <div class="plan-total" data-total="premium">Total : 5,99 €/mois</div>
+                    <ul class="plan-features">
+                        <li>ERP complet (sans Channel Manager)</li>
+                        <li>Synchronisation iCal / ICS / API Beds24</li>
+                        <li>Membres d'équipe illimités</li>
+                        <li>Services illimités</li>
+                        <li>Support client prioritaire sous 24h (WhatsApp + chat)</li>
+                        <li>Aide au paramétrage</li>
+                    </ul>
+                    <a href="#demo" class="plan-cta">Démarrer maintenant <span class="arrow">→</span></a>
+                </div>
+
+                <!-- PRO -->
+                <div class="plan is-popular">
+                    <span class="plan-badge"><span class="dot"></span> POPULAIRE</span>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price" data-price="pro">9,99 €</div>
+                    <div class="plan-unit">HT/mois/logement</div>
+                    <div class="plan-tag">Channel Manager + Messagerie IA</div>
+                    <div class="plan-total" data-total="pro">Total : 9,99 €/mois</div>
+                    <ul class="plan-features">
+                        <li>Tout le Premium inclus</li>
+                        <li>Channel Manager (Airbnb, Booking, Abritel…)</li>
+                        <li>Messagerie IA automatisée</li>
+                        <li>Synchronisation temps réel multi-canaux</li>
+                        <li>Support prioritaire 24h</li>
+                    </ul>
+                    <a href="#demo" class="plan-cta">Démarrer maintenant <span class="arrow">→</span></a>
+                </div>
+
+                <!-- PERSONNALISÉ -->
+                <div class="plan">
+                    <div class="plan-name">Personnalisé</div>
+                    <div class="plan-price small">sur devis</div>
+                    <div class="plan-unit">+ de 20 logements/mois</div>
+                    <div class="plan-tag">Pour les structures importantes ou multi-équipes</div>
+                    <div class="plan-total" data-total="custom" style="display:none;"></div>
+                    <ul class="plan-features">
+                        <li>Pas de limitation sur les membres d'équipe</li>
+                        <li>Pas de limitation sur les services</li>
+                        <li>Support client dédié sous 12h sur WhatsApp + visio</li>
+                        <li>Paramétrage réalisé par nos soins</li>
+                    </ul>
+                    <a href="#demo" class="plan-cta">Nous contacter <span class="arrow">→</span></a>
+                </div>
+
+            </div>
+
+            <div class="pricing-footnote">
+                <span>Sans engagement</span>
+                <span>·</span>
+                <span>Annulation à tout moment</span>
+                <span>·</span>
+                <span>Paiement sécurisé via Stripe</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="demo-inner">
+                <span class="hero-badge"><span class="dot"></span> Démo personnalisée</span>
+                <div style="height:1.5rem;"></div>
+                <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-0.025em;line-height:1.15;margin-bottom:0.85rem;">
+                    Réservez votre <span style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));-webkit-background-clip:text;background-clip:text;color:transparent;">démo gratuite</span>
+                </h2>
+                <p class="lead" style="color:var(--muted);max-width:55ch;margin:0 auto 2rem;">Choisis un créneau qui te convient. <strong style="color:var(--ink);">30 minutes</strong> pour découvrir GuestLucky en live, poser tes questions et voir comment on peut t'accompagner sur ton activité de location courte durée.</p>
+                <div class="hero-actions" style="justify-content:center;">
+                    <a href="mailto:contact@guestlucky.com?subject=Demande%20de%20démo%20GuestLucky" class="btn-cta">Demander une démo →</a>
+                    <a href="https://wa.me/33759894430?text=Bonjour%2C%20je%20souhaite%20une%20démo%20GuestLucky" target="_blank" rel="noopener" class="btn-secondary">Nous écrire sur WhatsApp</a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h4>Lumina&Co</h4>
-                <p>Une agence de conseil indépendante au service des entreprises qui veulent aller plus loin.</p>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand">
+                    <span class="brand-mark">G</span>
+                    <span class="brand-name">guest<span>lucky</span></span>
+                </div>
+                <p class="footer-tag">Le Channel Manager et l'ERP tout-en-un pour les pros de la location courte durée.</p>
             </div>
             <div class="footer-col">
-                <h5>Contact</h5>
+                <h4>Produit</h4>
                 <ul>
-                    <li>contact@luminaco.fr</li>
-                    <li>+33 1 23 45 67 89</li>
-                    <li>12 rue de la République</li>
-                    <li>75001 Paris, France</li>
+                    <li><a href="#features">Fonctionnalités</a></li>
+                    <li><a href="#pricing">Tarifs</a></li>
+                    <li><a href="#demo">Démo</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h5>Suivez-nous</h5>
+                <h4>Contact</h4>
                 <ul>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
+                    <li><a href="mailto:contact@guestlucky.com">contact@guestlucky.com</a></li>
+                    <li><a href="https://wa.me/33759894430" target="_blank" rel="noopener">WhatsApp : 07 59 89 44 30</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Langue</h4>
+                <ul>
+                    <li><a href="index.html">Français</a></li>
+                    <li><a href="en.html">English</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Lumina&Co. Tous droits réservés.
+            © <span id="year"></span> GuestLucky. Tous droits réservés.
         </div>
-    </footer>
+    </div>
+</footer>
+
+<!-- Floating contact bubbles -->
+<div class="floating-contact">
+    <a href="https://wa.me/33759894430" target="_blank" rel="noopener" class="bubble whatsapp" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    </a>
+    <a href="mailto:contact@guestlucky.com" class="bubble email" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+</div>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="app.js"></script>
 </body>
 </html>
