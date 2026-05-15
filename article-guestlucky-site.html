@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logiciel Conciergerie Airbnb 2026 : Guestlucky</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Montserrat', sans-serif; color: #2a3548; background: #ffffff; line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 760px; margin: 40px auto; padding: 60px 48px; background: #eef0f7; border-radius: 24px; box-shadow: 0 2px 20px rgba(30,27,75,0.04); }
+  .date-modif { color: #6b7280; font-size: 14px; margin-bottom: 24px; font-weight: 500; }
+  .logo-block { text-align: center; margin: 0 0 4px 0; }
+  .logo-block img { max-width: 380px; height: auto; display: block; margin: 0 auto; }
+  h2 { color: #7C3AED; font-weight: 800; font-size: 30px; line-height: 1.2; margin-top: 56px; margin-bottom: 28px; letter-spacing: -0.3px; }
+  h3 { color: #182745; font-weight: 700; font-size: 22px; line-height: 1.3; margin-top: 36px; margin-bottom: 16px; }
+  p { margin-bottom: 20px; }
+  a { color: #7C3AED; font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { font-weight: 700; color: #182745; }
+  @media (max-width: 600px) { h2 { font-size: 24px; } h3 { font-size: 19px; } body { font-size: 16px; } .container { padding: 32px 16px; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<p class="date-modif">Dernière modification : 11 mai 2026 - mis à jour avec les nouvelles fonctionnalités Guestlucky et les évolutions de la conformité loi Hoguet.</p>
+
+<div class="logo-block">
+  <img src="https://www.locationcourteduree.fr/wp-content/uploads/2026/05/Design-sans-titre-45-e1778479629240.png" alt="Guestlucky logiciel conciergerie Airbnb conforme loi Hoguet" />
+</div>
+
+<p>Choisir un logiciel conciergerie Airbnb en 2026 ne ressemble plus du tout à ce qu'on faisait il y a deux ans. <strong>En effet</strong>, le marché français a profondément changé depuis les décisions judiciaires de 2025 sur la loi Hoguet, et les attentes des conciergeries se sont radicalement précisées.</p>
+
+<p><strong>Concrètement</strong>, la majorité des outils internationaux ne savent répondre ni aux exigences juridiques françaises, ni aux besoins quotidiens d'une conciergerie qui jongle entre voyageurs, propriétaires, ménages et incidents. <strong>Pourtant</strong>, c'est précisément l'équation que vous devez résoudre pour faire grandir votre activité sans risque.</p>
+
+<p>Cet article est par ailleurs le résumé pratique de ce que nous avons construit chez Guestlucky, à partir des retours de centaines de conciergeries professionnelles et des analyses partagées chaque jour sur la <a href="https://www.locationcourteduree.fr/">communauté Skool location courte durée</a>.</p>
+
+<p><strong>Ainsi</strong>, vous allez découvrir en détail ce qu'est Guestlucky, comment fonctionne le module gouvernance, comment notre intelligence artificielle gère vos messages voyageurs, ce que couvrent les automatisations, comment le planning et le ménage sont orchestrés, et surtout combien coûte le tout selon votre taille.</p>
+
+<!-- VISUEL #1 - GRILLE 3 PILIERS -->
+<style>
+.gt1-wrap { max-width: 720px !important; margin: 40px auto !important; font-family: 'Montserrat', sans-serif !important; padding: 0 !important; }
+.gt1-grid { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 2px !important; background: #ecebf5 !important; border-radius: 20px !important; overflow: hidden !important; }
+.gt1-card { background: #ffffff !important; padding: 32px 24px !important; position: relative !important; transition: background 0.2s ease !important; }
+.gt1-card:hover { background: #faf8ff !important; }
+.gt1-ghost { position: absolute !important; top: 14px !important; right: 18px !important; font-size: 38px !important; font-weight: 800 !important; color: #ede9fe !important; line-height: 1 !important; pointer-events: none !important; font-family: 'Montserrat', sans-serif !important; z-index: 0 !important; }
+.gt1-label { color: #7C3AED !important; font-size: 10px !important; letter-spacing: 2.5px !important; text-transform: uppercase !important; font-weight: 700 !important; margin-bottom: 14px !important; padding-right: 40px !important; font-family: 'Montserrat', sans-serif !important; position: relative !important; z-index: 1 !important; }
+.gt1-title { color: #182745 !important; font-size: 20px !important; font-weight: 800 !important; margin: 0 0 14px 0 !important; line-height: 1.2 !important; padding-right: 40px !important; font-family: 'Montserrat', sans-serif !important; position: relative !important; z-index: 1 !important; }
+.gt1-desc { color: #6b7280 !important; font-size: 13px !important; line-height: 1.55 !important; margin-bottom: 18px !important; font-family: 'Montserrat', sans-serif !important; font-weight: 500 !important; }
+.gt1-pill { display: inline-block !important; background: #f5f3ff !important; color: #182745 !important; padding: 7px 14px !important; border-radius: 999px !important; font-size: 11px !important; font-weight: 600 !important; font-family: 'Montserrat', sans-serif !important; }
+@media (max-width: 540px) { .gt1-grid { grid-template-columns: 1fr !important; } .gt1-card { padding: 22px !important; } .gt1-ghost { font-size: 34px !important; } }
+</style>
+<div class="gt1-wrap">
+  <div class="gt1-grid">
+    <div class="gt1-card">
+      <div class="gt1-ghost">01</div>
+      <div class="gt1-label">Pilier juridique</div>
+      <div class="gt1-title">Gouvernance loi Hoguet</div>
+      <div class="gt1-desc">Le seul channel manager français qui horodate chaque décision du propriétaire et génère des preuves exportables pour la DGCCRF.</div>
+      <div class="gt1-pill">Conformité native</div>
+    </div>
+    <div class="gt1-card">
+      <div class="gt1-ghost">02</div>
+      <div class="gt1-label">Pilier IA</div>
+      <div class="gt1-title">Messagerie intelligente</div>
+      <div class="gt1-desc">ChatGPT, Claude et Gemini intégrés en natif. Vous gardez le contrôle grâce aux mots-clés exclus que vous définissez vous-même.</div>
+      <div class="gt1-pill">IA française</div>
+    </div>
+    <div class="gt1-card">
+      <div class="gt1-ghost">03</div>
+      <div class="gt1-label">Pilier économique</div>
+      <div class="gt1-title">Tarification transparente</div>
+      <div class="gt1-desc">À partir de 0 euro pour tester, 5,99 euros en Premium, 9,99 euros en Pro tout inclus. Sans engagement, sans frais cachés.</div>
+      <div class="gt1-pill">Sans engagement</div>
+    </div>
+  </div>
+</div>
+
+<h2>Comprendre ce qu'est Guestlucky en 2026</h2>
+
+<h3>Une plateforme française pensée pour les conciergeries</h3>
+
+<p><strong>Tout d'abord</strong>, Guestlucky est un logiciel conciergerie Airbnb développé en France, par une équipe française, pour répondre aux exigences spécifiques du marché hexagonal. <strong>Concrètement</strong>, la plateforme a été construite à partir des problématiques quotidiennes d'une conciergerie réelle, pas à partir d'une idée abstraite de produit.</p>
+
+<p><strong>Ainsi</strong>, chaque fonctionnalité de l'outil répond à un cas d'usage rencontré sur le terrain. <strong>De plus</strong>, l'interface est entièrement en français, le support également, et toute la documentation est rédigée pour le contexte juridique français.</p>
+
+<h3>Plus qu'un channel manager, un véritable PMS</h3>
+
+<p><strong>Cependant</strong>, réduire Guestlucky à un simple channel manager serait inexact. <strong>En réalité</strong>, la plateforme est un PMS complet, c'est-à-dire un système de gestion immobilière qui orchestre l'ensemble de votre activité de conciergerie, du premier message voyageur jusqu'au compte rendu mensuel envoyé au propriétaire.</p>
+
+<p><strong>Par ailleurs</strong>, Guestlucky combine en un seul outil ce qui demandait jusqu'ici une dizaine de logiciels différents : synchronisation des annonces, automatisation des messages, gestion du planning, suivi du ménage, traçabilité juridique, reporting financier et application mobile pour vos équipes.</p>
+
+<h2>La gestion intelligente des messages voyageurs avec l'IA</h2>
+
+<h3>Les modèles d'IA intégrés en natif (ChatGPT, Claude, Gemini)</h3>
+
+<p><strong>Tout d'abord</strong>, Guestlucky intègre nativement les trois grands modèles d'intelligence artificielle du marché : ChatGPT d'OpenAI, Claude d'Anthropic et Gemini de Google. <strong>Ainsi</strong>, vous choisissez l'IA qui correspond le mieux à votre besoin, sans payer d'abonnement séparé chez le fournisseur.</p>
+
+<p><strong>Concrètement</strong>, dès qu'un voyageur envoie un message sur Airbnb, Booking ou Vrbo, l'IA analyse le contexte, consulte votre base de connaissances locales et formule une réponse dans la langue du voyageur. <strong>De plus</strong>, elle respecte votre tonalité et vos formulations habituelles, pour rester fidèle à votre identité de marque.</p>
+
+<h3>Les mots-clés exclus que vous définissez vous-même</h3>
+
+<p><strong>Surtout</strong>, voici le point qui change tout dans la gestion des messages voyageurs. Guestlucky vous laisse définir vous-même une liste de mots-clés qui désactivent l'IA et transfèrent immédiatement la conversation à un membre humain de votre équipe.</p>
+
+<p><strong>Concrètement</strong>, vous pouvez décider que dès qu'un voyageur écrit le mot remboursement, annulation, plainte, litige, casse, panne, dégradation ou n'importe quel autre terme qui vous semble sensible, l'IA s'efface et vous prenez la main. <strong>Ainsi</strong>, vous gardez le contrôle absolu sur les situations délicates qui nécessitent une réponse humaine et nuancée.</p>
+
+<p><strong>De plus</strong>, chaque conciergerie configure sa propre liste, en fonction de ses logements, de sa clientèle et de sa politique commerciale. <strong>Donc</strong>, l'IA ne prend jamais une décision qui dépasse votre périmètre opérationnel autorisé.</p>
+
+<h3>La continuité de service avec votre équipe</h3>
+
+<p><strong>Enfin</strong>, quand un mot-clé exclu déclenche le handoff, votre équipe reçoit instantanément une notification sur l'application mobile. <strong>Ainsi</strong>, la conversation bascule sans interruption, et le voyageur ne perçoit aucune rupture dans l'échange.</p>
+
+<p><strong>Par ailleurs</strong>, l'IA documente toujours sa décision de transmettre, avec un résumé du contexte et le mot-clé déclencheur. <strong>De ce fait</strong>, votre équipe gagne du temps en comprenant immédiatement la situation, sans relire toute la conversation.</p>
+
+<!-- VISUEL #2 - TIMELINE IA -->
+<style>
+.gt2-wrap { max-width: 720px !important; margin: 40px auto !important; font-family: 'Montserrat', sans-serif !important; padding: 0 !important; }
+.gt2-row { display: grid !important; grid-template-columns: 48px 1fr !important; gap: 20px !important; align-items: start !important; position: relative !important; padding-bottom: 28px !important; }
+.gt2-row:last-child { padding-bottom: 0 !important; }
+.gt2-row:not(:last-child)::before { content: '' !important; position: absolute !important; left: 23px !important; top: 56px !important; bottom: 0 !important; border-left: 2px dotted #d4d8e0 !important; }
+.gt2-circle { width: 48px !important; height: 48px !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 18px !important; font-weight: 800 !important; font-family: 'Montserrat', sans-serif !important; flex-shrink: 0 !important; }
+.gt2-c1 { background: #7C3AED !important; color: #ffffff !important; }
+.gt2-c2 { background: #ede9fe !important; color: #182745 !important; }
+.gt2-c3 { background: #ede9fe !important; color: #182745 !important; }
+.gt2-c4 { background: #182745 !important; color: #ffffff !important; }
+.gt2-block { background: #182745 !important; border-radius: 16px !important; padding: 22px 26px !important; }
+.gt2-label { color: #7C3AED !important; font-size: 10px !important; letter-spacing: 2.5px !important; text-transform: uppercase !important; font-weight: 700 !important; margin-bottom: 8px !important; font-family: 'Montserrat', sans-serif !important; }
+.gt2-title { color: #ffffff !important; font-size: 17px !important; font-weight: 700 !important; margin: 0 0 8px 0 !important; line-height: 1.3 !important; font-family: 'Montserrat', sans-serif !important; }
+.gt2-desc { color: #a8b1c1 !important; font-size: 13px !important; line-height: 1.6 !important; font-family: 'Montserrat', sans-serif !important; font-weight: 500 !important; }
+.gt2-strong { color: #c084fc !important; font-weight: 700 !important; }
+@media (max-width: 540px) { .gt2-row { grid-template-columns: 40px 1fr !important; gap: 14px !important; } .gt2-circle { width: 40px !important; height: 40px !important; font-size: 16px !important; } .gt2-row:not(:last-child)::before { left: 19px !important; top: 48px !important; } .gt2-block { padding: 18px 20px !important; } }
+</style>
+<div class="gt2-wrap">
+  <div class="gt2-row">
+    <div class="gt2-circle gt2-c1">1</div>
+    <div class="gt2-block">
+      <div class="gt2-label">Étape 1</div>
+      <div class="gt2-title">Le voyageur envoie un message</div>
+      <div class="gt2-desc">Quelle que soit la plateforme d'origine (Airbnb, Booking, Vrbo, Abritel), le message arrive dans la boîte unifiée Guestlucky en temps réel.</div>
+    </div>
+  </div>
+  <div class="gt2-row">
+    <div class="gt2-circle gt2-c2">2</div>
+    <div class="gt2-block">
+      <div class="gt2-label">Étape 2</div>
+      <div class="gt2-title">L'IA analyse le contenu</div>
+      <div class="gt2-desc">Le moteur IA détecte la langue, identifie l'intention du voyageur et vérifie si un mot-clé exclu apparaît dans le message.</div>
+    </div>
+  </div>
+  <div class="gt2-row">
+    <div class="gt2-circle gt2-c3">3</div>
+    <div class="gt2-block">
+      <div class="gt2-label">Étape 3</div>
+      <div class="gt2-title">Décision automatique ou handoff</div>
+      <div class="gt2-desc">Si aucun mot-clé exclu, l'IA répond directement. <span class="gt2-strong">Sinon, la conversation bascule vers votre équipe avec un résumé du contexte.</span></div>
+    </div>
+  </div>
+  <div class="gt2-row">
+    <div class="gt2-circle gt2-c4">4</div>
+    <div class="gt2-block">
+      <div class="gt2-label">Étape 4</div>
+      <div class="gt2-title">Tout est tracé et exportable</div>
+      <div class="gt2-desc">Chaque action est horodatée à la seconde et stockée. <span class="gt2-strong">La preuve de votre mode opérationnel est constituée en continu.</span></div>
+    </div>
+  </div>
+</div>
+
+<h2>Le module gouvernance loi Hoguet, l'innovation qui sécurise tout</h2>
+
+<h3>Comment le mode gouvernance fonctionne</h3>
+
+<p><strong>Avant tout</strong>, je vais être direct sur ce point. La loi Hoguet est devenue le sujet juridique le plus critique pour les conciergeries Airbnb depuis les jugements de 2025. <strong>Concrètement</strong>, plusieurs conciergeries ont été condamnées à rembourser plusieurs années d'honoraires, simplement parce qu'elles ne pouvaient pas prouver que le propriétaire restait décisionnaire.</p>
+
+<p><strong>Précisément</strong>, le module gouvernance Guestlucky s'active ou se désactive selon vos besoins. Quand il est actif, l'outil bascule dans un mode où le propriétaire devient le donneur d'ordre, et la conciergerie devient simple exécutante. <strong>Ainsi</strong>, vous êtes structurellement protégé en cas de contrôle.</p>
+
+<h3>Les preuves générées automatiquement</h3>
+
+<p><strong>De plus</strong>, chaque action prise dans l'outil est horodatée, signée numériquement et stockée dans un journal d'activité exportable. <strong>Concrètement</strong>, vous pouvez à tout moment générer un rapport qui montre, pour un logement donné, qui a validé quel tarif, qui a ouvert ou fermé telle disponibilité, et qui a pris telle décision opérationnelle.</p>
+
+<p><strong>Par ailleurs</strong>, le propriétaire valide ses propres tarifs depuis son espace personnel Guestlucky. <strong>Ainsi</strong>, vous documentez clairement qu'il reste le pilote de sa stratégie tarifaire, même si vous l'accompagnez au quotidien dans son exécution.</p>
+
+<h3>La protection en cas de contrôle DGCCRF</h3>
+
+<p><strong>Enfin</strong>, en cas de contrôle de la Direction Générale de la Concurrence, de la Consommation et de la Répression des Fraudes, vous n'avez plus à fournir d'explications complexes ou à reconstituer des preuves a posteriori.</p>
+
+<p><strong>Donc</strong>, il vous suffit d'ouvrir Guestlucky, d'exporter le journal d'activité du logement concerné, et de présenter au contrôleur la preuve formelle que le propriétaire a piloté chaque décision structurante. <strong>Pour aller plus loin</strong> sur ce point précis, j'ai détaillé l'ensemble du sujet dans mon article complet sur la <a href="https://www.locationcourteduree.fr/2026/04/30/loi-hoguet-conciergerie/">loi Hoguet et la conciergerie</a>.</p>
+
+<!-- VISUEL #3 - COMPARATIF 2 COLONNES -->
+<style>
+.gt3-wrap { max-width: 720px !important; margin: 40px auto !important; font-family: 'Montserrat', sans-serif !important; padding: 0 !important; }
+.gt3-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+.gt3-card { padding: 36px 30px !important; border-radius: 20px !important; position: relative !important; overflow: hidden !important; }
+.gt3-dark { background: #182745 !important; }
+.gt3-light { background: #f5f3ff !important; }
+.gt3-ghost { position: absolute !important; top: 18px !important; right: 26px !important; font-size: 64px !important; font-weight: 800 !important; line-height: 1 !important; pointer-events: none !important; font-family: 'Montserrat', sans-serif !important; }
+.gt3-dark .gt3-ghost { color: rgba(255,255,255,0.07) !important; }
+.gt3-light .gt3-ghost { color: rgba(124,58,237,0.10) !important; }
+.gt3-label { color: #7C3AED !important; font-size: 10px !important; letter-spacing: 2.5px !important; text-transform: uppercase !important; font-weight: 700 !important; margin-bottom: 16px !important; font-family: 'Montserrat', sans-serif !important; }
+.gt3-title { font-size: 22px !important; font-weight: 800 !important; margin: 0 0 20px 0 !important; line-height: 1.2 !important; font-family: 'Montserrat', sans-serif !important; }
+.gt3-dark .gt3-title { color: #ffffff !important; }
+.gt3-light .gt3-title { color: #182745 !important; }
+.gt3-list { list-style: none !important; padding: 0 !important; margin: 0 0 26px 0 !important; }
+.gt3-list li { font-size: 13px !important; line-height: 1.55 !important; padding-left: 16px !important; position: relative !important; margin-bottom: 10px !important; font-family: 'Montserrat', sans-serif !important; font-weight: 500 !important; }
+.gt3-dark .gt3-list li { color: #d4d8e0 !important; }
+.gt3-light .gt3-list li { color: #6b7280 !important; }
+.gt3-list li::before { content: '' !important; position: absolute !important; left: 0 !important; top: 7px !important; width: 6px !important; height: 6px !important; border-radius: 50% !important; background: #7C3AED !important; }
+.gt3-pill { display: inline-block !important; padding: 9px 18px !important; border-radius: 999px !important; font-size: 12px !important; font-weight: 600 !important; font-family: 'Montserrat', sans-serif !important; }
+.gt3-pill-purple { background: #7C3AED !important; color: #ffffff !important; }
+.gt3-pill-navy { background: #182745 !important; color: #ffffff !important; }
+@media (max-width: 540px) { .gt3-grid { grid-template-columns: 1fr !important; } .gt3-card { padding: 26px 22px !important; } .gt3-ghost { font-size: 52px !important; } }
+</style>
+<div class="gt3-wrap">
+  <div class="gt3-grid">
+    <div class="gt3-card gt3-dark">
+      <div class="gt3-ghost">01</div>
+      <div class="gt3-label">Sans Guestlucky</div>
+      <div class="gt3-title">Logiciel international</div>
+      <ul class="gt3-list">
+        <li>Aucun module conformité loi Hoguet</li>
+        <li>Support en anglais avec délais longs</li>
+        <li>IA basique nécessitant des outils tiers</li>
+        <li>Tarifs opaques et engagement annuel</li>
+        <li>Pas d'application mobile aboutie</li>
+      </ul>
+      <div class="gt3-pill gt3-pill-purple">Risque juridique élevé</div>
+    </div>
+    <div class="gt3-card gt3-light">
+      <div class="gt3-ghost">02</div>
+      <div class="gt3-label">Avec Guestlucky</div>
+      <div class="gt3-title">Solution française</div>
+      <ul class="gt3-list">
+        <li>Module gouvernance loi Hoguet natif</li>
+        <li>Support WhatsApp en français dans la journée</li>
+        <li>IA ChatGPT, Claude et Gemini intégrées</li>
+        <li>Forfait à partir de 0 euro, sans engagement</li>
+        <li>Application mobile complète iOS et Android</li>
+      </ul>
+      <div class="gt3-pill gt3-pill-navy">Conciergerie sécurisée</div>
+    </div>
+  </div>
+</div>
+
+<h2>Toutes les fonctionnalités opérationnelles de Guestlucky</h2>
+
+<h3>Synchronisation multi-plateformes en temps réel</h3>
+
+<p><strong>Tout d'abord</strong>, Guestlucky se connecte à toutes les grandes plateformes de location courte durée : Airbnb, Booking, Vrbo, Abritel et plusieurs OTA régionales. <strong>Ainsi</strong>, la synchronisation des calendriers et des annonces est instantanée, pour éliminer définitivement le risque de double réservation.</p>
+
+<h3>Espace propriétaire premium et reporting financier</h3>
+
+<p><strong>Ensuite</strong>, chaque propriétaire dispose de son propre espace personnel, accessible depuis n'importe quel navigateur. <strong>Concrètement</strong>, il y retrouve un dashboard clair de ses revenus, le détail mois par mois, l'export comptable, et l'accès à tous les logs de gouvernance le concernant.</p>
+
+<p><strong>De plus</strong>, le reporting financier est généré automatiquement. <strong>Ainsi</strong>, en fin de mois, le propriétaire reçoit son compte rendu de gestion sans que vous ayez à produire manuellement le moindre document.</p>
+
+<h3>Auto-actions et gestion intelligente du planning</h3>
+
+<p><strong>Par ailleurs</strong>, Guestlucky propose un moteur d'auto-actions paramétrables. <strong>Concrètement</strong>, vous configurez des règles du type "quand un voyageur réserve, envoyer automatiquement les instructions d'arrivée trois jours avant" ou "quand le check-out est validé, déclencher la commande de ménage". <strong>Ainsi</strong>, l'opérationnel tourne tout seul sans intervention manuelle.</p>
+
+<p><strong>De plus</strong>, la gestion du planning est centralisée. <strong>Donc</strong>, vous voyez en un coup d'œil l'occupation de tous vos logements, les disponibilités, les check-ins et check-outs de la journée, et les tâches à effectuer.</p>
+
+<h3>Gestion du ménage, check-in et check-out</h3>
+
+<p><strong>Ensuite</strong>, le module ménage permet d'orchestrer vos prestataires comme un véritable Uber du nettoyage. <strong>Concrètement</strong>, chaque réservation déclenche automatiquement une mission de ménage, assignée à un prestataire selon vos règles d'affectation.</p>
+
+<p><strong>Ainsi</strong>, le prestataire reçoit la mission sur son application mobile, confirme sa présence, photographie les éventuels problèmes constatés, et valide la fin de prestation. <strong>De plus</strong>, le système gère également les check-in et check-out, avec envoi automatique des codes d'accès aux voyageurs.</p>
+
+<h3>Gestion des incidents voyageurs</h3>
+
+<p><strong>Par ailleurs</strong>, dès qu'un incident est signalé par un voyageur ou détecté lors d'un ménage, Guestlucky ouvre automatiquement un ticket. <strong>Concrètement</strong>, le ticket suit l'incident jusqu'à sa résolution complète, avec photos, échanges, devis de réparation et notification au propriétaire.</p>
+
+<p><strong>Ainsi</strong>, vous ne perdez plus le fil d'un dégât, d'une panne ou d'une plainte. <strong>Donc</strong>, vous gagnez en réactivité tout en maintenant une traçabilité parfaite vis-à-vis du propriétaire.</p>
+
+<h3>Application mobile et notifications push</h3>
+
+<p><strong>Ensuite</strong>, Guestlucky est disponible sur iOS et Android avec une véritable application native, pas un site web mobile redimensionné. <strong>Concrètement</strong>, vous gérez les messages voyageurs, validez les ménages, signez les incidents et consultez votre planning depuis votre téléphone.</p>
+
+<p><strong>De plus</strong>, les notifications push vous alertent en temps réel : nouveau message voyageur, mot-clé exclu déclenché, ménage validé, incident ouvert. <strong>Ainsi</strong>, vous restez réactif où que vous soyez.</p>
+
+<h3>Intégration officielle PriceLabs</h3>
+
+<p><strong>Enfin</strong>, Guestlucky est partenaire officiel de PriceLabs pour le revenu management. <strong>Concrètement</strong>, la connexion est native et respecte le mode gouvernance : c'est le propriétaire qui valide depuis son espace les ajustements de prix proposés par PriceLabs, pas vous.</p>
+
+<p><strong>Ainsi</strong>, vous bénéficiez du meilleur outil de revenue management du marché, tout en restant juridiquement protégé. <strong>De ce fait</strong>, votre conciergerie monte en performance tarifaire sans prendre de risque légal.</p>
+
+<!-- VISUEL #4 - TABLEAU RECAP -->
+<style>
+.gt4-wrap { max-width: 720px !important; margin: 40px auto !important; font-family: 'Montserrat', sans-serif !important; padding: 0 !important; }
+.gt4-table { background: #f5f3ff !important; border-radius: 16px !important; overflow: hidden !important; }
+.gt4-head { display: grid !important; grid-template-columns: 1.6fr 1fr !important; padding: 18px 24px !important; background: #182745 !important; align-items: center !important; }
+.gt4-head div { color: #7C3AED !important; font-size: 10px !important; letter-spacing: 2px !important; text-transform: uppercase !important; font-weight: 700 !important; font-family: 'Montserrat', sans-serif !important; }
+.gt4-head div:first-child { color: #ffffff !important; }
+.gt4-row { display: grid !important; grid-template-columns: 1.6fr 1fr !important; padding: 16px 24px !important; border-bottom: 1px solid #e6e0ff !important; align-items: center !important; }
+.gt4-row:last-child { border-bottom: none !important; }
+.gt4-criterion { color: #6b7280 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Montserrat', sans-serif !important; }
+.gt4-val { color: #182745 !important; font-size: 14px !important; font-weight: 700 !important; font-family: 'Montserrat', sans-serif !important; text-align: right !important; }
+.gt4-val-purple { color: #7C3AED !important; }
+@media (max-width: 540px) { .gt4-head, .gt4-row { padding: 14px 16px !important; } .gt4-criterion, .gt4-val { font-size: 12px !important; } .gt4-head div { font-size: 9px !important; } }
+</style>
+<div class="gt4-wrap">
+  <div class="gt4-table">
+    <div class="gt4-head"><div>Fonctionnalité Guestlucky</div><div>Disponibilité</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Module gouvernance loi Hoguet</div><div class="gt4-val gt4-val-purple">Natif</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Messagerie IA (ChatGPT, Claude, Gemini)</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Mots-clés exclus personnalisables</div><div class="gt4-val gt4-val-purple">Illimités</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Espace propriétaire premium</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Reporting financier automatique</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Auto-actions et planning</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Gestion ménage, check-in et check-out</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Gestion des incidents voyageurs</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Application mobile iOS et Android</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Intégration PriceLabs</div><div class="gt4-val">Partenaire officiel</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Support WhatsApp en français</div><div class="gt4-val">Inclus</div></div>
+    <div class="gt4-row"><div class="gt4-criterion">Onboarding visio accompagné</div><div class="gt4-val">Inclus</div></div>
+  </div>
+</div>
+
+<h2>Une tarification adaptée à toutes les tailles de conciergerie</h2>
+
+<h3>Le forfait Pro qui inclut absolument tout</h3>
+
+<p><strong>Tout d'abord</strong>, le forfait Pro de Guestlucky est facturé 9,99 euros hors taxes par mois et par logement, sans aucune option à débloquer. <strong>Concrètement</strong>, vous obtenez le channel manager complet, la messagerie IA, le module gouvernance, l'application mobile et le support prioritaire 24 heures.</p>
+
+<p><strong>Ainsi</strong>, vous évitez la mauvaise surprise classique des outils internationaux qui affichent un prix d'appel bas avant d'ajouter dix lignes d'options payantes.</p>
+
+<h3>Les tarifs Premium pour démarrer en douceur</h3>
+
+<p><strong>Ensuite</strong>, si vous démarrez votre conciergerie et que vous n'avez pas encore besoin du channel manager complet, le forfait Premium à 5,99 euros hors taxes par mois et par logement permet de poser les fondations sans surinvestir.</p>
+
+<p><strong>De plus</strong>, le passage au forfait Pro se fait en un clic, dès que vous voulez activer la messagerie IA automatisée et la synchronisation multi-plateformes complète.</p>
+
+<h3>Les devis personnalisés au-delà de 20 logements</h3>
+
+<p><strong>Enfin</strong>, pour les conciergeries qui gèrent plus de 20 logements, nous proposons des tarifs négociés sur devis. <strong>Concrètement</strong>, plus votre volume est important, plus la grille tarifaire devient avantageuse.</p>
+
+<p><strong>Par ailleurs</strong>, les structures multi-équipes accèdent à des fonctionnalités spécifiques : pas de limitation sur le nombre de membres d'équipe, services illimités, support dédié sous 12 heures et paramétrage entièrement réalisé par notre équipe.</p>
+
+<!-- PRICING TABLE INTERACTIVE -->
+<style>
+.gtprice-wrap { max-width: 1080px !important; margin: 40px auto !important; padding: 0 16px !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-header { text-align: center !important; margin-bottom: 36px !important; }
+.gtprice-title { font-size: 32px !important; font-weight: 800 !important; color: #182745 !important; margin-bottom: 12px !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-subtitle { color: #6b7280 !important; max-width: 600px !important; margin: 0 auto !important; font-size: 14px !important; line-height: 1.5 !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-controls { display: flex !important; justify-content: center !important; align-items: center !important; gap: 48px !important; flex-wrap: wrap !important; margin-bottom: 40px !important; }
+.gtprice-toggle-wrap { display: flex !important; align-items: center !important; gap: 12px !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-toggle-label { font-size: 14px !important; color: #6b7280 !important; font-weight: 500 !important; cursor: pointer !important; }
+.gtprice-toggle-label.active { color: #182745 !important; font-weight: 700 !important; }
+.gtprice-toggle { width: 50px !important; height: 28px !important; background: #7C3AED !important; border-radius: 999px !important; position: relative !important; cursor: pointer !important; transition: background 0.2s !important; }
+.gtprice-toggle-knob { width: 22px !important; height: 22px !important; background: #fff !important; border-radius: 50% !important; position: absolute !important; top: 3px !important; left: 3px !important; transition: transform 0.3s ease !important; box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important; }
+.gtprice-toggle.annual .gtprice-toggle-knob { transform: translateX(22px) !important; }
+.gtprice-counter { display: flex !important; align-items: center !important; gap: 14px !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-counter-label { font-weight: 600 !important; color: #182745 !important; font-size: 14px !important; }
+.gtprice-counter-controls { display: flex !important; align-items: center !important; background: #fff !important; border: 1px solid #e6e0ff !important; border-radius: 999px !important; padding: 4px !important; gap: 4px !important; }
+.gtprice-counter-btn { width: 32px !important; height: 32px !important; border-radius: 50% !important; border: none !important; background: transparent !important; cursor: pointer !important; font-size: 18px !important; font-weight: 700 !important; color: #182745 !important; transition: all 0.2s !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-counter-btn:hover { background: #f5f3ff !important; color: #7C3AED !important; }
+.gtprice-counter-value { min-width: 36px !important; text-align: center !important; font-weight: 700 !important; color: #182745 !important; font-size: 15px !important; }
+.gtprice-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 14px !important; }
+.gtprice-card { background: #f5f3ff !important; border-radius: 20px !important; padding: 32px 22px !important; display: flex !important; flex-direction: column !important; position: relative !important; transition: transform 0.2s ease !important; border: 2px solid transparent !important; }
+.gtprice-card:hover { transform: translateY(-4px) !important; }
+.gtprice-card-popular { background: #ede9fe !important; border-color: #7C3AED !important; }
+.gtprice-badge { position: absolute !important; top: 22px !important; right: 22px !important; background: #7C3AED !important; color: #fff !important; padding: 4px 11px !important; border-radius: 999px !important; font-size: 10px !important; font-weight: 700 !important; letter-spacing: 0.5px !important; display: flex !important; align-items: center !important; gap: 4px !important; }
+.gtprice-badge::before { content: '●' !important; color: #c084fc !important; font-size: 10px !important; }
+.gtprice-tier { font-size: 11px !important; font-weight: 700 !important; color: #7C3AED !important; letter-spacing: 2.5px !important; text-transform: uppercase !important; margin-bottom: 22px !important; text-align: center !important; }
+.gtprice-amount-block { text-align: center !important; margin-bottom: 18px !important; }
+.gtprice-amount { font-size: 48px !important; font-weight: 800 !important; color: #182745 !important; line-height: 1 !important; }
+.gtprice-amount-small { font-size: 32px !important; }
+.gtprice-unit { font-size: 12px !important; color: #7C3AED !important; font-weight: 500 !important; margin-top: 6px !important; }
+.gtprice-desc { color: #7C3AED !important; font-style: italic !important; font-size: 13px !important; margin-bottom: 14px !important; line-height: 1.4 !important; text-align: center !important; min-height: 36px !important; }
+.gtprice-total { display: block !important; background: #fff !important; color: #7C3AED !important; padding: 8px 14px !important; border-radius: 999px !important; font-size: 12px !important; font-weight: 600 !important; margin: 0 auto 22px !important; text-align: center !important; width: fit-content !important; }
+.gtprice-features { list-style: none !important; padding: 0 !important; margin: 0 0 22px 0 !important; flex: 1 !important; }
+.gtprice-features li { color: #182745 !important; font-size: 13px !important; line-height: 1.45 !important; padding-left: 20px !important; position: relative !important; margin-bottom: 12px !important; font-weight: 500 !important; }
+.gtprice-features li::before { content: '◆' !important; position: absolute !important; left: 0 !important; top: 0 !important; color: #7C3AED !important; font-size: 11px !important; }
+.gtprice-cta { display: flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important; width: 100% !important; background: #7C3AED !important; color: #fff !important; padding: 14px 20px !important; border-radius: 999px !important; text-align: center !important; font-weight: 700 !important; font-size: 13px !important; text-decoration: none !important; transition: background 0.2s !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-cta:hover { background: #6d28d9 !important; color: #fff !important; text-decoration: none !important; }
+.gtprice-cta::after { content: '→' !important; font-size: 16px !important; }
+.gtprice-footer { text-align: center !important; margin-top: 32px !important; color: #6b7280 !important; font-size: 13px !important; font-family: 'Montserrat', sans-serif !important; }
+.gtprice-footer span { margin: 0 8px !important; }
+@media (max-width: 980px) { .gtprice-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 540px) { .gtprice-grid { grid-template-columns: 1fr !important; } .gtprice-controls { flex-direction: column !important; gap: 24px !important; } }
+</style>
+<div class="gtprice-wrap" id="gtprice-block">
+  <div class="gtprice-header">
+    <div class="gtprice-title">Plans de tarification</div>
+    <div class="gtprice-subtitle">Trouvez le plan idéal pour votre conciergerie. Pas d'engagement, pas de frais cachés. Changez de plan quand vous voulez.</div>
+  </div>
+  <div class="gtprice-controls">
+    <div class="gtprice-toggle-wrap">
+      <span class="gtprice-toggle-label gtprice-label-monthly active">Mensuel</span>
+      <div class="gtprice-toggle" id="gtprice-toggle"><div class="gtprice-toggle-knob"></div></div>
+      <span class="gtprice-toggle-label gtprice-label-annual">Annuel</span>
+    </div>
+    <div class="gtprice-counter">
+      <span class="gtprice-counter-label">Logements :</span>
+      <div class="gtprice-counter-controls">
+        <button class="gtprice-counter-btn" id="gtprice-minus">−</button>
+        <span class="gtprice-counter-value" id="gtprice-count">1</span>
+        <button class="gtprice-counter-btn" id="gtprice-plus">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="gtprice-grid">
+    <div class="gtprice-card">
+      <div class="gtprice-tier">Gratuit</div>
+      <div class="gtprice-amount-block">
+        <div class="gtprice-amount">0€</div>
+      </div>
+      <div class="gtprice-desc">Parfait pour tester l'outil</div>
+      <div class="gtprice-total">&nbsp;</div>
+      <ul class="gtprice-features">
+        <li>ERP en version gratuite</li>
+        <li>Connexion iCal / ICS (sans Channel Manager)</li>
+        <li>Jusqu'à 2 logements</li>
+        <li>Jusqu'à 2 membres d'équipe</li>
+        <li>2 services additionnels</li>
+        <li>Support client en ligne</li>
+      </ul>
+      <a href="#" class="gtprice-cta">Démarrer maintenant</a>
+    </div>
+    <div class="gtprice-card">
+      <div class="gtprice-tier">Premium</div>
+      <div class="gtprice-amount-block">
+        <div class="gtprice-amount"><span id="gtprice-premium-amount">5,99€</span></div>
+        <div class="gtprice-unit">HT/mois/logement</div>
+      </div>
+      <div class="gtprice-desc">Pour gérer votre activité sans limites</div>
+      <div class="gtprice-total" id="gtprice-premium-total">Total : 5,99€/mois</div>
+      <ul class="gtprice-features">
+        <li>ERP complet (sans Channel Manager)</li>
+        <li>Synchronisation iCal / ICS / API Beds24</li>
+        <li>Membres d'équipe illimités</li>
+        <li>Services illimités</li>
+        <li>Support client prioritaire sous 24h (WhatsApp + chat)</li>
+        <li>Aide au paramétrage</li>
+      </ul>
+      <a href="#" class="gtprice-cta">Démarrer maintenant</a>
+    </div>
+    <div class="gtprice-card gtprice-card-popular">
+      <div class="gtprice-badge">Populaire</div>
+      <div class="gtprice-tier">Pro</div>
+      <div class="gtprice-amount-block">
+        <div class="gtprice-amount"><span id="gtprice-pro-amount">9,99€</span></div>
+        <div class="gtprice-unit">HT/mois/logement</div>
+      </div>
+      <div class="gtprice-desc">Channel Manager + Messagerie IA</div>
+      <div class="gtprice-total" id="gtprice-pro-total">Total : 9,99€/mois</div>
+      <ul class="gtprice-features">
+        <li>Tout le Premium inclus</li>
+        <li>Channel Manager (Airbnb, Booking, Abritel...)</li>
+        <li>Messagerie IA automatisée</li>
+        <li>Synchronisation temps réel multi-canaux</li>
+        <li>Support prioritaire 24h</li>
+      </ul>
+      <a href="#" class="gtprice-cta">Démarrer maintenant</a>
+    </div>
+    <div class="gtprice-card">
+      <div class="gtprice-tier">Personnalisé</div>
+      <div class="gtprice-amount-block">
+        <div class="gtprice-amount gtprice-amount-small">sur devis</div>
+        <div class="gtprice-unit">+ de 20 logements/mois</div>
+      </div>
+      <div class="gtprice-desc">Pour les structures importantes ou multi-équipes</div>
+      <div class="gtprice-total">&nbsp;</div>
+      <ul class="gtprice-features">
+        <li>Pas de limitation sur les membres d'équipe</li>
+        <li>Pas de limitation sur les services</li>
+        <li>Support client dédié sous 12h sur WhatsApp + visio</li>
+        <li>Paramétrage réalisé par nos soins</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send/?phone=33759944305&text=Bonjour%2C%0D%0AJe+voudrai+prendre+un+RDV&type=phone_number&app_absent=0" class="gtprice-cta">Nous contacter</a>
+    </div>
+  </div>
+  <div class="gtprice-footer">
+    Sans engagement <span>•</span> Annulation à tout moment <span>•</span> Paiement sécurisé via Stripe
+  </div>
+</div>
+<script>
+(function(){
+  var block = document.getElementById('gtprice-block');
+  if (!block) return;
+  var state = { annual: false, count: 1 };
+  var toggle = document.getElementById('gtprice-toggle');
+  var labelMonthly = block.querySelector('.gtprice-label-monthly');
+  var labelAnnual = block.querySelector('.gtprice-label-annual');
+  var minus = document.getElementById('gtprice-minus');
+  var plus = document.getElementById('gtprice-plus');
+  var countDisplay = document.getElementById('gtprice-count');
+  var premiumAmount = document.getElementById('gtprice-premium-amount');
+  var premiumTotal = document.getElementById('gtprice-premium-total');
+  var proAmount = document.getElementById('gtprice-pro-amount');
+  var proTotal = document.getElementById('gtprice-pro-total');
+  function fmt(n){ return n.toFixed(2).replace('.', ','); }
+  function update(){
+    var mult = state.annual ? 12 * 0.8 : 1;
+    var freqUnit = state.annual ? 'HT/an/logement' : 'HT/mois/logement';
+    var freqTotal = state.annual ? '/an' : '/mois';
+    var premiumUnit = state.annual ? fmt(5.99 * 12 * 0.8) : '5,99';
+    var proUnit = state.annual ? fmt(9.99 * 12 * 0.8) : '9,99';
+    var premiumT = fmt(5.99 * state.count * mult);
+    var proT = fmt(9.99 * state.count * mult);
+    premiumAmount.textContent = premiumUnit + '€';
+    proAmount.textContent = proUnit + '€';
+    premiumTotal.textContent = 'Total : ' + premiumT + '€' + freqTotal;
+    proTotal.textContent = 'Total : ' + proT + '€' + freqTotal;
+    block.querySelectorAll('.gtprice-unit').forEach(function(el){
+      if (el.textContent.indexOf('logements/mois') === -1) el.textContent = freqUnit;
+    });
+    countDisplay.textContent = state.count;
+    if (state.annual) { toggle.classList.add('annual'); labelMonthly.classList.remove('active'); labelAnnual.classList.add('active'); }
+    else { toggle.classList.remove('annual'); labelMonthly.classList.add('active'); labelAnnual.classList.remove('active'); }
+  }
+  toggle.addEventListener('click', function(){ state.annual = !state.annual; update(); });
+  minus.addEventListener('click', function(){ if (state.count > 1) { state.count--; update(); } });
+  plus.addEventListener('click', function(){ state.count++; update(); });
+})();
+</script>
+
+<h2>Comment démarrer concrètement avec Guestlucky</h2>
+
+<h3>Prendre rendez-vous avec notre équipe</h3>
+
+<p><strong>Tout d'abord</strong>, la première étape consiste à prendre contact directement avec notre équipe support via WhatsApp ou visio. <strong>Concrètement</strong>, vous nous décrivez votre activité, votre nombre de logements, vos plateformes actuelles et vos contraintes spécifiques. <strong>Ainsi</strong>, nous validons ensemble que Guestlucky correspond bien à votre situation.</p>
+
+<h3>L'onboarding accompagné en visio</h3>
+
+<p><strong>Ensuite</strong>, l'onboarding se déroule en visio sur une session d'environ deux heures, en français, avec un membre de notre équipe. <strong>Concrètement</strong>, nous paramétrons l'outil avec vous, connectons vos annonces, configurons vos automatisations et activons le module gouvernance.</p>
+
+<p><strong>De plus</strong>, nous vous formons sur le fonctionnement des mots-clés exclus, du planning et de la gestion d'incidents. <strong>Ainsi</strong>, vous repartez de la session avec un outil pleinement opérationnel.</p>
+
+<h3>Le déploiement et la mise en route</h3>
+
+<p><strong>Enfin</strong>, la plupart de nos clients sont pleinement opérationnels en moins d'une semaine. <strong>Par ailleurs</strong>, notre support WhatsApp reste disponible chaque jour pour répondre à toutes vos questions de prise en main. <strong>Donc</strong>, vous n'êtes jamais seul face à l'outil.</p>
+
+<h2>Questions fréquentes sur Guestlucky en 2026</h2>
+
+<p><strong>Pour finir</strong>, voici les questions les plus posées par les conciergeries qui envisagent de basculer sur Guestlucky. <strong>Ainsi</strong>, vous trouverez ci-dessous des réponses concrètes sur le fonctionnement, la tarification et l'accompagnement.</p>
+
+<h3>Tout ce qu'il faut savoir avant de choisir Guestlucky</h3>
+
+<!-- VISUEL FAQ ACCORDEON -->
+<style>
+#faqgt-wrap { max-width: 720px !important; margin: 40px auto !important; font-family: 'Montserrat', sans-serif !important; padding: 0 !important; }
+#faqgt-wrap .faqgt-item { border-bottom: 1px solid #e6e0ff !important; }
+#faqgt-wrap .faqgt-q { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 22px 4px !important; cursor: pointer !important; color: #182745 !important; font-size: 16px !important; font-weight: 700 !important; font-family: 'Montserrat', sans-serif !important; transition: color 0.2s ease !important; line-height: 1.4 !important; user-select: none !important; }
+#faqgt-wrap .faqgt-q:hover { color: #7C3AED !important; }
+#faqgt-wrap .faqgt-item.faqgt-open .faqgt-q { color: #7C3AED !important; font-weight: 600 !important; }
+#faqgt-wrap .faqgt-chevron { width: 18px !important; height: 18px !important; flex-shrink: 0 !important; margin-left: 16px !important; transition: transform 0.3s ease !important; stroke: currentColor !important; }
+#faqgt-wrap .faqgt-item.faqgt-open .faqgt-chevron { transform: rotate(180deg) !important; }
+#faqgt-wrap .faqgt-a { max-height: 0 !important; overflow: hidden !important; transition: max-height 0.35s ease !important; }
+#faqgt-wrap .faqgt-item.faqgt-open .faqgt-a { max-height: 600px !important; }
+#faqgt-wrap .faqgt-a-inner { padding: 0 4px 22px 4px !important; color: #6b7280 !important; font-size: 14px !important; line-height: 1.65 !important; font-family: 'Montserrat', sans-serif !important; font-weight: 500 !important; }
+</style>
+<div id="faqgt-wrap">
+  <div class="faqgt-item">
+    <div class="faqgt-q">Guestlucky est-il vraiment un logiciel conciergerie Airbnb complet ?<svg class="faqgt-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+    <div class="faqgt-a"><div class="faqgt-a-inner">Oui, Guestlucky combine en un seul outil le channel manager, le PMS, la messagerie IA, le module gouvernance, la gestion du ménage, le suivi des incidents et l'application mobile. Vous remplacez ainsi une dizaine d'outils par une plateforme unique, intégrée et pensée pour le marché français.</div></div>
+  </div>
+  <div class="faqgt-item">
+    <div class="faqgt-q">Comment fonctionnent les mots-clés exclus de l'IA ?<svg class="faqgt-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+    <div class="faqgt-a"><div class="faqgt-a-inner">Chaque conciergerie configure sa propre liste de mots-clés sensibles : remboursement, annulation, plainte, litige, casse, panne, ou tout autre terme que vous jugez critique. Dès qu'un voyageur utilise un de ces mots, l'IA s'efface et votre équipe humaine reprend la main avec une notification push immédiate.</div></div>
+  </div>
+  <div class="faqgt-item">
+    <div class="faqgt-q">Quels sont les tarifs exacts de Guestlucky en 2026 ?<svg class="faqgt-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+    <div class="faqgt-a"><div class="faqgt-a-inner">Quatre formules existent. Le forfait Gratuit à 0 euro pour tester sur 2 logements maximum. Le forfait Premium à 5,99 euros hors taxes par mois et par logement. Le forfait Pro à 9,99 euros hors taxes par mois et par logement avec le channel manager et la messagerie IA. Au-delà de 20 logements, un devis personnalisé est proposé avec des tarifs négociés.</div></div>
+  </div>
+  <div class="faqgt-item">
+    <div class="faqgt-q">Guestlucky est-il conforme à la loi Hoguet ?<svg class="faqgt-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+    <div class="faqgt-a"><div class="faqgt-a-inner">Oui, c'est même le seul channel manager français à proposer un module gouvernance loi Hoguet en natif. Chaque décision du propriétaire est horodatée, signée numériquement et exportable en cas de contrôle DGCCRF. Vous documentez automatiquement que vous restez exécutant et que le propriétaire conserve la décision opérationnelle.</div></div>
+  </div>
+  <div class="faqgt-item">
+    <div class="faqgt-q">Y a-t-il une application mobile pour mes équipes terrain ?<svg class="faqgt-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+    <div class="faqgt-a"><div class="faqgt-a-inner">Oui, Guestlucky est disponible sur iOS et Android avec une application native complète. Vos équipes y gèrent les messages voyageurs, valident les prestations de ménage, signalent les incidents et consultent le planning depuis n'importe où. Les notifications push assurent une réactivité maximale.</div></div>
+  </div>
+  <div class="faqgt-item">
+    <div class="faqgt-q">Quel délai pour démarrer avec Guestlucky ?<svg class="faqgt-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+    <div class="faqgt-a"><div class="faqgt-a-inner">L'onboarding accompagné en visio dure environ deux heures, en français. La plupart de nos clients sont pleinement opérationnels en moins d'une semaine. Nous paramétrons l'outil avec vous, connectons vos annonces, configurons les automatisations et activons le module gouvernance sur la même session.</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var wrap = document.getElementById('faqgt-wrap');
+  if (!wrap) return;
+  wrap.addEventListener('click', function(e){
+    var q = e.target.closest('.faqgt-q');
+    if (!q || !wrap.contains(q)) return;
+    var item = q.parentElement;
+    item.classList.toggle('faqgt-open');
+  });
+})();
+</script>
+
+</div>
+
+<!-- SIDEBAR FLOTTANTE INSTAGRAM + WHATSAPP -->
+<style>
+.gtside-wrap { position: fixed !important; right: 24px !important; top: 50% !important; transform: translateY(-50%) !important; z-index: 1000 !important; display: flex !important; flex-direction: column !important; gap: 16px !important; font-family: 'Montserrat', sans-serif !important; }
+.gtside-card { width: 220px !important; padding: 24px 20px !important; border-radius: 20px !important; text-align: center !important; color: #ffffff !important; box-shadow: 0 8px 30px rgba(30,27,75,0.18) !important; }
+.gtside-instagram { background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%) !important; }
+.gtside-whatsapp { background: #1E3A8A !important; }
+.gtside-icon { width: 52px !important; height: 52px !important; background: rgba(255,255,255,0.18) !important; border-radius: 50% !important; margin: 0 auto 14px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.gtside-icon svg { width: 26px !important; height: 26px !important; fill: #fff !important; }
+.gtside-label { font-size: 10px !important; letter-spacing: 2px !important; text-transform: uppercase !important; font-weight: 700 !important; opacity: 0.85 !important; margin-bottom: 6px !important; color: #ffffff !important; }
+.gtside-title { font-size: 16px !important; font-weight: 800 !important; margin-bottom: 6px !important; line-height: 1.2 !important; color: #ffffff !important; }
+.gtside-desc { font-size: 11px !important; opacity: 0.85 !important; margin-bottom: 16px !important; line-height: 1.4 !important; color: #ffffff !important; }
+.gtside-btn { display: block !important; background: #ffffff !important; padding: 10px 18px !important; border-radius: 999px !important; font-weight: 700 !important; font-size: 12px !important; text-decoration: none !important; transition: transform 0.2s !important; }
+.gtside-btn:hover { transform: scale(1.03) !important; text-decoration: none !important; }
+.gtside-instagram .gtside-btn { color: #7C3AED !important; }
+.gtside-whatsapp .gtside-btn { color: #1E3A8A !important; }
+@media (max-width: 1280px) { .gtside-wrap { display: none !important; } }
+</style>
+<div class="gtside-wrap">
+  <div class="gtside-card gtside-instagram">
+    <div class="gtside-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </div>
+    <div class="gtside-label">Instagram</div>
+    <div class="gtside-title">Suivez-nous</div>
+    <div class="gtside-desc">Conseils quotidiens, coulisses Guestlucky et tips conciergerie</div>
+    <a href="https://www.instagram.com/guestlucky.off/" target="_blank" rel="noopener" class="gtside-btn">Je m'abonne</a>
+  </div>
+  <div class="gtside-card gtside-whatsapp">
+    <div class="gtside-icon">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+    <div class="gtside-label">Support</div>
+    <div class="gtside-title">Discutons sur WhatsApp</div>
+    <div class="gtside-desc">Réponse en français dans la journée par notre équipe</div>
+    <a href="https://api.whatsapp.com/send/?phone=33759944305&text=Bonjour%2C%0D%0AJe+voudrai+prendre+un+RDV&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="gtside-btn">Démarrer une discussion</a>
+  </div>
+</div>
+
+</body>
+</html>
