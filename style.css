@@ -1588,3 +1588,22 @@ a { color: inherit; text-decoration: none; }
     .webinar-float { left: 0.6rem; right: 0.6rem; bottom: 0.6rem; width: auto; }
     .floating-contact { bottom: calc(0.6rem + 180px); } /* Stack above webinar card on mobile */
 }
+
+/* ============ Header buttons : no line break ============ */
+.btn-cta, .btn-secondary, .btn-login, .lang-switch, .lang-switch a, .main-nav a {
+    white-space: nowrap;
+}
+.btn-login svg { flex-shrink: 0; }
+
+/* Tighter spacing in header on smaller widths */
+@media (max-width: 1180px) {
+    .main-nav ul { gap: 1.5rem; }
+    .header-actions { gap: 0.65rem; }
+    .header-inner { gap: 1.25rem; }
+}
+@media (max-width: 1020px) {
+    .main-nav ul { gap: 1.1rem; }
+    .header-actions { gap: 0.55rem; }
+    .btn-login { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
+    .btn-cta { padding: 0.55rem 1rem; font-size: 0.85rem; }
+}
