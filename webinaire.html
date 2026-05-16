@@ -243,15 +243,20 @@
 -->
 <script>
 (function () {
-    var ENDPOINT = "register-webinar.php";
-    var THANKS_URL = "merci-webinaire.html";
-
-    // Fallback : si le PHP n'existe pas, redirige direct vers WJ One-Click
+    // === FLUX FIABLE ===
+    // 1. Validation formulaire
+    // 2. Notification email à l'admin via PHP (fire-and-forget, optionnel)
+    // 3. Redirection vers l'URL One-Click WebinarJam (vraie navigation → inscription garantie)
+    // 4. WebinarJam traite l'inscription + envoie l'email
+    // 5. WebinarJam redirige vers la page de remerciement
+    //    → IMPORTANT : pour atterrir sur merci-webinaire.html, configure dans le dashboard WebinarJam :
+    //      Configurations > Thank You Page > Custom URL = https://www.guestlucky.com/merci-webinaire.html
+    //      (si non configuré, l'utilisateur voit la page WJ par défaut, mais l'inscription marche quand même)
     var ONE_CLICK_BASE = "https://event.webinarjam.com/zg53v/register/r2wplcw1/1click";
     var SCHEDULE_ID = 1;
+    var ADMIN_NOTIFY_ENDPOINT = "register-webinar.php"; // optionnel : envoie email admin
 
     var form = document.getElementById("webinar-form");
-    var success = document.getElementById("webinar-success");
     if (!form) return;
 
     function buildOneClickUrl(data) {
@@ -268,12 +273,6 @@
         return ONE_CLICK_BASE + "?" + p.toString();
     }
 
-    function redirectToThanks(firstname) {
-        var url = THANKS_URL;
-        if (firstname) url += "?name=" + encodeURIComponent(firstname);
-        window.location.href = url;
-    }
-
     form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -281,22 +280,17 @@
 
         var data = new FormData(form);
         data.append("source", window.location.pathname);
-        var firstname = data.get("firstname") || "";
 
-        fetch(ENDPOINT, { method: "POST", body: data })
-            .then(function (r) {
-                if (!r.ok) throw new Error("HTTP " + r.status);
-                return r.json();
-            })
-            .then(function (res) {
-                if (!res.ok) throw new Error(res.error || "Erreur");
-                if (window.dataLayer) window.dataLayer.push({event: "webinar_register_success"});
-                redirectToThanks(firstname);
-            })
-            .catch(function (err) {
-                console.warn("Backend PHP indisponible, fallback redirection :", err);
-                window.location.href = buildOneClickUrl(data);
-            });
+        // Notif admin en arrière-plan (n'attend pas la réponse)
+        try {
+            fetch(ADMIN_NOTIFY_ENDPOINT, { method: "POST", body: data, keepalive: true }).catch(function(){});
+        } catch (e) {}
+
+        // Track événement GTM
+        if (window.dataLayer) window.dataLayer.push({event: "webinar_register_submit"});
+
+        // Redirection vers WebinarJam One-Click (l'inscription va réellement se faire)
+        window.location.href = buildOneClickUrl(data);
     });
 })();
 document.getElementById("year").textContent = new Date().getFullYear();
