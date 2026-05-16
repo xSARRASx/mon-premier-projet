@@ -5,20 +5,20 @@
     var PRICES = { gratuit: 0, premium: 5.99, pro: 9.99 };
     var ANNUAL_DISCOUNT = 0.20;
     var GRATUIT_MAX = 2;
-    var CUSTOM_THRESHOLD = 20;
+    var CUSTOM_THRESHOLD = 50;
 
     var t = (document.documentElement.lang || "fr").toLowerCase().indexOf("en") === 0
         ? {
             totalMonthly: "Total: {v}/month",
             totalYearly: "Total: {v}/year (billed annually)",
             gratuitCap: "Limited to " + GRATUIT_MAX + " properties",
-            customHint: "Custom plan recommended (20+ properties)"
+            customHint: "Custom plan recommended (50+ properties)"
         }
         : {
             totalMonthly: "Total : {v}/mois",
             totalYearly: "Total : {v}/an (facturé annuellement)",
             gratuitCap: "Limité à " + GRATUIT_MAX + " logements",
-            customHint: "Plan personnalisé recommandé (20+ logements)"
+            customHint: "Plan personnalisé recommandé (50+ logements)"
         };
 
     var state = { logements: 1, annual: false };
