@@ -182,6 +182,24 @@
         });
     }
 
+    function initLangDropdown() {
+        document.querySelectorAll("[data-lang-toggle]").forEach(function (btn) {
+            var dropdown = btn.parentElement;
+            btn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                document.querySelectorAll(".lang-dropdown.open").forEach(function (d) {
+                    if (d !== dropdown) d.classList.remove("open");
+                });
+                dropdown.classList.toggle("open");
+            });
+        });
+        document.addEventListener("click", function (e) {
+            document.querySelectorAll(".lang-dropdown.open").forEach(function (d) {
+                if (!d.contains(e.target)) d.classList.remove("open");
+            });
+        });
+    }
+
     function init() {
         initPricing();
         initFAQ();
@@ -189,6 +207,7 @@
         initMobileMenu();
         initCookieBanner();
         initWebinarFloat();
+        initLangDropdown();
         var yearEl = document.getElementById("year");
         if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
