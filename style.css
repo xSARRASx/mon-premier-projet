@@ -999,6 +999,7 @@ a { color: inherit; text-decoration: none; }
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    color: var(--ink);
 }
 
 .step p {
@@ -1818,14 +1819,14 @@ a { color: inherit; text-decoration: none; }
 .section.navy .audience-card h3,
 .section.navy .testimonial h3,
 .section.navy .partner h3 {
-    color: var(--ink);
+    color: var(--ink) !important;
 }
 .section.navy .step p,
 .section.navy .feature:not(.dark) p,
 .section.navy .audience-card p,
 .section.navy .testimonial p,
 .section.navy .partner p {
-    color: var(--ink-soft);
+    color: var(--ink-soft) !important;
 }
 .section.navy .step p strong,
 .section.navy .feature:not(.dark) p strong,
