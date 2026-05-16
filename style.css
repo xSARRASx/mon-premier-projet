@@ -1877,7 +1877,8 @@ a { color: inherit; text-decoration: none; }
     .header-actions { gap: 0.4rem; }
     .header-actions .btn-cta { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
     .header-actions .btn-login { display: none; }
-    .header-actions .lang-switch { display: none; }
+    .lang-switch { padding: 2px; font-size: 0.72rem; }
+    .lang-switch a { padding: 0.25rem 0.55rem; }
     .brand .logo-img { height: 36px; }
 
     .hero { padding: 3rem 0 2.5rem; }
