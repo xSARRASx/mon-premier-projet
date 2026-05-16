@@ -243,18 +243,10 @@
 -->
 <script>
 (function () {
-    // === FLUX FIABLE ===
-    // 1. Validation formulaire
-    // 2. Notification email à l'admin via PHP (fire-and-forget, optionnel)
-    // 3. Redirection vers l'URL One-Click WebinarJam (vraie navigation → inscription garantie)
-    // 4. WebinarJam traite l'inscription + envoie l'email
-    // 5. WebinarJam redirige vers la page de remerciement
-    //    → IMPORTANT : pour atterrir sur merci-webinaire.html, configure dans le dashboard WebinarJam :
-    //      Configurations > Thank You Page > Custom URL = https://www.guestlucky.com/merci-webinaire.html
-    //      (si non configuré, l'utilisateur voit la page WJ par défaut, mais l'inscription marche quand même)
+    var ENDPOINT = "register-webinar.php";
+    var THANKS_URL = "merci-webinaire.html";
     var ONE_CLICK_BASE = "https://event.webinarjam.com/zg53v/register/r2wplcw1/1click";
     var SCHEDULE_ID = 1;
-    var ADMIN_NOTIFY_ENDPOINT = "register-webinar.php"; // optionnel : envoie email admin
 
     var form = document.getElementById("webinar-form");
     if (!form) return;
@@ -280,17 +272,23 @@
 
         var data = new FormData(form);
         data.append("source", window.location.pathname);
+        var firstname = data.get("firstname") || "";
 
-        // Notif admin en arrière-plan (n'attend pas la réponse)
-        try {
-            fetch(ADMIN_NOTIFY_ENDPOINT, { method: "POST", body: data, keepalive: true }).catch(function(){});
-        } catch (e) {}
-
-        // Track événement GTM
         if (window.dataLayer) window.dataLayer.push({event: "webinar_register_submit"});
 
-        // Redirection vers WebinarJam One-Click (l'inscription va réellement se faire)
-        window.location.href = buildOneClickUrl(data);
+        fetch(ENDPOINT, { method: "POST", body: data })
+            .then(function (r) { return r.json().catch(function(){ return {ok:false}; }); })
+            .then(function (res) {
+                // Que le PHP réussisse ou non, l'inscription est probablement faite chez WJ.
+                // On redirige vers la page de remerciement.
+                var url = THANKS_URL + (firstname ? "?name=" + encodeURIComponent(firstname) : "");
+                window.location.href = url;
+            })
+            .catch(function (err) {
+                // Si le PHP n'est pas accessible (404, CORS), fallback vers WJ One-Click
+                console.warn("PHP indisponible, fallback WJ:", err);
+                window.location.href = buildOneClickUrl(data);
+            });
     });
 })();
 document.getElementById("year").textContent = new Date().getFullYear();
