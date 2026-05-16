@@ -201,12 +201,30 @@
 
 <script>
 (function () {
-    var ENDPOINT = "register-webinar.php";
-    var FALLBACK_URL = "https://event.webinarjam.com/zg53v/go/live/r2wplcw1uqs6sl";
+    // WebinarJam One-Click Registration URL (no API key, no PHP needed)
+    var ONE_CLICK_BASE = "https://event.webinarjam.com/zg53v/register/r2wplcw1/1click";
+    var SCHEDULE_ID = 1;
 
     var form = document.getElementById("webinar-form");
     var success = document.getElementById("webinar-success");
     if (!form) return;
+
+    function buildRegistrationUrl(data) {
+        var tz = "Europe/Paris";
+        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Europe/Paris"; } catch(e) {}
+        var params = new URLSearchParams();
+        params.set("first_name", data.get("firstname") || "");
+        params.set("last_name", data.get("lastname") || "");
+        params.set("email", data.get("email") || "");
+        var phone = (data.get("phone") || "").replace(/\D/g, "");
+        if (phone) {
+            params.set("phone_country_code", "+33");
+            params.set("phone_number", phone);
+        }
+        params.set("timezone", tz);
+        params.set("schedule_id", SCHEDULE_ID);
+        return ONE_CLICK_BASE + "?" + params.toString();
+    }
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -214,29 +232,19 @@
         form.classList.add("loading");
 
         var data = new FormData(form);
-        data.append("webinar_date", "2026-05-25T18:00");
-        data.append("source", "guestlucky.com/webinaire-en.html");
+        var url = buildRegistrationUrl(data);
 
-        var doRedirect = function () {
-            var params = new URLSearchParams();
-            params.set("firstname", data.get("firstname") || "");
-            params.set("email", data.get("email") || "");
-            window.location.href = FALLBACK_URL + "?" + params.toString();
-        };
+        var iframe = document.createElement("iframe");
+        iframe.style.cssText = "position:absolute;width:0;height:0;border:0;visibility:hidden;";
+        iframe.src = url;
+        document.body.appendChild(iframe);
 
-        if (!ENDPOINT) { doRedirect(); return; }
+        if (window.dataLayer) window.dataLayer.push({event: "webinar_register_success"});
 
-        fetch(ENDPOINT, { method: "POST", body: data })
-            .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json().catch(function () { return { ok: true }; }); })
-            .then(function () {
-                form.hidden = true;
-                success.hidden = false;
-                if (window.dataLayer) window.dataLayer.push({event: 'webinar_register_success'});
-            })
-            .catch(function (err) {
-                console.warn("Backend failed, falling back to redirect:", err);
-                doRedirect();
-            });
+        setTimeout(function () {
+            form.hidden = true;
+            success.hidden = false;
+        }, 1500);
     });
 })();
 document.getElementById("year").textContent = new Date().getFullYear();
