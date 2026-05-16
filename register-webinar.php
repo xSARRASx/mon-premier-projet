@@ -15,8 +15,8 @@
  * ============================================================
  */
 
-const WEBINARJAM_API_KEY = 'TA_CLE_API_ICI';        // ex: "abc123xyz..."
-const WEBINARJAM_WEBINAR_ID = 'TON_WEBINAR_ID_ICI'; // ex: "12345"
+const WEBINARJAM_API_KEY = '92e9130b-5f11-4f5b-9bea-1ed3c13a8a4d';
+const WEBINARJAM_WEBINAR_ID = '215';
 const WEBINARJAM_SCHEDULE = 0;                       // 0 = premier créneau dispo (généralement OK)
 
 // Email où recevoir une copie des inscriptions (optionnel, mettre "" pour désactiver)
