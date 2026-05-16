@@ -221,7 +221,7 @@
     var name = "";
     try {
         var params = new URLSearchParams(window.location.search);
-        name = (params.get("name") || "").trim();
+        name = (params.get("name") || params.get("wj_lead_first_name") || "").trim();
     } catch (e) {}
     if (name) {
         var el = document.getElementById("user-name");
