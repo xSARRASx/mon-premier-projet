@@ -201,7 +201,10 @@
 
 <script>
 (function () {
-    // WebinarJam One-Click Registration URL (no API key, no PHP needed)
+    // Backend PHP qui fait l'appel One-Click côté serveur (fiable, pas bloqué par WJ)
+    var ENDPOINT = "register-webinar.php";
+
+    // Fallback : si le PHP n'existe pas, redirige vers WJ One-Click avec données pré-remplies
     var ONE_CLICK_BASE = "https://event.webinarjam.com/zg53v/register/r2wplcw1/1click";
     var SCHEDULE_ID = 1;
 
@@ -209,21 +212,18 @@
     var success = document.getElementById("webinar-success");
     if (!form) return;
 
-    function buildRegistrationUrl(data) {
+    function buildOneClickUrl(data) {
         var tz = "Europe/Paris";
-        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Europe/Paris"; } catch(e) {}
-        var params = new URLSearchParams();
-        params.set("first_name", data.get("firstname") || "");
-        params.set("last_name", data.get("lastname") || "");
-        params.set("email", data.get("email") || "");
+        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || tz; } catch(e) {}
+        var p = new URLSearchParams();
+        p.set("first_name", data.get("firstname") || "");
+        p.set("last_name", data.get("lastname") || "");
+        p.set("email", data.get("email") || "");
         var phone = (data.get("phone") || "").replace(/\D/g, "");
-        if (phone) {
-            params.set("phone_country_code", "+33");
-            params.set("phone_number", phone);
-        }
-        params.set("timezone", tz);
-        params.set("schedule_id", SCHEDULE_ID);
-        return ONE_CLICK_BASE + "?" + params.toString();
+        if (phone) { p.set("phone_country_code", "+33"); p.set("phone_number", phone); }
+        p.set("timezone", tz);
+        p.set("schedule_id", SCHEDULE_ID);
+        return ONE_CLICK_BASE + "?" + p.toString();
     }
 
     form.addEventListener("submit", function (e) {
@@ -232,19 +232,24 @@
         form.classList.add("loading");
 
         var data = new FormData(form);
-        var url = buildRegistrationUrl(data);
+        data.append("source", window.location.pathname);
 
-        var iframe = document.createElement("iframe");
-        iframe.style.cssText = "position:absolute;width:0;height:0;border:0;visibility:hidden;";
-        iframe.src = url;
-        document.body.appendChild(iframe);
-
-        if (window.dataLayer) window.dataLayer.push({event: "webinar_register_success"});
-
-        setTimeout(function () {
-            form.hidden = true;
-            success.hidden = false;
-        }, 1500);
+        fetch(ENDPOINT, { method: "POST", body: data })
+            .then(function (r) {
+                if (!r.ok) throw new Error("HTTP " + r.status);
+                return r.json();
+            })
+            .then(function (res) {
+                if (!res.ok) throw new Error(res.error || "Erreur");
+                form.hidden = true;
+                success.hidden = false;
+                if (window.dataLayer) window.dataLayer.push({event: "webinar_register_success"});
+            })
+            .catch(function (err) {
+                console.warn("Backend PHP indisponible, fallback redirection :", err);
+                // Fallback : redirige vers WJ One-Click (l'utilisateur sera inscrit mais quitte le site)
+                window.location.href = buildOneClickUrl(data);
+            });
     });
 })();
 document.getElementById("year").textContent = new Date().getFullYear();
